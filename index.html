@@ -15,7 +15,6 @@
             font-family: 'Noto Sans KR', 'Montserrat', sans-serif;
             background-color: #f8fafc;
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -38,7 +37,6 @@
         .card-shadow {
             box-shadow: 0 4px 20px -2px rgba(139, 92, 246, 0.08), 0 2px 10px -1px rgba(236, 72, 153, 0.04);
         }
-        /* Image zoom & pan effect */
         .zoom-container {
             overflow: hidden;
             position: relative;
@@ -48,7 +46,7 @@
             transition: transform 0.3s ease;
         }
         .zoom-container:hover .zoom-image {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -68,18 +66,18 @@
             </div>
             
             <nav class="hidden lg:flex items-center gap-1">
-                <button onclick="scrollToSection('section-overview')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">프로젝트 개요</button>
-                <button onclick="openImageModal('systemflow.jpg')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">시스템 흐름도</button>
-                <button onclick="openImageModal('usecase.jpg')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">유스케이스</button>
-                <button onclick="scrollToSection('section-marketing')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">홍보 데이터 구조</button>
+                <button onclick="scrollToSection('section-overview')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">개요</button>
+                <button onclick="scrollToSection('section-diagrams')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">설계도</button>
                 <button onclick="scrollToSection('section-requirements')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">요구사항</button>
-                <button onclick="scrollToSection('section-functions')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">기능 정의서</button>
-                <button onclick="scrollToSection('section-database')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">DB & 구조 모델링</button>
+                <button onclick="scrollToSection('section-functions')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">기능정의서</button>
+                <button onclick="scrollToSection('section-detailed-spec')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">세부명세서</button>
+                <button onclick="scrollToSection('section-marketing')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">홍보데이터</button>
+                <button onclick="scrollToSection('section-database')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">DB & 물리DDL</button>
             </nav>
 
             <div class="flex items-center gap-2">
-                <button onclick="openPresentationMode()" class="flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-600 px-4 py-2 text-sm font-bold text-white shadow-md hover:opacity-90 transition-all">
-                    <i data-lucide="play" class="h-4 w-4"></i> 발표자료 보기
+                <button onclick="openPresentationMode()" class="flex items-center gap-1.5 rounded-xl bg-violet-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-violet-700 transition-all">
+                    <i data-lucide="play" class="h-3.5 w-3.5"></i> 발표 모드 시작
                 </button>
             </div>
         </div>
@@ -91,17 +89,17 @@
         <!-- Intro Hero Section -->
         <div class="mb-12 text-center md:py-8">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-pink-50 px-3 py-1 text-xs font-medium text-pink-700 ring-1 ring-inset ring-pink-600/10 mb-4">
-                조별 피드백 전격 반영 - 국비훈련 최종 포트폴리오 제안서
+                지능형 자동 물류 인프라 및 실시간 게미피케이션 시스템 구축 제안서
             </span>
             <h1 class="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">
-                아이스크림 전문점 <span class="gradient-text">프랜차이즈 운영 효율화</span>
+                아이스크림 전문점 <span class="gradient-text">프랜차이즈 효율화 플랫폼</span>
             </h1>
             <p class="mx-auto mt-4 max-w-2xl text-base text-slate-500">
-                실시간 가맹 재고 연동 기반 백그라운드 자동 입고 메커니즘, 본사 제어형 마케팅 프로모션 엔진, 그리고 다차원 데이터 분석 대시보드가 결합된 차세대 프랜차이즈 플랫폼 통합 아키텍처입니다.
+                Spring i18n 기반 다국어 처리, 루프형 세션 주문, 안전재고 임계치 자동 발주 및 데이터 시각화 분석 엔진이 통합된 무결성 백오피스 솔루션입니다.
             </p>
         </div>
 
-        <!-- SECTION 1: 프로젝트 개요 & 아키텍처 -->
+        <!-- SECTION 1: 프로젝트 개요 & 3단계 아키텍처 -->
         <section id="section-overview" class="scroll-mt-20 mb-16">
             <div class="border-b border-slate-100 pb-5 mb-8">
                 <div class="flex items-center gap-3">
@@ -111,41 +109,41 @@
             </div>
 
             <div class="grid gap-8 lg:grid-cols-12">
-                <!-- 아키텍처 카드 1: 키오스크 -->
+                <!-- 아키텍처 카드 1: 키오스크 클라이언트 -->
                 <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-100 p-6 card-shadow relative overflow-hidden group">
                     <div class="absolute top-0 left-0 h-1.5 w-full bg-pink-500"></div>
                     <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-pink-50 text-pink-600">
                         <i data-lucide="tablet" class="h-6 w-6"></i>
                     </div>
-                    <span class="text-xs font-bold text-pink-600 uppercase tracking-widest">Level 1 - Client Kiosk</span>
+                    <span class="text-xs font-bold text-pink-600 uppercase tracking-widest">Level 1 - Client</span>
                     <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">고객용 무인 키오스크</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">
-                        작업 단계별 유기적 흐름 분기(용기 선택 ➔ 맛 선택 ➔ 추가 주문 이동 루틴) 및 Spring 언어 설정 연동 다국어 대응. 사용 직후 개인정보 확보용 세션 파기 시스템 내장.
+                        유연한 맛 선택 메커니즘을 반영한 직관적인 UI/UX. 프린터 하드웨어 통신 및 실시간 품절 처리(DB Lock 연동)가 구현된 POS 단말기입니다.
                     </p>
                     <ul class="mt-4 space-y-2 text-xs text-slate-600 border-t border-slate-50 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 미결제/결제완료/대기·픽업 실시간 상태 추적</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 유휴/종료 시 장바구니 강제 초기화 정책</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 미결제/결제완료 상태 분기</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 60초 유휴 시간 시 자동 리셋</li>
                     </ul>
                 </div>
 
-                <!-- 아키텍처 카드 2: 지점 관리 -->
+                <!-- 아키텍처 카드 2: 지점 관리 POS -->
                 <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-100 p-6 card-shadow relative overflow-hidden">
                     <div class="absolute top-0 left-0 h-1.5 w-full bg-violet-500"></div>
                     <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
                         <i data-lucide="store" class="h-6 w-6"></i>
                     </div>
-                    <span class="text-xs font-bold text-violet-600 uppercase tracking-widest">Level 2 - Branch POS</span>
+                    <span class="text-xs font-bold text-violet-600 uppercase tracking-widest">Level 2 - Branch</span>
                     <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">지점별 매장 운영 (POS)</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">
-                        실시간 재고 기반 키오스크 품절 처리 동기화. 매장 규모에 따른 가용 제조 메뉴 수 노출 수량 유연 제어 및 본사 매칭형 5단계 자동 발주(입고 신청) 처리 보장.
+                        지점장 전용 대시보드로 실시간 당일 매출 조회, 재고 추적, 본사 발주 승인 상태 확인이 가능합니다. 키오스크 영업 시작/중단 제어를 원격으로 처리합니다.
                     </p>
                     <ul class="mt-4 space-y-2 text-xs text-slate-600 border-t border-slate-50 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 잔량 3개 이하 시 백그라운드 자동 발주</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 본사-지점간 실시간 CS 메신저 인터페이스</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 실시간 재고 기반 품절 제어</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 수동 영수증 출력 및 주문 취소</li>
                     </ul>
                 </div>
 
-                <!-- 아키텍처 카드 3: 본사 총괄 -->
+                <!-- 아키텍처 카드 3: 본사 백오피스 총괄 -->
                 <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-100 p-6 card-shadow relative overflow-hidden">
                     <div class="absolute top-0 left-0 h-1.5 w-full bg-blue-500"></div>
                     <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
@@ -154,563 +152,316 @@
                     <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Level 3 - Headquarters</span>
                     <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">본사 총괄 백오피스</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">
-                        전사 마케팅 일괄 수립용 프로모션 배포 엔진. 전사 메뉴 마스터 관리 및 지점 자동 동기화 배포, 신규 가맹점 라이선스 및 지점 계정 자동 생성 파이프라인 가동.
+                        가맹점의 통합 주문 데이터 적재, 신규 지점 라이선스 발급 및 운영 제어, 본사 물류창고 입출고 정보 및 발주 승인 흐름을 관장하는 핵심 코어입니다.
                     </p>
                     <ul class="mt-4 space-y-2 text-xs text-slate-600 border-t border-slate-50 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 시간대 고객·맛별 매출 그래프 분석 피드</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 지점-고객 문의 통합 게시판 운영</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 다차원 판매 실적 시각화</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-emerald-500"></i> 발주 흐름 상태 제어 (5단계)</li>
                     </ul>
                 </div>
             </div>
-
-            <!-- 기술 스택 및 깃 전략 요약 배너 -->
+            
+            <!-- 기술 스택 요약 배너 (요청하신 테일윈드 컴포넌트로 완벽 교체) -->
             <div class="mt-8 rounded-2xl bg-slate-900 p-6 text-white shadow-xl">
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div>
-                        <h4 class="text-lg font-bold flex items-center gap-2"><i data-lucide="git-merge" class="text-pink-500 h-5 w-5"></i> Git 브랜치 전략 및 표준 아키텍처 명세</h4>
-                        <p class="text-slate-400 text-xs mt-1">조별 협업의 형상 관리를 보장하는 엄격한 코드 병합 흐름 정책을 준수합니다.</p>
+                        <h4 class="text-lg font-bold">Standard Tech Stack & Integration</h4>
+                        <p class="text-slate-400 text-xs mt-1">본 시스템은 비즈니스 안정성과 실시간 처리를 극대화하는 표준 기술로 구성됩니다.</p>
                     </div>
-                    <div class="flex flex-wrap gap-2 text-[11px]">
-                        <span class="rounded bg-slate-800 px-2.5 py-1 font-mono text-pink-400 border border-slate-700">main (최종 배포)</span>
-                        <span class="rounded bg-slate-800 px-2.5 py-1 font-mono text-purple-400 border border-slate-700">dev (통합 개발)</span>
-                        <span class="rounded bg-slate-800 px-2.5 py-1 font-mono text-blue-400 border border-slate-700">feature_기능명</span>
-                        <span class="rounded bg-slate-800 px-2.5 py-1 font-mono text-amber-400 border border-slate-700">fix_오류명</span>
-                        <span class="rounded bg-slate-800 px-2.5 py-1 font-mono text-emerald-400 border border-slate-700">Spring Locale i18n</span>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-semibold text-pink-400 border border-slate-700">Spring Boot / REST API</span>
+                        <span class="rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-semibold text-purple-400 border border-slate-700">MySQL (Transactional Lock)</span>
+                        <span class="rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-semibold text-blue-400 border border-slate-700">Firebase Cloud Messaging (FCM)</span>
+                        <span class="rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-semibold text-emerald-400 border border-slate-700">Hardware SDK (Printer Integration)</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: 시스템 흐름도 & 유스케이스 명세 (피드백 반영 이미지 교체) -->
-        <section id="section-systemflow" class="scroll-mt-20 mb-16">
+        <!-- SECTION 2: 설계 다이어그램 맵 (usecase.png, class.png, systemflow.png 완전 결합) -->
+        <section id="section-diagrams" class="scroll-mt-20 mb-16">
             <div class="border-b border-slate-100 pb-5 mb-8">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600"><i data-lucide="git-branch" class="h-5 w-5"></i></span>
-                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">02. 비즈니스 시스템 다이어그램 명세</h2>
-                    </div>
-                    <span class="text-xs text-indigo-600 font-semibold bg-indigo-50 px-2.5 py-1 rounded-md">마름모 조건부 기호 가이드라인 준수</span>
-                </div>
-            </div>
-
-            <div class="grid gap-8 lg:grid-cols-12">
-                <!-- 시스템 흐름도 -->
-                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-100 p-6 card-shadow">
-                    <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5"><i data-lucide="network" class="text-pink-500 h-4 w-4"></i> 비즈니스 플로우차트 (systemflow.jpg)</h3>
-                        <span class="text-[10px] text-slate-400">클릭 시 화면 최대화 (96vw)</span>
-                    </div>
-                    <div onclick="openImageModal('systemflow.jpg')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[300px]">
-                        <img src="systemflow.jpg" alt="SweetFlow System Flow" class="zoom-image max-h-[360px] object-contain rounded-lg">
-                    </div>
-                    <p class="text-[11px] text-slate-400 mt-2">• 조건 분기 및 옵션 선택 구간을 정형 마름모 도형으로 도식화 완료</p>
-                </div>
-
-                <!-- 유스케이스 다이어그램 -->
-                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-100 p-6 card-shadow">
-                    <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5"><i data-lucide="user-check" class="text-violet-500 h-4 w-4"></i> 요구 사항 기능 명세 (usecase.jpg)</h3>
-                        <span class="text-[10px] text-slate-400">클릭 시 화면 최대화 (96vw)</span>
-                    </div>
-                    <div onclick="openImageModal('usecase.jpg')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[300px]">
-                        <img src="usecase.jpg" alt="Use Case Diagram" class="zoom-image max-h-[360px] object-contain rounded-lg">
-                    </div>
-                    <p class="text-[11px] text-slate-400 mt-2">• 전체 행위자(소비자, 지점장, 본사) 간의 데이터 수명 주기 액션 포인트 정의 완료</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: 홍보에 사용될 데이터 & Figma 시각화 분석 피드 -->
-        <section id="section-marketing" class="scroll-mt-20 mb-16">
-            <div class="border-b border-slate-100 pb-5 mb-8">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600"><i data-lucide="megaphone" class="h-5 w-5"></i></span>
-                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">03. 홍보 마케팅 데이터 구조 및 데이터 기반 전략</h2>
+                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600"><i data-lucide="layers" class="h-5 w-5"></i></span>
+                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">02. 시스템 설계 블루프린트 다이어그램</h2>
                     </div>
                 </div>
             </div>
 
-            <!-- 홍보 데이터 속성 세부 그리드 -->
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-                <!-- 1. 이달의 맛 홍보 데이터 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 card-shadow flex flex-col justify-between">
+            <div class="grid gap-6 md:grid-cols-3">
+                <!-- 1. 시스템 흐름도 -->
+                <div class="bg-white rounded-2xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                            <h3 class="font-bold text-slate-900 flex items-center gap-2 text-sm"><i data-lucide="sparkles" class="text-pink-500 h-4 w-4"></i> 1. 이달의 맛 홍보 데이터</h3>
+                        <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+                            <span class="text-xs font-bold text-pink-600 uppercase tracking-wider">01. 비즈니스 시스템 흐름도</span>
+                            <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500 font-mono">systemflow.png</span>
                         </div>
-                        <ul class="text-xs text-slate-500 space-y-1 mb-4 font-mono">
-                            <li>• 이달의 맛 ID</li>
-                            <li>• 이달의 맛 이름</li>
-                            <li>• 맛 설명</li>
-                            <li>• 대표 이미지</li>
-                            <li>• 판매 시작일</li>
-                            <li>• 판매 종료일</li>
-                            <li>• 메뉴판 노출 순서</li>
-                            <li>• 판매 여부</li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700">
-                        <strong class="block text-slate-900 mb-1">활용 방안:</strong>
-                        본사에서 기획한 신메뉴 홍보 배너 데이터를 가맹점 키오스크 1번 슬롯에 배포 강제 노출하여 구매 유도.
-                    </div>
-                </div>
-
-                <!-- 2. 인기 맛 통계 데이터 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 card-shadow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                            <h3 class="font-bold text-slate-900 flex items-center gap-2 text-sm"><i data-lucide="award" class="text-violet-500 h-4 w-4"></i> 2. 인기 맛 통계 데이터</h3>
+                        <div onclick="openImageModal('systemflow.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[220px] max-h-[220px]">
+                            <img src="systemflow.png" alt="System Flow Map" class="zoom-image max-h-[200px] object-contain rounded-lg">
                         </div>
-                        <ul class="text-xs text-slate-500 space-y-1 mb-4 font-mono">
-                            <li>• 맛 ID</li>
-                            <li>• 맛 이름</li>
-                            <li>• 누적 판매량</li>
-                            <li>• 판매 순위</li>
-                            <li>• 최근 한 달 판매량</li>
-                            <li>• 인기 메뉴 TOP1~TOP5 정보</li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700">
-                        <strong class="block text-slate-900 mb-1">활용 방안:</strong>
-                        누적 데이터를 기반으로 인기 맛 랭킹을 집계하고 키오스크 화면 측면에 TOP1~5 정보 배너를 표시해 결정 유도.
+                        <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">사용자의 주문 결제부터 Firebase 실시간 알림 발생, 분점 관리자 및 본사 백오피스의 요약 데이터 집계 흐름을 명시한 구조입니다.</p>
                     </div>
                 </div>
 
-                <!-- 3. 구매 시간대 통계 데이터 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 card-shadow flex flex-col justify-between">
+                <!-- 2. 유즈케이스 다이어그램 -->
+                <div class="bg-white rounded-2xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                            <h3 class="font-bold text-slate-900 flex items-center gap-2 text-sm"><i data-lucide="bar-chart-3" class="text-blue-500 h-4 w-4"></i> 3. 구매 시간대 통계 데이터</h3>
+                        <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+                            <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">02. 시스템 유즈케이스 명세</span>
+                            <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500 font-mono">usecase.png</span>
                         </div>
-                        <ul class="text-xs text-slate-500 space-y-1 mb-4 font-mono">
-                            <li>• 주문 ID</li>
-                            <li>• 주문 일시</li>
-                            <li>• 주문 시간대</li>
-                            <li>• 시간대별 주문 건수</li>
-                            <li>• 시간대별 매출액</li>
-                            <li>• 평균 주문 금액</li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700">
-                        <strong class="block text-slate-900 mb-1">활용 방안:</strong>
-                        대시보드 그래프로 취약 시간대를 분석하여 비인기 타임 자동 타임 세일 프로모션을 배포하는 근거로 활용.
-                    </div>
-                </div>
-
-                <!-- 4. 할인 이벤트 데이터 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 card-shadow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                            <h3 class="font-bold text-slate-900 flex items-center gap-2 text-sm"><i data-lucide="badge-percent" class="text-amber-500 h-4 w-4"></i> 4. 할인 이벤트 데이터</h3>
+                        <div onclick="openImageModal('usecase.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[220px] max-h-[220px]">
+                            <img src="usecase.png" alt="Usecase Diagram" class="zoom-image max-h-[200px] object-contain rounded-lg">
                         </div>
-                        <ul class="text-xs text-slate-500 space-y-1 mb-4 font-mono">
-                            <li>• 이벤트 ID</li>
-                            <li>• 이벤트명</li>
-                            <li>• 할인 적용 시작 시간</li>
-                            <li>• 할인 적용 종료 시간</li>
-                            <li>• 할인율</li>
-                            <li>• 적용 대상 메뉴</li>
-                            <li>• 이벤트 활성화 여부</li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700">
-                        <strong class="block text-slate-900 mb-1">활용 방안:</strong>
-                        시계열 분석에 의거하여 매출율이 급감하는 오후 데드타임 구간에 자동으로 게릴라 디스카운트 정책 실행 유도.
+                        <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">소비자의 다국어 변경, 루프형 세션 및 룰렛 이벤트 참여 흐름과 지점장의 자동 발주 제어, 본사의 배너 유포 액션 간 융합 관계를 기술합니다.</p>
                     </div>
                 </div>
 
-                <!-- 5. 룰렛 이벤트 데이터 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 card-shadow flex flex-col justify-between">
+                <!-- 3. 클래스 다이어그램 -->
+                <div class="bg-white rounded-2xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                            <h3 class="font-bold text-slate-900 flex items-center gap-2 text-sm"><i data-lucide="dices" class="text-indigo-500 h-4 w-4"></i> 5. 룰렛 이벤트 데이터</h3>
+                        <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+                            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">03. 객체 구조 클래스 다이어그램</span>
+                            <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500 font-mono">class.png</span>
                         </div>
-                        <ul class="text-xs text-slate-500 space-y-1 mb-4 font-mono">
-                            <li>• 이벤트 ID / 이벤트명</li>
-                            <li>• 룰렛 보상 종류 / 당첨 확률</li>
-                            <li>• 당첨 인원 제한 / 하루 당첨 가능 인원</li>
-                            <li>• 이벤트 시작일 / 종료일 / 활성화 여부</li>
-                        </ul>
+                        <div onclick="openImageModal('class.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[220px] max-h-[220px]">
+                            <img src="class.png" alt="Class Diagram" class="zoom-image max-h-[200px] object-contain rounded-lg">
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">ShoppingCart 및 CartItem 인스턴스, Orders 트랜잭션, 지점 인벤토리 임계치 발주 및 물류 배송 처리를 객체 지향으로 정형화한 구조입니다.</p>
                     </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700">
-                        <strong class="block text-slate-900 mb-1">활용 방안:</strong>
-                        결제 이후 참여형 이벤트를 제공하여 고객 경험 만족도를 증대시키며 1일 당첨자를 2명으로 엄격히 제한해 희소성 마케팅 전개.
-                    </div>
-                </div>
-
-                <!-- 기대효과 및 분석 지표 요약 -->
-                <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-xs font-bold text-pink-400 uppercase tracking-widest mb-3 flex items-center gap-1"><i data-lucide="trending-up" class="h-4 w-4"></i> 마케팅 기대 효과</h4>
-                        <ul class="space-y-1 text-[11px] text-slate-300 list-decimal list-inside leading-relaxed">
-                            <li>이달의 맛 우선 노출을 통한 신메뉴 홍보 강화</li>
-                            <li>인기 메뉴 TOP5 제공을 통한 구매 결정 지원</li>
-                            <li>비인기 시간대 할인 이벤트를 통한 매출 증대 및 고객 분산</li>
-                            <li>룰렛 이벤트를 통한 고객 참여 유도 및 재방문율 증가</li>
-                            <li>판매 데이터를 활용한 데이터 기반 마케팅 및 맞춤형 프로모션 제공</li>
-                        </ul>
-                    </div>
-                    <div class="text-[10px] text-slate-400 mt-2 font-mono">
-                        분석 연동 통계 스트림: <span class="text-emerald-400">시간별 고객수, 맛별 매출 통계</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Figma 통계 관제 화면 시각화 레이아웃 -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl card-shadow">
-                <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5"><i data-lucide="layout-dashboard" class="text-emerald-500 h-4 w-4"></i> Figma 스마트 통계 분석 및 매출 요약 대시보드 (figmadata.png)</h3>
-                    <span class="text-[10px] text-slate-400">클릭 시 화면 최대화 (96vw)</span>
-                </div>
-                <div onclick="openImageModal('figmadata.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2">
-                    <img src="figmadata.png" alt="Figma Statistical Report Mockup" class="zoom-image w-full max-h-[500px] object-contain rounded-lg shadow-sm">
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 4: 요구사항 명세서 -->
+        <!-- SECTION 3: 요구사항 명세서 -->
         <section id="section-requirements" class="scroll-mt-20 mb-16">
             <div class="border-b border-slate-100 pb-5 mb-8">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600"><i data-lucide="clipboard-list" class="h-5 w-5"></i></span>
-                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">04. 핵심 요구사항 명세서</h2>
-                    </div>
-                    <span class="text-xs text-slate-400">비기능 및 시스템 예외 처리 정책 포함</span>
+                <div class="flex items-center gap-3">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600"><i data-lucide="clipboard-list" class="h-5 w-5"></i></span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-900">03. 상세 요구사항 명세서</h2>
                 </div>
             </div>
 
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <!-- 요구사항 카드: 고객 흐름 -->
-                <div class="rounded-xl border border-slate-100 bg-white p-5 card-shadow">
-                    <div class="flex items-center gap-2 mb-4 border-b border-slate-100 pb-3">
+            <div class="grid gap-6 md:grid-cols-3">
+                <!-- 1. 소비자 요구사항 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow">
+                    <div class="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
                         <div class="h-2 w-2 rounded-full bg-pink-500"></div>
-                        <h3 class="font-bold text-slate-900">1. 키오스크 & 결제 흐름</h3>
+                        <h3 class="font-bold text-slate-900 text-sm">1. 소비자 단말 (Kiosk Client)</h3>
                     </div>
-                    <ul class="space-y-4 text-xs text-slate-600">
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">유기적 단계별 주문 라우팅</strong>
-                            (컵 고르고 맛 고르고 장바구니 담기)의 단일 작업을 완전 수행한 뒤, 추가 주문을 진행할 때 다시 세션 컨텍스트를 유지한 채 메뉴 메인 화면으로 전환할 수 있는 '추가 주문 이동' 메커니즘 제공.
-                        </li>
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">다음 사용자를 위한 세션 초기화</strong>
-                            사용자가 결제를 정상 완료하거나 60초 유휴 임계치 타임아웃에 진입하는 경우, 다음 사용자의 정보 도용 방지 및 거래 안정성을 위해 장바구니 내역 및 사용자 세션을 완전 초기화(Reset) 조치.
-                        </li>
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">다국어 스위칭 (i18n)</strong>
-                            Spring Boot LocaleResolver 인터셉터 구조 기술과 매핑하여 한국어/영어 메뉴 전격 변환 지원 기능 탑재.
-                        </li>
+                    <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
+                        <li><strong>스프링 연동 다국어:</strong> LocaleResolver 인터셉터 바인딩으로 텍스트 정보 실시간 i18n 메시지 매핑 전환.</li>
+                        <li><strong>루프형 연속 주문 프로세스:</strong> 일회성 담기 방지. 컵 선택 후 맛을 담고 장바구니에 적재한 뒤, 세션 단절 없이 다시 홈으로 회귀하여 콘 선택 흐름을 유연하게 계속 수행 가능.</li>
+                        <li><strong>유휴 세션 리셋 제어:</strong> 60초간 화면 입력 조작 공백 발생 시 장바구니 리셋 및 초기 메인 스크린으로 강제 복귀.</li>
+                        <li><strong>4단계 주문 라이프 트래킹:</strong> 결제 완료 건은 <code class="text-pink-600 font-mono">접수 → 대기중 → 픽업대기 → 픽업완료</code> 플래그를 타며 FCM으로 화면에 실시간 UI 동기화 표출.</li>
+                        <li><strong>한도 한정 룰렛 리워드:</strong> 결제 종료 후 보상 이벤트 창 가동. 본사 설정 일일 최대 당첨수 검증 로직 반영 및 초과 시 꽝 세그먼트 강제 분기.</li>
                     </ul>
                 </div>
 
-                <!-- 요구사항 카드: 하드웨어 및 데이터 -->
-                <div class="rounded-xl border border-slate-100 bg-white p-5 card-shadow">
-                    <div class="flex items-center gap-2 mb-4 border-b border-slate-100 pb-3">
+                <!-- 2. 지점장 요구사항 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow">
+                    <div class="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
                         <div class="h-2 w-2 rounded-full bg-violet-500"></div>
-                        <h3 class="font-bold text-slate-900">2. 하드웨어 연동 및 주문 상태 제어</h3>
+                        <h3 class="font-bold text-slate-900 text-sm">2. 분점 관리자 (Branch POS)</h3>
                     </div>
-                    <ul class="space-y-4 text-xs text-slate-600">
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">주문 수명 주기 추적 상태값 인젝션</strong>
-                            영수증 출력 성공 유무 체크와 더불어, 주문서가 발급된 이후 주방과 매장 POS 단말에 연동되어 <code class="bg-slate-100 px-1 py-0.5 text-pink-600 rounded">접수 -> 대기중 -> 픽업대기 -> 픽업완료</code> 상태를 고객 모니터에 실시간으로 표시하는 트래킹 API 반영.
-                        </li>
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">원자적(Atomicity) 트랜잭션 관리</strong>
-                            결제 승인, 실시간 재고 차감, 영수증 프린터 전송 처리를 단일 비즈니스 트랜잭션으로 래핑. 물리 오류 시 전량 자동 롤백.
-                        </li>
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">실시간 푸시 알림</strong>
-                            FCM 및 Firebase Realtime 연동으로 점포 POS 단말기에 승인 주문 즉각 렌더링.
-                        </li>
+                    <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
+                        <li><strong>실시간 수납 및 알림 처리:</strong> 현금(unpaid 가주문 상태) 및 카드(paid 즉시완료) 데이터 FCM 즉시 수신 및 원장 등록.</li>
+                        <li><strong>임계치 기반 자동 지능 발주:</strong> 특정 맛 벌크 재고가 설정된 하한 임계치(safety_threshold) 이하로 감소 시, 시스템 내부 트랜잭션이 작동하여 본사 시스템에 <code class="text-violet-600 font-mono">PENDING</code> 상태의 stock_requests를 자동으로 Insert 처리함.</li>
+                        <li><strong>주문 취소 및 환불 보상:</strong> 변심 환불 시 단일 작업 내에서 대금 환원 및 차감됐던 벌크 재고 원상 복구 트랜잭션 보장.</li>
+                        <li><strong>본점 소통 및 직원 호출:</strong> 1:1 문의 채널 및 키오스크 연동 직원호출 푸시 접수 인터페이스 제공.</li>
                     </ul>
                 </div>
 
-                <!-- 요구사항 카드: 본사 및 재고 동시성 -->
-                <div class="rounded-xl border border-slate-100 bg-white p-5 card-shadow md:col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-2 mb-4 border-b border-slate-100 pb-3">
+                <!-- 3. 본사 요구사항 및 비기능 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow">
+                    <div class="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
                         <div class="h-2 w-2 rounded-full bg-blue-500"></div>
-                        <h3 class="font-bold text-slate-900">3. 지점별 재고 제어 & 자동 입고 발주</h3>
+                        <h3 class="font-bold text-slate-900 text-sm">3. 총관리자 및 시스템 동기화</h3>
                     </div>
-                    <ul class="space-y-4 text-xs text-slate-600">
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">임계치 기반 백그라운드 자동 발주</strong>
-                            아이스크림 가맹 매장 특성에 알맞게 벌크 잔여 수량이 3개 이하(<code class="bg-slate-100 px-1 py-0.5 text-blue-600 rounded">quantity &lt;= 3</code>)로 하향 임계치 도달 즉시 점주의 인지 없이도 시스템 백그라운드가 본사 중앙 물류 백오피스 단으로 자동 발주 내역을 인서트 처리함.
-                        </li>
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">매장 규모별 노출 메뉴 수 통제</strong>
-                            분점 매장 평수 및 동선이 상이하여 대량 제조가 불가능한 매장의 경우 점포 POS 원격 스위치로 메뉴판 노출 상품 개수 한계를 동적으로 제한하는 가변 UI 스크립트 반영.
-                        </li>
-                        <li>
-                            <strong class="text-slate-900 block mb-0.5">발주 상태 쌍방향 동기화 관제</strong>
-                            자동 등록되거나 긴급 수동 접수된 발주서 상태(<code class="bg-slate-100 px-1 py-0.5 text-blue-600 rounded">신청 → 접수 → 배송준비 → 배송중 → 완료</code>) 변동 사항을 본사와 가맹점이 실시간 동기화하여 투명한 상태 추적 구현.
-                        </li>
+                    <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
+                        <li><strong>원격 마케팅 배포 제어:</strong> 중앙에서 이벤트 프로모션 비주얼 배너 이미지, 이달의 맛 홍보 원장, 시간대별 타임 세일 할인율을 구성 설정하여 전국 키오스크 메뉴판 가용성 및 디스플레이 노출 순위를 실시간 일괄 업데이트함.</li>
+                        <li><strong>발주 상태 흐름 관리:</strong> 가맹 지점의 수동/자동 신청 내역 필터링 및 본사 물류창고 자체 재고 신청 보완.</li>
+                        <li><strong>데이터베이스 동기화 기조:</strong> 본사 물류 센터 현황과 분점의 발주 상태가 전이되는 물리 시점에 REST API 비동기 통신 모델을 연동하여 분산 환경 무결성을 획득할 예정.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5: 사용자별 기능 정의서 (누락 없이 완전 보존 및 보강) -->
+        <!-- SECTION 4: 사용자별 기능 정의서 -->
         <section id="section-functions" class="scroll-mt-20 mb-16">
             <div class="border-b border-slate-100 pb-5 mb-8">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
                         <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600"><i data-lucide="users" class="h-5 w-5"></i></span>
-                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">05. 사용자별 기능 정의서</h2>
+                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">04. 사용자별 정밀 기능 정의서</h2>
                     </div>
-                    <!-- Role Filter Tab -->
-                    <div class="flex rounded-lg bg-slate-100 p-1">
-                        <button onclick="filterFunctions('ALL')" id="tab-all" class="rounded-md px-3 py-1.5 text-xs font-semibold bg-white text-slate-900 shadow-sm transition-all">전체</button>
-                        <button onclick="filterFunctions('USER')" id="tab-user" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">소비자 (U)</button>
-                        <button onclick="filterFunctions('COMMON')" id="tab-common" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">관리자 공통 (AC)</button>
-                        <button onclick="filterFunctions('MANAGER')" id="tab-manager" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">지점장 (AS)</button>
-                        <button onclick="filterFunctions('HQ')" id="tab-hq" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">본사 (AH)</button>
+                    <div class="flex rounded-lg bg-slate-100 p-1 font-sans text-xs">
+                        <button onclick="filterFunctions('ALL')" id="tab-all" class="rounded-md px-3 py-1.5 font-bold bg-white text-slate-900 shadow-sm">전체</button>
+                        <button onclick="filterFunctions('USER')" id="tab-user" class="rounded-md px-3 py-1.5 font-bold text-slate-600 hover:text-slate-900">소비자(U)</button>
+                        <button onclick="filterFunctions('COMMON')" id="tab-common" class="rounded-md px-3 py-1.5 font-bold text-slate-600 hover:text-slate-900">공통(AC)</button>
+                        <button onclick="filterFunctions('MANAGER')" id="tab-manager" class="rounded-md px-3 py-1.5 font-bold text-slate-600 hover:text-slate-900">지점(AS)</button>
+                        <button onclick="filterFunctions('HQ')" id="tab-hq" class="rounded-md px-3 py-1.5 font-bold text-slate-600 hover:text-slate-900">본사(AH)</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Interactive Table Container -->
-            <div class="overflow-x-auto rounded-2xl border border-slate-100 bg-white card-shadow">
-                <table class="w-full border-collapse text-left text-sm text-slate-500">
-                    <thead class="bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-700 border-b border-slate-100">
+            <div class="overflow-x-auto rounded-2xl border border-slate-100 bg-white card-shadow text-xs">
+                <table class="w-full border-collapse text-left text-slate-500">
+                    <thead class="bg-slate-50 font-bold uppercase tracking-wider text-slate-700 border-b border-slate-100">
                         <tr>
-                            <th class="px-6 py-4">ID</th>
-                            <th class="px-6 py-4">대상</th>
-                            <th class="px-6 py-4">기능명</th>
-                            <th class="px-6 py-4">기능 정의 및 상세 설명</th>
-                            <th class="px-6 py-4">비즈니스 로직 및 예외 처리 정책</th>
+                            <th class="px-5 py-3">기능 ID</th>
+                            <th class="px-5 py-3">행위 분류</th>
+                            <th class="px-5 py-3">요구 기능명</th>
+                            <th class="px-5 py-3">상세 요구 설명 명세</th>
+                            <th class="px-5 py-3">비즈니스 로직 및 예외 처리 정책</th>
                         </tr>
                     </thead>
-                    <tbody id="function-table-body" class="divide-y divide-slate-100">
-                        <!-- U-001 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="USER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-pink-600">U-001</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-700">소비자</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">메뉴판 단계적 라우팅 조회</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">수령(매장/포장) -> 용기(컵/콘) -> 규격별 맛 매핑 순차 조회를 제공하며 추가 유입용 이달의 맛 우선 노출 및 인기 TOP 배너 로딩</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">개별 단품 구성을 장바구니에 담은 이후 다시 뒤로 가기를 가동해도 이전 작업 세션 상태를 스택에 적재하여 중복 선택 무결성 보장.</td>
-                        </tr>
-                        <!-- U-002 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="USER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-pink-600">U-002</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-700">소비자</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">장바구니 완결 & 룰렛 리워드</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">장바구니 내역의 원자적 결제 대금 처리 수행 및 결제 완료 로그 저장 직후 룰렛 휠 모달 컴포넌트 강제 핑</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">사용자가 완료 버튼을 터치하거나 무조작 60초 도과 타임아웃 감지 즉시 다음 유입자를 위해 영구 캐시 및 바스켓 완전 플러시 초기화 실행.</td>
-                        </tr>
-                        <!-- U-003 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="USER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-pink-600">U-003</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-700">소비자</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">포인트 적립 및 다국어 대응</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">전화번호 기반 포인트 적립 기능 제공 및 Spring i18n 표준 명세 기준 글로벌 다국어 언어 팩 실시간 번역 스위칭</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">LocaleResolver 인터셉터 바인딩 처리 정책 적용. 영문/국문 하드코딩을 배제한 프로퍼티 구조 파일 파싱 처리.</td>
-                        </tr>
-                        <!-- U-004 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="USER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-pink-600">U-004</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-700">소비자</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">실시간 주문 라이프사이클 조회</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">결제 완결 주문의 수명 주기를 외부 KDS 디스플레이 모니터 단에 정형 시각화 피드로 출력</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">단순 완료 처리가 아닌 <code class="bg-slate-100 px-1 py-0.5 text-pink-600 rounded">접수 ➔ 대기중 ➔ 픽업대기 ➔ 픽업완료</code> 의 4단계 시퀀스를 실시간 SSE 데이터 추적으로 바인딩.</td>
-                        </tr>
+                    <tbody id="function-table-body" class="divide-y divide-slate-100 font-medium">
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-001</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">메뉴 조회</td><td class="px-5 py-3">판매 가능한 전체 아이스크림 품목 및 카테고리별 리스트 출력</td><td class="px-5 py-3"><code class="text-pink-600">branch_stocks.quantity &gt; 0</code>인 항목만 동적 매핑 필터링</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-002</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">장바구니 결제</td><td class="px-5 py-3">최종 보관함 구성 데이터 승인 및 복합 트랜잭션 거래 유도</td><td class="px-5 py-3">DB Pessimistic Lock 제어 및 실패 시 즉시 원자적 롤백 정책</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-003</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">포인트 적립</td><td class="px-5 py-3">가상 키패드 텐키 입력 패드를 통한 휴대폰 연락처 기반 이력 가산</td><td class="px-5 py-3">정규표현식 포맷 검증 수행 및 적립 내역 데이터 업데이트</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-004</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">영수증 출력</td><td class="px-5 py-3">주방 및 고객용 하드웨어 제어 SDK 연동을 통한 인쇄 가동</td><td class="px-5 py-3">HW 장애 코드(용지부족, 커버열림) 감지 시 대시보드 경고 알림</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-005</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">언어 변경</td><td class="px-5 py-3">메뉴, 옵션, 안내 문구를 선택 다국어로 동적 치환</td><td class="px-5 py-3">스프링 MVC 내장 LocaleResolver 및 메시지 소스(i18n) 연동 제어</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-006</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">주문 상태 조회</td><td class="px-5 py-3">영수증 식별 정보를 바탕으로 현재 진행 4단계 파이프라인 가시화</td><td class="px-5 py-3"><code class="text-pink-600">접수 → 대기중 → 픽업대기 → 픽업완료</code> 실시간 반영 (FCM)</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-007</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">룰렛 참여</td><td class="px-5 py-3">승인 직후 활성화창 구동을 통한 즉석 게미피케이션 리워드 부여</td><td class="px-5 py-3">당일 당첨 상한 제한 카운트 검증, 당첨 소진 시 강제 꽝 처리 분기</td></tr>
+                        <tr class="func-row" data-role="USER"><td class="px-5 py-3 font-mono font-bold text-pink-600">U-008</td><td class="px-5 py-3"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-bold">소비자</span></td><td class="px-5 py-3 text-slate-900 font-bold">직원 호출</td><td class="px-5 py-3">도움 요청 클릭 시 점포 관리 디바이스 레이어로 긴급 신호 타격</td><td class="px-5 py-3">Firebase FCM Push 토큰 메시징 트리거 점포 관리 앱 연동</td></tr>
+                        
+                        <tr class="func-row" data-role="COMMON"><td class="px-5 py-3 font-mono font-bold text-amber-600">AC-001</td><td class="px-5 py-3"><span class="bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-bold">공통</span></td><td class="px-5 py-3 text-slate-900 font-bold">로그인</td><td class="px-5 py-3">자격 증명을 통한 각 레이어별 인가 등급 식별 처리</td><td class="px-5 py-3">비밀번호 비교 및 토큰 만료(Session Timeout) 보안 정책 제어</td></tr>
+                        <tr class="func-row" data-role="COMMON"><td class="px-5 py-3 font-mono font-bold text-amber-600">AC-002</td><td class="px-5 py-3"><span class="bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-bold">공통</span></td><td class="px-5 py-3 text-slate-900 font-bold">통계 조회</td><td class="px-5 py-3">권한 범위별 기간, 매출액, 제품군별 분석 레포트 렌더링</td><td class="px-5 py-3">복합 인덱스 스캔 및 데이터 테이블 인덱싱 최적화 조회 반영</td></tr>
+                        <tr class="func-row" data-role="COMMON"><td class="px-5 py-3 font-mono font-bold text-amber-600">AC-003</td><td class="px-5 py-3"><span class="bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-bold">공통</span></td><td class="px-5 py-3 text-slate-900 font-bold">문의사항 관리</td><td class="px-5 py-3">본사 대 대리점 간의 1:1 업무 소통 피드백 및 답변 피드 작성</td><td class="px-5 py-3">권한별 로우 조회 제한 및 상태값 변동 시 실시간 알림 가동</td></tr>
 
-                        <!-- AC-001 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="COMMON">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-amber-600">AC-001</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-700">관리자 공통</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">보안 계정 로그인</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">인가된 사용자가 자격증명 정보(ID/PW)를 기반으로 시스템에 접근하고 인증 처리 완료</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">보안을 위해 비밀번호 해시 일치 여부를 검증하고 토큰 발급. 세션 및 토큰 만료 시간 정책을 엄격히 적용.</td>
-                        </tr>
-                        <!-- AC-002 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="COMMON">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-amber-600">AC-002</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-700">관리자 공통</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">CS 문의게시판 소통 아일랜드</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">고객 및 각 가맹 지점 점주들이 본사를 상대로 긴급 요구 및 헬프데스크 질의를 수행하는 허브 게시판 아키텍처</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">본사 원장 테이블 마스터에 연계 기록되어 권한 등급 롤(Role) 세그먼트에 맞춰 단방향/쌍방향 암호화 처리 후 보존 정책 수립.</td>
-                        </tr>
+                        <tr class="func-row" data-role="MANAGER"><td class="px-5 py-3 font-mono font-bold text-violet-600">AS-001</td><td class="px-5 py-3"><span class="bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-bold">지점</span></td><td class="px-5 py-3 text-slate-900 font-bold">키오스크 활성화</td><td class="px-5 py-3">영업 개시 수령 신호 전파 및 디바이스 가용 세션 구동 조치</td><td class="px-5 py-3">지점 상태 플래그 영업 상태 활성화 플래그 설정 연동</td></tr>
+                        <tr class="func-row" data-role="MANAGER"><td class="px-5 py-3 font-mono font-bold text-violet-600">AS-002</td><td class="px-5 py-3"><span class="bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-bold">지점</span></td><td class="px-5 py-3 text-slate-900 font-bold">실시간 재고 관리</td><td class="px-5 py-3">현장 아이스크림 벌크 잔량 측정 및 결격 사유 제품 수동 차단</td><td class="px-5 py-3">상태 강제 변동 즉시 연동된 Kiosk UI 실시간 화면 반영 동기화</td></tr>
+                        <tr class="func-row" data-role="MANAGER"><td class="px-5 py-3 font-mono font-bold text-violet-600">AS-003</td><td class="px-5 py-3"><span class="bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-bold">지점</span></td><td class="px-5 py-3 text-slate-900 font-bold">주문 취소/환불</td><td class="px-5 py-3">승인 전고 이탈 내역 정정 및 결제 반환 트리거 가동</td><td class="px-5 py-3">대금 지급 취소 훅 호출과 함께 재고 원복 트랜잭션 보장</td></tr>
+                        <tr class="func-row" data-role="MANAGER"><td class="px-5 py-3 font-mono font-bold text-violet-600">AS-004</td><td class="px-5 py-3"><span class="bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-bold">지점</span></td><td class="px-5 py-3 text-slate-900 font-bold">영수증 재출력</td><td class="px-5 py-3">용기 걸림 장애 이탈 기록건에 대한 강제 로컬 재인쇄 명령 전송</td><td class="px-5 py-3">인쇄 물리 장치 수동 출력 처리 및 프린터 상태 재확인</td></tr>
+                        <tr class="func-row" data-role="MANAGER"><td class="px-5 py-3 font-mono font-bold text-violet-600">AS-005</td><td class="px-5 py-3"><span class="bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-bold">지점</span></td><td class="px-5 py-3 text-slate-900 font-bold">발주 신청</td><td class="px-5 py-3">본사 유통망 레이어로 필요한 벌크 수량을 지정해 전달</td><td class="px-5 py-3">기록 인서트 시 <code class="text-violet-600">pending</code> 상태 기록 세팅 처리</td></tr>
+                        <tr class="func-row" data-role="MANAGER"><td class="px-5 py-3 font-mono font-bold text-violet-600">AS-006</td><td class="px-5 py-3"><span class="bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-bold">지점</span></td><td class="px-5 py-3 text-slate-900 font-bold">자동 발주 처리</td><td class="px-5 py-3">맛별 실고량이 지정 한계 임계선 이하 낙하 시 시스템이 자동 상신</td><td class="px-5 py-3"><code class="text-violet-600">quantity &lt;= safety_threshold</code> 발생 시 stock_requests 자동 Insert</td></tr>
 
-                        <!-- AS-001 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="MANAGER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-violet-600">AS-001</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-violet-50 px-2 py-1 text-xs font-semibold text-violet-700">지점장</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">키오스크 평수 제어 및 원격 활성</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">매장 유휴 공간 규모에 따라 복잡 메뉴 가동 한계를 포스 단에서 지정하고 단말기 핑 통신 개시 조율</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">지점 테이블의 상태값 점검과 병행하며 매장 한계치 팩터를 넘는 카테고리 메뉴 정보는 키오스크 화면에서 수동 블록 가동 정책 적용.</td>
-                        </tr>
-                        <!-- AS-002 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="MANAGER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-violet-600">AS-002</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-violet-50 px-2 py-1 text-xs font-semibold text-violet-700">지점장</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">자동 임계치 입고 생성 엔진</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">개별 아이스크림 맛 벌크 수량이 3개 이하가 되는 즉시 점주 수동 조작 프로세스 없이 시스템 코어가 스스로 감지하여 발주 상위 레코드 작성 연동</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">트랜잭션 차감 시그널 직후 <code class="bg-slate-100 px-1 py-0.5 text-violet-600 rounded">quantity &lt;= 3</code> 유효성 컴파일 검증 작동, 즉각 발주 세부 목록 정보 적재 엔진 실행.</td>
-                        </tr>
-                        <!-- AS-003 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="MANAGER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-violet-600">AS-003</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-violet-50 px-2 py-1 text-xs font-semibold text-violet-700">지점장</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">보상 환원 주문 취소</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">카드 승인 환불 정정과 동시에 차감 처리 되었던 가맹점 아이스크림 재고 원장을 보상 트랜잭션으로 가산 정정</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">결제 수단 환불 트랜잭션 수행과 함께 주문 아이템에 해당하는 맛 수량을 지점 재고 테이블에 즉각 원복 처리.</td>
-                        </tr>
-                        <!-- AS-004 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="MANAGER">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-violet-600">AS-004</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-violet-50 px-2 py-1 text-xs font-semibold text-violet-700">지점장</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">발주 물류 실시간 5단계 조회</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">자동 유도되었거나 긴급 신청한 발주 리스트의 상태값을 본사 API 데이터 파이프라인과 링크하여 관제</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700"><code class="bg-slate-100 px-1 py-0.5 text-violet-600 rounded">대기, 반려, 배송준비, 배송중, 완료</code>의 상태 제어 모듈 프레임 적용을 통해 물류 트랙킹 고도화 보장.</td>
-                        </tr>
-
-                        <!-- AH-001 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="HQ">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-blue-600">AH-001</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-700">본사</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">지점 계정 자동 생성 및 뿌리기</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">신규 계약 가맹 체인 체결 시 가맹 규칙에 의거한 계정을 컴파일러가 자동 난수 조합 생성 후 배포하는 기능 및 일괄 메뉴 배포 스케줄러 가동</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">지점 추가 시 마스터 메뉴 데이터 구조 일괄 사상 덤프 처리가 수행되며 기본 점주 관리자 롤 원장에 무결성 즉시 인서트 구조 보장.</td>
-                        </tr>
-                        <!-- AH-002 -->
-                        <tr class="func-row hover:bg-slate-50/50 transition-colors" data-role="HQ">
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-blue-600">AH-002</td>
-                            <td class="px-6 py-4"><span class="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-700">본사</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-900">마케팅 배너 총괄 및 발주 승인</td>
-                            <td class="px-6 py-4 text-xs leading-relaxed">본사 총괄 기획 배너 파일 어셋을 일괄 인젝션하여 전체 지점 단말 레이어에 강제 표출 처리 총제 및 자동 발주 원장 승인 수락 관제</td>
-                            <td class="px-6 py-4 text-xs font-medium text-slate-700">자동 입고 신청 알림 수신 시 본사 자산 창고 수량 대조 연산 가동 및 배송 전용 5단계 상태 동기화 웹소켓 모듈 실행 정책 적용.</td>
-                        </tr>
+                        <tr class="func-row" data-role="HQ"><td class="px-5 py-3 font-mono font-bold text-blue-600">AH-001</td><td class="px-5 py-3"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold">본사</span></td><td class="px-5 py-3 text-slate-900 font-bold">분점 관리</td><td class="px-5 py-3">가맹 가입점 추가 및 점포 정보 갱신, 원격 제재 가동</td><td class="px-5 py-3"><code class="text-blue-600">정상 / 대기(휴무) / 중단(폐업)</code> 원격 관리 조절 제어</td></tr>
+                        <tr class="func-row" data-role="HQ"><td class="px-5 py-3 font-mono font-bold text-blue-600">AH-002</td><td class="px-5 py-3"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold">본사</span></td><td class="px-5 py-3 text-slate-900 font-bold">발주 통합 관리</td><td class="px-5 py-3">전국 분점의 자율 자동/수동 상신 문건 일괄 검토 및 출하 가부 통제</td><td class="px-5 py-3">신청 건 승인/반려 필터링 및 배송 흐름 상태 제어</td></tr>
+                        <tr class="func-row" data-role="HQ"><td class="px-5 py-3 font-mono font-bold text-blue-600">AH-003</td><td class="px-5 py-3"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold">본사</span></td><td class="px-5 py-3 text-slate-900 font-bold">수동 발주 등록</td><td class="px-5 py-3">비정형 유선 긴급 민원 데이터 누락 방지를 위한 본사 대리 작성</td><td class="px-5 py-3">누락된 분점의 발주 직접 데이터 입력 및 무결성 검증 고수</td></tr>
+                        <tr class="func-row" data-role="HQ"><td class="px-5 py-3 font-mono font-bold text-blue-600">AH-004</td><td class="px-5 py-3"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold">본사</span></td><td class="px-5 py-3 text-slate-900 font-bold">본사 재고 관리</td><td class="px-5 py-3">중앙 물류창고 대량 공장 입고분 적용 및 유통 전 가상 자산 산정</td><td class="px-5 py-3">본사 물류량 재고 차감 및 입고 신청 관리 고도화 처리 반영</td></tr>
+                        <tr class="func-row" data-role="HQ"><td class="px-5 py-3 font-mono font-bold text-blue-600">AH-005</td><td class="px-5 py-3"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold">본사</span></td><td class="px-5 py-3 text-slate-900 font-bold">마케팅/배너 관리</td><td class="px-5 py-3">전사 프로모션 비주얼 배너 이미지 및 타임세일 규칙, 신메뉴 정보 등록</td><td class="px-5 py-3">노출 순서, 시작/종료일 검증 및 지점 키오스크 실시간 캐싱 처리</td></tr>
+                        <tr class="func-row" data-role="HQ"><td class="px-5 py-3 font-mono font-bold text-blue-600">AH-006</td><td class="px-5 py-3"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold">본사</span></td><td class="px-5 py-3 text-slate-900 font-bold">메뉴 마스터 배포</td><td class="px-5 py-3">신제품 플레이버 등록 시 지정 지점 메뉴판 일제 유포 주입</td><td class="px-5 py-3">지점별 가용성 및 메뉴판 노출 플래그 일괄 원격 업데이트</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- SECTION 6: 상세 기능 명세서 (노션 DB 구조화 연동) -->
+        <!-- SECTION 5: 기능별 상세 세부 명세서 -->
         <section id="section-detailed-spec" class="scroll-mt-20 mb-16">
             <div class="border-b border-slate-100 pb-5 mb-8">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
                         <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600"><i data-lucide="blocks" class="h-5 w-5"></i></span>
-                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">06. 기능별 상세 세부 명세서</h2>
+                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">05. 기능별 상세 세부 명세서</h2>
                     </div>
                     <span class="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2.5 py-1 rounded-md">Notion Spec-Sheet Database</span>
                 </div>
             </div>
 
-            <!-- 세부 아코디언 명세 구조 -->
+            <!-- 아코디언 컴포넌트 목록 그룹 -->
             <div class="space-y-4">
-                <!-- Group 1: 소비자 프로세스 -->
+                <!-- 1. 소비자 프로세스 상세 명세 -->
                 <div class="rounded-xl border border-slate-100 bg-white shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('acc-user')" class="w-full flex items-center justify-between px-6 py-4 bg-slate-50/50 hover:bg-slate-50 transition-colors text-left">
                         <div class="flex items-center gap-3">
                             <span class="h-6 w-6 flex items-center justify-center rounded-full bg-pink-100 text-pink-600 text-xs font-bold">U</span>
-                            <span class="font-bold text-slate-900">소비자 프로세스 상세 명세 (U-001 ~ U-004)</span>
+                            <span class="font-bold text-slate-900">소비자 프로세스 상세 명세 (U-001 ~ U-008)</span>
                         </div>
-                        <i data-lucide="chevron-down" id="acc-icon-user" class="h-5 w-5 text-slate-400 transition-transform"></i>
+                        <i data-lucide="chevron-down" id="acc-icon-acc-user" class="h-5 w-5 text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="acc-content-user" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white">
+                    <div id="acc-content-acc-user" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white text-xs">
                         <div class="grid gap-4 md:grid-cols-2">
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-pink-600">U-001 / 메뉴판 및 프로모션 노출 설계</span>
-                                <p class="text-xs text-slate-600 mt-2">수령 방식 선택 후 용기 지정 진입 시, 상단 마케팅 스펙에 명세된 이달의 맛 ID의 판매시작/종료일을 대조하여 최상단 1번에 고정 렌더링하고 사이드바에 인기순위 실시간 TOP 5 인디케이터 장착.</p>
+                                <span class="font-mono text-xs font-bold text-pink-600">U-001 ~ U-003 / 선형 루프 주문 및 포인트</span>
+                                <p class="text-slate-600 mt-2">매장/포장 수령 선택 후 컵/콘 사이즈를 지정합니다. 컵 구성을 마쳐도 세션이 단절되지 않고 메인으로 복귀하여 다른 콘 상품을 연속 적재할 수 있는 루프형 카트 엔트리를 구축하고 결제 전 멤버십 번호를 수집합니다.</p>
                             </div>
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-pink-600">U-002 / 결제 처리 및 룰렛 이벤트 트리거</span>
-                                <p class="text-xs text-slate-600 mt-2">카드 승인이 컴플리트되면 영수증 발행 직후 룰렛 이벤트 데이터 모듈을 호출하여 하루 당첨 인원 제한인 2명 카운트를 체킹, 잔량이 있을 시 난수 확률대로 할인 쿠폰 또는 사이즈 업 리워드를 인터랙티브 UI로 피드백 후 바스켓 클리어 자동 유도.</p>
+                                <span class="font-mono text-xs font-bold text-pink-600">U-004 ~ U-005 / 다국어 지원 및 하드웨어 트랜잭션</span>
+                                <p class="text-slate-600 mt-2">스프링 i18n 로케일 해석 파라미터(?lang=) 연동으로 메뉴판과 안내 패널 텍스트를 무부하 실시간 대체 결합합니다. 대금 지급 승인 시 영수증 프린터 호출, 재고 차감 처리를 하나의 트랜잭션으로 보장해 에러 발생 시 롤백합니다.</p>
                             </div>
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-pink-600">U-003 / 전화번호 멤버십 연동</span>
-                                <p class="text-xs text-slate-600 mt-2">최종 결제 완료 직전, 10키패드 가상 키보드를 제공하여 전화번호 입력 후 가입 여부 체크. 미가입 전화번호인 경우 회원 마스터에 자동 레코드 추가 및 결제액의 10% 포인트 적립 처리.</p>
+                                <span class="font-mono text-xs font-bold text-pink-600">U-006 ~ U-007 / 실시간 4단계 관제 및 룰렛 검증</span>
+                                <p class="text-slate-600 mt-2">결제가 완료된 주문은 주방 디스플레이(KDS) 및 고객 스크린에 [접수 → 대기중 → 픽업대기 → 픽업완료]의 흐름으로 표출됩니다. 결제 직후 룰렛 창이 연동되며 일일 당첨 상한 도달 검증 규칙에 의거해 감면 리워드를 발행합니다.</p>
                             </div>
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-pink-600">U-004 / 프린터 연동 에러 핸들링</span>
-                                <p class="text-xs text-slate-600 mt-2">결제 도중 영수증 프린터의 용지 소진 혹은 통신 이탈 시, 전체 거래가 취소되는 장애를 방지하기 위해 '결제 성공' 로그는 보존하되, 알림 유도 및 지점 포스기 미출력 보관함에 보존.</p>
+                                <span class="font-mono text-xs font-bold text-pink-600">U-008 / 키오스크 유유 타임아웃 및 호출</span>
+                                <p class="text-slate-600 mt-2">지정 조작 유휴 시각(60초) 도달 시 다음 사용자의 정보 보호를 위해 장바구니 스토리지를 완전 초기화 퍼지 조치합니다. 긴급 장애 조치 헬프를 위한 '직원 호출' 버튼 클릭 시 대리점 포스로 신호를 타격합니다.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 2: 관리자 공통 -->
+                <!-- 2. 관리자 공통 프로세스 상세 명세 -->
                 <div class="rounded-xl border border-slate-100 bg-white shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('acc-common')" class="w-full flex items-center justify-between px-6 py-4 bg-slate-50/50 hover:bg-slate-50 transition-colors text-left">
                         <div class="flex items-center gap-3">
                             <span class="h-6 w-6 flex items-center justify-center rounded-full bg-amber-100 text-amber-600 text-xs font-bold">AC</span>
-                            <span class="font-bold text-slate-900">관리자 공통 프로세스 상세 명세 (AC-001 ~ AC-002)</span>
+                            <span class="font-bold text-slate-900">관리자 공통 프로세스 상세 명세 (AC-001 ~ AC-003)</span>
                         </div>
-                        <i data-lucide="chevron-down" id="acc-icon-common" class="h-5 w-5 text-slate-400 transition-transform"></i>
+                        <i data-lucide="chevron-down" id="acc-icon-acc-common" class="h-5 w-5 text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="acc-content-common" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white">
-                        <div class="grid gap-4 md:grid-cols-2">
+                    <div id="acc-content-acc-common" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white text-xs">
+                        <div class="grid gap-4 md:grid-cols-3">
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-amber-600">AC-001 / 계정 보안 및 세션 제어</span>
-                                <p class="text-xs text-slate-600 mt-2">지점장과 본사 최고관리자는 동일한 백오피스 엔트리 포인트를 공유하며, JWT 토큰 방식을 통해 권한 인가 분기. 유휴 조작 시간 감지 시 자동으로 세션을 파기하고 로그인 유도.</p>
+                                <span class="font-mono text-xs font-bold text-amber-600">AC-001 / 보안 및 세션 정책</span>
+                                <p class="text-slate-600 mt-1">지점장과 최고 권한자는 단일 접근 엔트리를 경유하며 ID/PW 비교 인증 단계를 거칩니다. 세션 만료 시간 정책이 적용됩니다.</p>
                             </div>
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-amber-600">AC-002 / 데이터 마트 기반 홍보 분석</span>
-                                <p class="text-xs text-slate-600 mt-2">주문 마스터 원장에서 집계된 시간별 고객 수 추이와 맛별 누적 매출액 테이블 데이터를 요약해 Figma 대시보드 컴포넌트 프레임에 다차원 그래프 형태로 출력 최적화 처리.</p>
+                                <span class="font-mono text-xs font-bold text-amber-600">AC-002 / 다차원 복합 인덱스 조회</span>
+                                <p class="text-slate-600 mt-1">대용량 판매 이력 조회 지연을 차단하고자 데이터베이스 생성일 및 매장 복합 식별자 인덱싱 최적화 튜닝을 수행합니다.</p>
+                            </div>
+                            <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
+                                <span class="font-mono text-xs font-bold text-amber-600">AC-003 / 1:1 업무 소통 게시판</span>
+                                <p class="text-slate-600 mt-1">본사 대 대리점 간 업무 요청 질의 및 가맹 피드백을 실시간 기록 보존하며, 등급별 로우 레벨 필터링 수정 제한 조건을 적용합니다.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 3: 지점장 프로세스 -->
+                <!-- 3. 지점장 운영 및 실시간 통제 상세 명세 -->
                 <div class="rounded-xl border border-slate-100 bg-white shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('acc-manager')" class="w-full flex items-center justify-between px-6 py-4 bg-slate-50/50 hover:bg-slate-50 transition-colors text-left">
                         <div class="flex items-center gap-3">
-                            <span class="h-6 w-6 flex items-center justify-center rounded-full bg-violet-100 text-violet-600 text-xs font-bold">AS</span>
-                            <span class="font-bold text-slate-900">지점장 운영 및 스마트 자동 입고 명세 (AS-001 ~ AS-005)</span>
+                            <span class="h-6 w-6 flex items-center justify-center rounded-lg bg-violet-100 text-violet-600 text-xs font-bold">AS</span>
+                            <span class="font-bold text-slate-900">지점장 운영 및 실시간 통제 상세 명세 (AS-001 ~ AS-006)</span>
                         </div>
-                        <i data-lucide="chevron-down" id="acc-icon-manager" class="h-5 w-5 text-slate-400 transition-transform"></i>
+                        <i data-lucide="chevron-down" id="acc-icon-acc-manager" class="h-5 w-5 text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="acc-content-manager" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white">
+                    <div id="acc-content-acc-manager" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white text-xs">
                         <div class="grid gap-4 md:grid-cols-2">
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-violet-600">AS-001 / 키오스크 전격 영업 통제</span>
-                                <p class="text-xs text-slate-600 mt-2">점포 준비 후 점포 POS 대시보드에서 원격으로 키오스크의 활성화 시그널 전송. 디바이스의 하트비트 체크 API를 가동하여 매장의 오프라인 상태 긴급 복구 메커니즘을 지원.</p>
+                                <span class="font-mono text-xs font-bold text-violet-600">AS-001 ~ AS-003 / 매장 운영 제어 및 환불 트랜잭션</span>
+                                <p class="text-slate-600 mt-2">아이디/비번 로그인 후 영업 시작을 고지하며 당일 실시간 매출/재고를 트랙킹합니다. 예외 시 특정 품목을 수동 품절 처리하여 키오스크 렌더러에 즉시 반영하고, 변심 취소 시 재고 가산 트랜잭션 무결성을 수행합니다.</p>
                             </div>
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-violet-600">AS-002 / 안전재고 임계치 기반 자동 입고 자동화</span>
-                                <p class="text-xs text-slate-600 mt-2">키오스크 판매 연동으로 지점 재고 테이블의 아이스크림 벌크 잔량이 3개 이하(<code class="bg-slate-100 px-1 py-0.5 text-violet-600 rounded">quantity &lt;= 3</code>)가 되는 즉시, 본사 시스템 백오피스로 자동으로 PENDING 상태의 발주 레코드가 추가 신청 처리됨.</p>
-                            </div>
-                            <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-violet-600">AS-003 / 보상 트랜잭션 주문 취소</span>
-                                <p class="text-xs text-slate-600 mt-2">고객 변심 및 키오스크 주문 착오 시 주문을 취소하면, 차감되었던 벌크 아이스크림 재고가 branch_stocks 테이블의 복합 키에 정확히 반사 및 자동 덧셈 연산 처리되어 정합성을 유지.</p>
-                            </div>
-                            <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-violet-600">AS-004 & AS-005 / 긴급 발주 및 영수증 수동 재발행</span>
-                                <p class="text-xs text-slate-600 mt-2">자동 시스템 외에 가맹점주 판단 하에 수행되는 수동 대량 재고 확보 모듈 연동 및 출력 단말 에러에 대비한 고유 주문번호 조회 기준 수동 영수증 재발행 루틴 보장.</p>
+                                <span class="font-mono text-xs font-bold text-violet-600">AS-004 ~ AS-006 / 자율 지능형 자동 발주 시스템 및 인쇄</span>
+                                <p class="text-slate-600 mt-2">기존 로그 원장을 기준으로 안전 영수증을 수동 재출력합니다. 매장 벌크 수량이 사전에 설정된 최저 하한선 이하 점포 임계값에 도달 시, 백그라운드 스케줄러가 자동으로 본사에 PENDING 상태의 stock_requests 내역 데이터를 자동 생성해 등록합니다.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 4: 본사 프로세스 -->
+                <!-- 4. 본사 통합 백오피스 물류 및 분점 제어 명세 -->
                 <div class="rounded-xl border border-slate-100 bg-white shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('acc-hq')" class="w-full flex items-center justify-between px-6 py-4 bg-slate-50/50 hover:bg-slate-50 transition-colors text-left">
                         <div class="flex items-center gap-3">
                             <span class="h-6 w-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 text-xs font-bold">AH</span>
-                            <span class="font-bold text-slate-900">본사 통합 백오피스 물류 및 프로모션 배포 명세 (AH-001 ~ AH-004)</span>
+                            <span class="font-bold text-slate-900">본사 통합 백오피스 물류 및 분점 제어 명세 (AH-001 ~ AH-006)</span>
                         </div>
-                        <i data-lucide="chevron-down" id="acc-icon-hq" class="h-5 w-5 text-slate-400 transition-transform"></i>
+                        <i data-lucide="chevron-down" id="acc-icon-acc-hq" class="h-5 w-5 text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="acc-content-hq" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white">
+                    <div id="acc-content-acc-hq" class="hidden border-t border-slate-100 p-6 space-y-4 bg-white text-xs">
                         <div class="grid gap-4 md:grid-cols-2">
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-blue-600">AH-001 / 지점 수명 주기 및 가맹 계정 자동 제어</span>
-                                <p class="text-xs text-slate-600 mt-2">신규 계약 가맹 체인 등록과 동시에 고유 해시 기반 점주 전용 ID 및 패스워드를 난수 조합 자동 연산하여 영수증 구조 원장과 자동 동기화 배포.</p>
+                                <span class="font-mono text-xs font-bold text-blue-600">AH-001 ~ AH-003 / 대리점 거버넌스 및 발주 흐름 제어</span>
+                                <p class="text-slate-600 mt-2">전국 체인점의 추가/수정 및 가동 등급 상태([정상/대기/중단])를 실시간 제어하며 분점의 자율 자동 상신 발주 문건을 모니터링하여 승인/반려/배송 단계 흐름 상태값 변화 프로세스를 통제하고 긴급 유선 누락분 데이터를 총관리자가 직접 대리 기입 수동 등록합니다.</p>
                             </div>
                             <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-blue-600">AH-002 / 자동 발주 처리 및 마케팅 배너 인젝션</span>
-                                <p class="text-xs text-slate-600 mt-2">자동 접수된 가맹점 발주 신청 건 승인 시 본사 자산고에서 차감 후 5단계 상태값을 배송중으로 실시간 스위칭. 아울러 통계에 의거하여 특정 데드타임 진입 시 가맹 키오스크로 할인 배너 어셋을 자동 주입.</p>
-                            </div>
-                            <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-blue-600">AH-003 / 오프라인 수동 발주 구제</span>
-                                <p class="text-xs text-slate-600 mt-2">시스템 사용이 불가능하거나 오프라인 수동 긴급 요청의 경우, 총괄 관리자 권한을 이용하여 강제 레코드를 추가하고 생성 이력 필드(requested_by)에 본사 원장 ID를 필수로 로깅해 무결성을 담보.</p>
-                            </div>
-                            <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <span class="font-mono text-xs font-bold text-blue-600">AH-004 / 중앙 물류 재고 모니터링</span>
-                                <p class="text-xs text-slate-600 mt-2">원자재 수입 및 제조 공장을 통한 중앙 물류 수량 확보 시 대량 입고 배치 쿼리를 가동하여, 전사 자산 실사 및 가맹점에 가용한 가상 생산 가능량의 마진율을 즉각 계산함.</p>
+                                <span class="font-mono text-xs font-bold text-blue-600">AH-004 ~ AH-006 / 본사 중앙 물류 관리 및 마케팅 원격 배포</span>
+                                <p class="text-slate-600 mt-2">중앙 공장 제조 완료 입고분을 원장에 동기화하고 물류량을 업데이트합니다. 본사 마케팅 엔진 단에서 타깃 프로모션 이미지 배너 파일(.png) 배포 규칙 및 비인기 오후 시간대 자동 할인 차감율, 신메뉴 이달의 맛 노출 우선순위 스케줄러를 등록 조율하면 전체 가맹점 메뉴판 인프라에 즉시 동기화 업데이트 적용됩니다.</p>
                             </div>
                         </div>
                     </div>
@@ -718,309 +469,606 @@
             </div>
         </section>
 
-        <!-- SECTION 7: 다차원 객체 지향 클래스 다이어그램 및 구조 물리 모델링 -->
+        <!-- SECTION 5: 홍보 데이터 마케팅 모델 명세 및 전사 효과 (원형 완전 복원 결합) -->
+        <section id="section-marketing" class="scroll-mt-20 mb-16">
+            <div class="border-b border-slate-100 pb-5 mb-8">
+                <div class="flex items-center gap-3">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-pink-100 text-pink-600"><i data-lucide="bar-chart-3" class="h-5 w-5"></i></span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-900">05. 홍보 통계 데이터 명세 및 기대 효과</h2>
+                </div>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-10">
+                <!-- 1. 이달의 맛 홍보 데이터 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                            <span class="text-xs font-bold text-pink-600 uppercase tracking-wider">01. 이달의 맛 홍보 데이터</span>
+                            <i data-lucide="calendar-heart" class="h-4 w-4 text-pink-500"></i>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mb-2 font-mono leading-none">속성: 이달의 맛 ID, 이름, 맛 설명, 대표 이미지(.png), 판매 시작/종료일, 메뉴판 노출 순서, 판매 여부</p>
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong>활용 방안:</strong> 새로 추가된 이달의 맛을 메뉴판 첫 번째에 고정 노출하여 신메뉴 홍보 및 구매를 적극적으로 유도합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. 인기 맛 통계 데이터 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                            <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">02. 인기 맛 통계 데이터</span>
+                            <i data-lucide="award" class="h-4 w-4 text-violet-500"></i>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mb-2 font-mono leading-none">속성: 맛 ID, 이름, 누적 판매량, 판매 순위, 최근 한 달 판매량, 인기 메뉴 TOP1~TOP5 정보</p>
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong>활용 방안:</strong> 판매 데이터를 기반으로 인기 맛 순위를 산정하고, 메뉴판 옆에 TOP1~TOP5를 표시하여 고객의 메뉴 선택을 돕고 구매를 유도합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 구매 시간대 통계 데이터 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">03. 구매 시간대 통계 데이터</span>
+                            <i data-lucide="clock" class="h-4 w-4 text-blue-500"></i>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mb-2 font-mono leading-none">속성: 주문 ID, 주문 일시, 주문 시간대, 시간대별 주문 건수, 시간대별 매출액, 평균 주문 금액</p>
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong>활용 방안:</strong> 시간대별 구매 데이터를 분석하여 주문량이 적은 시간대를 파악하고, 해당 시간대에 할인 이벤트를 진행하여 매출을 증대시킵니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. 할인 이벤트 데이터 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">04. 할인 이벤트 데이터</span>
+                            <i data-lucide="badge-percent" class="h-4 w-4 text-amber-500"></i>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mb-2 font-mono leading-none">속성: 이벤트 ID,명칭, 할인 적용 시작/종료 시간, 할인율, 적용 대상 메뉴, 이벤트 활성화 여부</p>
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong>활용 방안:</strong> 구매율이 낮은 시간대에 자동으로 할인 이벤트를 적용하여 유휴 타임슬롯의 오프라인 고객 방문을 능동적으로 유도합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. 룰렛 이벤트 데이터 -->
+                <div class="bg-white rounded-xl border border-slate-100 p-5 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                            <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">05. 룰렛 이벤트 데이터</span>
+                            <i data-lucide="dices" class="h-4 w-4 text-indigo-500"></i>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mb-2 font-mono leading-none">속성: 이벤트 ID, 명칭, 룰렛 보상 종류, 당첨 확률, 당첨 인원 제한, 하루 당첨 가능 인원, 시작/종료일, 활성 여부</p>
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong>활용 방안:</strong> 주문 완료 후 룰렛 이벤트를 제공하여 재방문을 촉진합니다. 하루 당첨 인원을 엄격히 제한하여 이벤트 희소성을 높이고, 보상은 할인 쿠폰, 토핑 무료, 사이즈 업, 1+1 쿠폰 등으로 구성하여 홍보 효과를 강화합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 전사 비즈니스 기대 효과 보드 -->
+                <div class="rounded-xl bg-slate-900 text-white p-5 shadow-md flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-pink-400 uppercase tracking-wider block border-b border-slate-800 pb-2 mb-2">EXPECTED EFFECTS | 전사 기대 효과</span>
+                        <ol class="space-y-1.5 text-[11px] text-slate-300 list-decimal pl-4 font-medium">
+                            <li>이달의 맛 우선 노출을 통한 신메뉴 홍보 강화</li>
+                            <li>인기 메뉴 TOP5 제공을 통한 구매 결정 지원</li>
+                            <li>비인기 시간대 할인 이벤트를 통한 매출 증대 및 고객 분산</li>
+                            <li>룰렛 이벤트를 통한 고객 참여 유도 및 재방문율 증가</li>
+                            <li>판매 데이터를 활용한 데이터 기반 마케팅 및 맞춤형 프로모션 제공</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: 데이터베이스 상세 설계 (물리 테이블 DDL 및 ERD완벽 바인딩) -->
         <section id="section-database" class="scroll-mt-20 mb-16">
             <div class="border-b border-slate-100 pb-5 mb-8">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div class="flex items-center gap-3">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-pink-100 text-pink-600"><i data-lucide="database" class="h-5 w-5"></i></span>
-                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">07. 객체 지향 구조 & 관계형 데이터베이스 상세 설계</h2>
-                    </div>
+                <div class="flex items-center gap-3">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-pink-100 text-pink-600"><i data-lucide="database" class="h-5 w-5"></i></span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-900">06. 관계형 데이터베이스 물리 설계 및 역할 정의서</h2>
                 </div>
             </div>
 
-            <!-- 클래스 다이어그램 및 ERD 뷰 레이아웃 -->
-            <div class="grid gap-6 md:grid-cols-2 mb-10">
-                <!-- 클래스 다이어그램 -->
-                <div class="bg-white p-6 border border-slate-200 rounded-2xl shadow-sm">
-                    <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                        <h3 class="text-xs font-bold text-slate-800 flex items-center gap-1.5"><i data-lucide="code-2" class="text-blue-500 h-4 w-4"></i> 객체 지향 도메인 아키텍처 및 클래스화 (class.png)</h3>
-                        <span class="text-[10px] text-slate-400">클릭 시 화면 최대화 (96vw)</span>
-                    </div>
-                    <div onclick="openImageModal('class.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[300px]">
-                        <img src="class.png" alt="Domain Class Diagram" class="zoom-image max-h-[360px] object-contain rounded-lg">
-                    </div>
-                    <p class="text-[11px] text-slate-400 mt-2">• 주문서 영수증 구조 마스터 내역을 완전 객체 지향 <code class="bg-slate-100 px-1 py-0.5 text-pink-600 rounded">Order Entity Class</code> 구조 모델링 수립 완료</p>
+            <!-- ERD 이미지 보드 -->
+            <div class="mb-6 rounded-2xl bg-white p-5 border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2"><i data-lucide="network" class="h-4 w-4 text-pink-600"></i>물리 스키마 ERD 다이어그램 맵</h3>
+                    <span class="text-xs font-mono bg-slate-50 text-slate-400 px-2 py-0.5 rounded">rdb3.png</span>
                 </div>
-
-                <!-- ERD 다이어그램 -->
-                <div class="bg-white p-6 border border-slate-200 rounded-2xl shadow-sm">
-                    <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
-                        <h3 class="text-xs font-bold text-slate-800 flex items-center gap-1.5"><i data-lucide="table" class="text-pink-600 h-4 w-4"></i> 관계형 데이터 원장 모델 설계 (rdb3.png)</h3>
-                        <span class="text-[10px] text-slate-400">클릭 시 화면 최대화 (96vw)</span>
-                    </div>
-                    <div onclick="openImageModal('rdb3.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[300px]">
-                        <img src="rdb3.png" alt="RDB ERD Diagram" class="zoom-image max-h-[360px] object-contain rounded-lg">
-                    </div>
-                    <p class="text-[11px] text-slate-400 mt-2">• 자동 입고 관계 조건 및 Composite PK 인덱싱 물리 매핑 반영</p>
+                <div onclick="openImageModal('rdb3.png')" class="zoom-container rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-2 min-h-[350px]">
+                    <img src="rdb3.png" alt="ERD Blueprint Diagram" class="zoom-image max-h-[420px] object-contain rounded-lg">
                 </div>
             </div>
 
-            <!-- DDL SQL 복사 섹션 -->
+            <!-- db.png 기반 테이블명 및 기능 역할 명세표 매핑 통합 -->
+            <div class="mb-8 overflow-x-auto rounded-2xl border border-slate-100 bg-white card-shadow text-xs">
+                <div class="px-5 py-4 bg-slate-50 font-bold text-slate-700 border-b border-slate-100 flex items-center justify-between">
+                    <span class="flex items-center gap-2"><i data-lucide="table-properties" class="h-4 w-4 text-violet-500"></i>데이터베이스 도메인 영역별 테이블 역할 명세서 (db.png 연동)</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Database Schema Catalog Map</span>
+                </div>
+                <table class="w-full border-collapse text-left text-slate-500">
+                    <thead class="bg-slate-100/80 font-bold tracking-wider text-slate-700 border-b border-slate-200">
+                        <tr>
+                            <th class="px-5 py-3 border-r w-[20%]">영역 (도메인)</th>
+                            <th class="px-5 py-3 border-r w-[25%]">테이블명 (Table Name)</th>
+                            <th class="px-5 py-3">기능 및 역할 설명 명세</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium">
+                        <!-- 기준 정보 -->
+                        <tr><td class="px-5 py-3 border-r bg-slate-50/40 font-bold text-slate-900" rowspan="3">기준 정보<br><span class="text-[10px] text-slate-400 font-mono font-normal">(Master Data)</span></td><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">menu_item / product</td><td class="px-5 py-3 leading-relaxed">판매하는 전체 상품(메뉴)의 기본 정보(단가, 품절 상태 등) 관리</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">coupon</td><td class="px-5 py-3 leading-relaxed">고객에게 지급 가능한 각종 쿠폰의 종류 및 할인 혜택 정의</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">customer</td><td class="px-5 py-3 leading-relaxed">시스템 이용 고객의 식별 정보 및 누적 리워드 포인트 관리</td></tr>
+                        <!-- 매장 운영 -->
+                        <tr class="border-t-2 border-slate-200"><td class="px-5 py-3 border-r bg-slate-50/40 font-bold text-slate-900" rowspan="3">매장 운영<br><span class="text-[10px] text-slate-400 font-mono font-normal">(Store & Operation)</span></td><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">store_manager / managers</td><td class="px-5 py-3 leading-relaxed">각 가맹점을 책임지는 지점장의 고유 정보 관리</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">store_account</td><td class="px-5 py-3 leading-relaxed">매장 관리 시스템(POS/백오피스) 접근용 로그인 계정 및 암호화 관리</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">kiosk / kiosks</td><td class="px-5 py-3 leading-relaxed">매장 내 설치된 개별 키오스크 단말기의 작동 상태(ON/OFF/ERROR) 모니터링</td></tr>
+                        <!-- 주문 및 결제 -->
+                        <tr class="border-t-2 border-slate-200"><td class="px-5 py-3 border-r bg-slate-50/40 font-bold text-slate-900" rowspan="6">주문 및 결제<br><span class="text-[10px] text-slate-400 font-mono font-normal">(Order & Transaction)</span></td><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">cart</td><td class="px-5 py-3 leading-relaxed">현재 고객이 구성 중인 장바구니 헤더(마스터) 정보</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">cart_item</td><td class="px-5 py-3 leading-relaxed">장바구니에 담긴 개별 상품 수량 및 세부 옵션(컵 종류, 맛 등) 내역</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">orders</td><td class="px-5 py-3 leading-relaxed">결제가 확정된 주문의 총 정보(유형, 일시, 총액, 진행 상태) 마스터</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">order_item</td><td class="px-5 py-3 leading-relaxed">하나의 주문 번호에 속한 개별 메뉴들의 상세 포장 지시 및 옵션 내역</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">payment / payments</td><td class="px-5 py-3 leading-relaxed">고객의 결제 수단(현금/카드/포인트) 및 승인/실패 상태 등 트랜잭션 기록</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">receipt</td><td class="px-5 py-3 leading-relaxed">결제 완료 건에 대해 발행된 물리적/전자적 영수증 식별 데이터</td></tr>
+                        <!-- 재고 및 발주 -->
+                        <tr class="border-t-2 border-slate-200"><td class="px-5 py-3 border-r bg-slate-50/40 font-bold text-slate-900" rowspan="5">재고 및 발주<br><span class="text-[10px] text-slate-400 font-mono font-normal">(Inventory & Supply)</span></td><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">stock / branch_stocks</td><td class="px-5 py-3 leading-relaxed">매장이 현재 보유하고 있는 개별 품목의 최신 재고량 실시간 추적</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">stock_history</td><td class="px-5 py-3 leading-relaxed">입고, 출고, 폐기 발생 시 재고 증감 내역과 원인을 기록하는 장부</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">branch_stock_thresholds</td><td class="px-5 py-3 leading-relaxed">매장별 재고 부족 시 자동으로 본사에 발주를 넣기 위한 임계치 설정값</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">stock_order / stock_requests</td><td class="px-5 py-3 leading-relaxed">매장에서 본사로 요청한 물품 발주(PO) 마스터 및 승인/반려 상태 관리</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">delivery</td><td class="px-5 py-3 leading-relaxed">본사에서 승인된 발주 물품이 매장으로 도착하기까지의 배송 단계 추적</td></tr>
+                        <!-- 마케팅 및 홍보 -->
+                        <tr class="border-t-2 border-slate-200"><td class="px-5 py-3 border-r bg-slate-50/40 font-bold text-slate-900" rowspan="6">마케팅 및 홍보<br><span class="text-[10px] text-slate-400 font-mono font-normal">(Marketing)</span></td><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">event</td><td class="px-5 py-3 leading-relaxed">시스템 전체에서 진행되는 프로모션 캠페인의 기본 뼈대 정의</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">banner / marketing_banners</td><td class="px-5 py-3 leading-relaxed">키오스크 화면에 노출되는 홍보 이미지 리소스와 표출 여부 제어</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">monthly_flavors</td><td class="px-5 py-3 leading-relaxed">매월 주력 메뉴의 홍보 문구, 노출 기간 및 메뉴판 상단 노출 순위 관리</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">discount_events</td><td class="px-5 py-3 leading-relaxed">해피아워 등 특정 요일/시간대에 메뉴 단가를 자동 인하하는 타임세일 관리</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">roulette_events</td><td class="px-5 py-3 leading-relaxed">결제 완료 후 제공되는 룰렛 이벤트의 기간 및 일일 최대 당첨 인원 제한 통제</td></tr>
+                        <tr><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">roulette_rewards / histories</td><td class="px-5 py-3 leading-relaxed">룰렛판 각 칸의 보상(무료 쿠폰, 사이즈업) 내용, 확률 구조 및 초과 검증 제어</td></tr>
+                        <!-- 고객지원 및 소통 -->
+                        <tr class="border-t-2 border-slate-200"><td class="px-5 py-3 border-r bg-slate-50/40 font-bold text-slate-900">고객지원 및 소통</td><td class="px-5 py-3 border-r font-mono text-violet-600 font-bold">branch_inquiries</td><td class="px-5 py-3 leading-relaxed">가맹점 지점장과 본사 관리자 간의 요청사항, 장애 신고 등 내부 소통 게시판</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- DDL SQL 복사 블록 -->
             <div class="rounded-2xl bg-slate-900 text-slate-300 overflow-hidden shadow-2xl">
-                <div class="flex items-center justify-between px-6 py-4 bg-slate-950 border-b border-slate-800">
-                    <div class="flex items-center gap-2">
-                        <div class="flex h-3 w-3 rounded-full bg-red-500"></div>
-                        <div class="flex h-3 w-3 rounded-full bg-yellow-500"></div>
-                        <div class="flex h-3 w-3 rounded-full bg-green-500"></div>
-                        <span class="text-xs font-mono text-slate-400 ml-2">MySQL Physical DDL Schema (자동 입고 정합성 반영)</span>
-                    </div>
+                <div class="flex items-center justify-between px-5 py-3 bg-slate-950 border-b border-slate-800">
+                    <span class="text-xs font-mono text-slate-400">MySQL 8.0 Physical DDL Syntax Standard</span>
                     <button onclick="copyToClipboard()" class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors">
-                        <i data-lucide="copy" class="h-4 w-4"></i>
-                        <span id="copy-text">스크립트 복사</span>
+                        <i data-lucide="copy" class="h-3.5 w-3.5"></i><span id="copy-text">스크립트 복사</span>
                     </button>
                 </div>
                 
-                <!-- DDL Code Container -->
-                <div class="p-6 overflow-y-auto max-h-[400px] font-mono text-xs leading-relaxed text-emerald-400">
+                <div class="p-5 overflow-y-auto max-h-[380px] font-mono text-xs leading-relaxed text-emerald-400">
                     <pre id="ddl-schema-text"><code>-- ====================================================================
--- SweetFlow 아이스크림 프랜차이즈 통합 데이터베이스 물리 설계 스크립트
--- 표준 DBMS: MySQL 8.0 이상 호환 (관계 제약조건, 외래키, 도메인 제약 반영)
+-- SweetFlow 전사 무결성 보장 고도화 물리 데이터베이스 스크립트 원장
 -- ====================================================================
 
-CREATE TABLE `branches` (
-    `id` INT AUTO_INCREMENT COMMENT '분점 고유 식별자',
-    `name` VARCHAR(100) NOT NULL COMMENT '가맹점명',
-    `status` VARCHAR(20) NOT NULL DEFAULT 'CLOSED' COMMENT '영업상태 (OPERATING, BREAK, CLOSED)',
-    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='가맹 분점 테이블';
+DROP TABLE IF EXISTS branch_stock_thresholds;
+DROP TABLE IF EXISTS branch_inquiries;
+DROP TABLE IF EXISTS roulette_win_histories;
+DROP TABLE IF EXISTS roulette_rewards;
+DROP TABLE IF EXISTS roulette_events;
+DROP TABLE IF EXISTS discount_events;
+DROP TABLE IF EXISTS monthly_flavors;
+DROP TABLE IF EXISTS stock_request_details;
+DROP TABLE IF EXISTS stock_requests;
+DROP TABLE IF EXISTS headquarters_stocks;
+DROP TABLE IF EXISTS branch_stocks;
+DROP TABLE IF EXISTS used_coupons;
+DROP TABLE IF EXISTS point_histories;
+DROP TABLE IF EXISTS coupons;
+DROP TABLE IF EXISTS payments;
+DROP TABLE IF EXISTS order_item_flavors;
+DROP TABLE IF EXISTS order_items;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS kiosks;
+DROP TABLE IF EXISTS sizes;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS managers;
+DROP TABLE IF EXISTS branches;
 
-CREATE TABLE `managers` (
-    `id` INT AUTO_INCREMENT,
-    `branch_id` INT NULL,
-    `username` VARCHAR(50) NOT NULL UNIQUE,
-    `password` VARCHAR(255) NOT NULL,
-    `role` VARCHAR(20) NOT NULL DEFAULT 'BRANCH_MANAGER',
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_managers_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- ① 지점 및 권한 관련 테이블
+CREATE TABLE branches (
+    id INT AUTO_INCREMENT COMMENT '분점 고유 번호',
+    name VARCHAR(100) NOT NULL COMMENT '분점명 (예: 강남역점)',
+    status VARCHAR(20) NOT NULL DEFAULT 'OPERATING' COMMENT '운영 상태 (OPERATING / BREAK / CLOSED)',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일',
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='분점 정보';
 
-CREATE TABLE `kiosks` (
-    `id` INT AUTO_INCREMENT,
-    `branch_id` INT NOT NULL,
-    `device_name` VARCHAR(100) NOT NULL,
-    `is_active` BOOLEAN NOT NULL DEFAULT TRUE,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_kiosks_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE managers (
+    id INT AUTO_INCREMENT COMMENT '관리자 고유 번호',
+    branch_id INT NULL COMMENT '소속 분점 ID (본사 총관리자는 NULL)',
+    username VARCHAR(50) NOT NULL UNIQUE COMMENT '로그인 ID',
+    password VARCHAR(255) NOT NULL COMMENT '암호화된 비밀번호',
+    role VARCHAR(30) NOT NULL COMMENT '권한 (SUPER_ADMIN / BRANCH_MANAGER)',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_managers_branch_id FOREIGN KEY (branch_id) REFERENCES branches (id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='관리자 계정';
 
-CREATE TABLE `product` (
-    `id` INT AUTO_INCREMENT,
-    `name` VARCHAR(100) NOT NULL,
-    `is_available` BOOLEAN NOT NULL DEFAULT TRUE,
-    `category` VARCHAR(50) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- ② 상품 및 메뉴 관련 테이블
+CREATE TABLE product (
+    id INT AUTO_INCREMENT COMMENT '상품 고유 번호',
+    name VARCHAR(100) NOT NULL COMMENT '상품/맛 이름 (예: 엄마는 외계인, 아메리카노)',
+    category VARCHAR(30) NOT NULL COMMENT '상품의 종류 (ICECREAM, COFFEE, BEVERAGE, DESSERT)',
+    is_available BOOLEAN NOT NULL DEFAULT TRUE COMMENT '판매 가능 여부',
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='상품 및 아이스크림 맛 정보';
 
-CREATE TABLE `sizes` (
-    `id` INT AUTO_INCREMENT,
-    `name` VARCHAR(50) NOT NULL,
-    `flavor_count` INT NOT NULL DEFAULT 1,
-    `price` DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE sizes (
+    id INT AUTO_INCREMENT COMMENT '사이즈 고유 번호',
+    name VARCHAR(50) NOT NULL COMMENT '사이즈명 (예: 싱글레귤러, 파인트, 쿼터)',
+    flavor_count INT NOT NULL DEFAULT 0 COMMENT '선택 가능한 맛 개수 (완제품은 0)',
+    price DECIMAL(10, 0) NOT NULL COMMENT '사이즈별 기본 가격',
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='사이즈 및 기본 가격';
 
-CREATE TABLE `orders` (
-    `id` INT AUTO_INCREMENT,
-    `branch_id` INT NOT NULL,
-    `kiosk_id` INT NULL,
-    `order_number` VARCHAR(50) NOT NULL,
-    `pickup_type` VARCHAR(20) NOT NULL,
-    `payment_type` VARCHAR(20) NOT NULL,
-    `payment_status` VARCHAR(20) NOT NULL DEFAULT 'UNPAID',
-    `order_status` VARCHAR(30) NOT NULL DEFAULT 'RECEIVED' COMMENT '접수(RECEIVED), 대기중(PENDING), 픽업대기(READY), 픽업완료(COMPLETED)',
-    `total_price` DECIMAL(10, 2) NOT NULL,
-    `customer_phone` VARCHAR(20) NULL,
-    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_orders_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- ③ 주문 및 결제 관련 테이블
+CREATE TABLE kiosks (
+    id INT AUTO_INCREMENT COMMENT '키오스크 고유 번호',
+    branch_id INT NOT NULL COMMENT '소속 분점 ID',
+    device_name VARCHAR(50) NOT NULL COMMENT '기기 명칭 (예: 정문 앞 1호기)',
+    is_active BOOLEAN NOT NULL DEFAULT TRUE COMMENT '활성화 여부',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_kiosks_branch_id FOREIGN KEY (branch_id) REFERENCES branches (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='키오스크 기기 관리';
 
-CREATE TABLE `order_items` (
-    `id` INT AUTO_INCREMENT,
-    `order_id` INT NOT NULL,
-    `size_id` INT NOT NULL,
-    `container_type` VARCHAR(20) NOT NULL,
-    `price` DECIMAL(10, 2) NOT NULL,
-    `quantity` INT NOT NULL DEFAULT 1,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_order_items_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT COMMENT '주문 고유 번호',
+    branch_id INT NOT NULL COMMENT '주문이 발생한 분점 ID',
+    kiosk_id INT NULL COMMENT '주문이 발생한 키오스크 ID',
+    order_number VARCHAR(50) NOT NULL COMMENT '영수증 출력용 주문 번호',
+    pickup_type VARCHAR(20) NOT NULL COMMENT '수령 방식 (STORE / PACKING)',
+    payment_type VARCHAR(20) NOT NULL COMMENT '결제 방식 (CASH / CARD)',
+    payment_status VARCHAR(20) NOT NULL DEFAULT 'UNPAID' COMMENT '결제 상태 (UNPAID / PAID)',
+    total_price DECIMAL(10, 0) NOT NULL DEFAULT 0 COMMENT '총 결제 금액',
+    customer_phone VARCHAR(20) NULL COMMENT '포인트 적립용 전화번호',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '주문 일시',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_orders_branch_id FOREIGN KEY (branch_id) REFERENCES branches (id),
+    CONSTRAINT fk_orders_kiosk_id FOREIGN KEY (kiosk_id) REFERENCES kiosks (id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='주문 메인 정보';
 
-CREATE TABLE `order_item_flavors` (
-    `id` INT AUTO_INCREMENT,
-    `order_item_id` INT NOT NULL,
-    `icecream_id` INT NOT NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_item_flavors_order_item_id` FOREIGN KEY (`order_item_id`) REFERENCES `order_items` (`id`) ON DELETE CASCADE,
-    CONSTRAINT `fk_item_flavors_icecream_id` FOREIGN KEY (`icecream_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT COMMENT '주문 상세 고유 번호',
+    order_id INT NOT NULL COMMENT '연결된 주문 메인 ID',
+    size_id INT NULL COMMENT '선택한 사이즈 ID',
+    container_type VARCHAR(20) NOT NULL COMMENT '용기 타입 (CUP / CONE / WAFFLE_CONE / NONE)',
+    price DECIMAL(10, 0) NOT NULL COMMENT '구매 당시 1개당 단가',
+    quantity INT NOT NULL DEFAULT 1 COMMENT '해당 구성의 주문 수량',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_order_items_order_id FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    CONSTRAINT fk_order_items_size_id FOREIGN KEY (size_id) REFERENCES sizes (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='주문 상세(통 단위)';
 
-CREATE TABLE `branch_stocks` (
-    `branch_id` INT NOT NULL,
-    `icecream_id` INT NOT NULL,
-    `quantity` INT NOT NULL DEFAULT 0 COMMENT '보유 수량 3개 이하 감지 시 서버단에서 자동 발주 트랜잭션 유도',
-    `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`branch_id`, `icecream_id`),
-    CONSTRAINT `fk_branch_stocks_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE order_item_flavors (
+    id INT AUTO_INCREMENT COMMENT '고유 번호',
+    order_item_id INT NOT NULL COMMENT '주문 상세 ID',
+    icecream_id INT NOT NULL COMMENT '선택한 맛 ID (product.id 매핑)',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_flavors_order_item_id FOREIGN KEY (order_item_id) REFERENCES order_items (id) ON DELETE CASCADE,
+    CONSTRAINT fk_flavors_icecream_id FOREIGN KEY (icecream_id) REFERENCES product (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='주문별 아이스크림 맛 매핑';
 
-CREATE TABLE `stock_requests` (
-    `id` INT AUTO_INCREMENT,
-    `branch_id` INT NOT NULL,
-    `status` VARCHAR(20) NOT NULL DEFAULT 'PENDING' COMMENT '대기(PENDING), 반려(REJECTED), 배송준비(PREPARING), 배송중(SHIPPING), 완료(COMPLETED)',
-    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_stock_req_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;</code></pre>
+CREATE TABLE payments (
+    id INT AUTO_INCREMENT COMMENT '결제 고유 번호',
+    order_id INT NOT NULL COMMENT '주문 ID',
+    payment_method VARCHAR(20) NOT NULL COMMENT '결제 수단',
+    amount DECIMAL(10, 0) NOT NULL COMMENT '해당 수단으로 결제된 금액',
+    transaction_number VARCHAR(100) NULL COMMENT '카드 승인 번호 또는 바코드 번호',
+    status VARCHAR(20) NOT NULL DEFAULT 'APPROVED' COMMENT '결제 상태 (APPROVED / CANCELLED)',
+    paid_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '결제 일시',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_payments_order_id FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='결제 상세 이력';
+
+-- ④ 쿠폰 및 포인트 관련 테이블
+CREATE TABLE coupons (
+    id INT AUTO_INCREMENT COMMENT '쿠폰 고유 번호',
+    code VARCHAR(50) NOT NULL UNIQUE COMMENT '쿠폰 바코드 번호',
+    name VARCHAR(100) NOT NULL COMMENT '쿠폰 이름',
+    discount_type VARCHAR(20) NOT NULL COMMENT '할인 유형',
+    discount_value DECIMAL(10, 2) NOT NULL COMMENT '할인 금액 또는 할인 비율',
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='쿠폰 마스터';
+
+CREATE TABLE point_histories (
+    id INT AUTO_INCREMENT COMMENT '포인트 이력 고유 번호',
+    customer_phone VARCHAR(20) NOT NULL COMMENT '고객 전화번호',
+    order_id INT NULL COMMENT '연결된 주문 ID',
+    type VARCHAR(10) NOT NULL COMMENT '구분 (EARN / USE)',
+    amount DECIMAL(10, 0) NOT NULL COMMENT '포인트 금액',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '발생 일시',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_point_histories_order_id FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='포인트 적립 및 사용 이력';
+
+CREATE TABLE used_coupons (
+    id INT AUTO_INCREMENT COMMENT '사용 이력 고유 번호',
+    order_id INT NOT NULL COMMENT '사용된 주문 ID',
+    coupon_id INT NOT NULL COMMENT '사용한 쿠폰 ID',
+    used_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '사용 일시',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_used_coupons_order_id FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    CONSTRAINT fk_used_coupons_coupon_id FOREIGN KEY (coupon_id) REFERENCES coupons (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='쿠폰 사용 이력';
+
+-- ⑤ 재고 및 발주(재고 신청) 관련 테이블
+CREATE TABLE branch_stocks (
+    branch_id INT NOT NULL COMMENT '분점 ID',
+    icecream_id INT NOT NULL COMMENT '맛/상품 ID',
+    quantity INT NOT NULL DEFAULT 0 COMMENT '현재 재고량',
+    PRIMARY KEY (branch_id, icecream_id),
+    CONSTRAINT fk_branch_stocks_branch_id FOREIGN KEY (branch_id) REFERENCES branches (id) ON DELETE CASCADE,
+    CONSTRAINT fk_branch_stocks_icecream_id FOREIGN KEY (icecream_id) REFERENCES product (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='지점별 실시간 재고';
+
+CREATE TABLE headquarters_stocks (
+    icecream_id INT NOT NULL COMMENT '맛/상품 ID',
+    quantity INT NOT NULL DEFAULT 0 COMMENT '본사 물류창고 전체 재고량',
+    PRIMARY KEY (icecream_id),
+    CONSTRAINT fk_hq_stocks_icecream_id FOREIGN KEY (icecream_id) REFERENCES product (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='본사 물류창고 재고';
+
+CREATE TABLE stock_requests (
+    id INT AUTO_INCREMENT COMMENT '신청 번호',
+    branch_id INT NOT NULL COMMENT '신청한 분점 ID',
+    status VARCHAR(20) NOT NULL DEFAULT 'PENDING' COMMENT '진행 상태',
+    requested_by INT NOT NULL COMMENT '신청자 ID',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '신청일',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_stock_req_branch_id FOREIGN KEY (branch_id) REFERENCES branches (id) ON DELETE CASCADE,
+    CONSTRAINT fk_stock_req_requested_by FOREIGN KEY (requested_by) REFERENCES managers (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='재고 발주 메인 요청서';
+
+CREATE TABLE stock_request_details (
+    id INT AUTO_INCREMENT COMMENT '상세 고유 번호',
+    request_id INT NOT NULL COMMENT '재고 신청 메인 ID',
+    icecream_id INT NOT NULL COMMENT '신청 품목(맛) ID',
+    quantity INT NOT NULL COMMENT '신청 수량',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_req_details_request_id FOREIGN KEY (request_id) REFERENCES stock_requests (id) ON DELETE CASCADE,
+    CONSTRAINT fk_req_details_icecream_id FOREIGN KEY (icecream_id) REFERENCES product (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='재고 발주 상세 품목';
+
+-- ⑥ 마케팅, 홍보 및 통계 관련 테이블
+CREATE TABLE monthly_flavors (
+    id INT AUTO_INCREMENT COMMENT '이달의 맛 홍보 고유 번호',
+    product_id INT NOT NULL COMMENT '연관된 상품/맛 ID',
+    description TEXT NULL COMMENT '맛에 대한 세부 홍보 설명',
+    image_url VARCHAR(500) NOT NULL COMMENT '메뉴판 표시용 대표 이미지 경로',
+    start_date DATE NOT NULL COMMENT '홍보 및 노출 시작일',
+    end_date DATE NOT NULL COMMENT '홍보 및 노출 종료일',
+    exposure_order INT NOT NULL DEFAULT 1 COMMENT '메뉴판 노출 우선순위 (낮을수록 상단)',
+    is_active BOOLEAN NOT NULL DEFAULT TRUE COMMENT '현재 활성화 여부',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_monthly_flavor_product FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='이달의 맛 프로모션 관리';
+
+CREATE TABLE discount_events (
+    id INT AUTO_INCREMENT COMMENT '이벤트 고유 번호',
+    title VARCHAR(100) NOT NULL COMMENT '이벤트명 (예: 해피아워 타임세일)',
+    start_time TIME NOT NULL COMMENT '할인 적용 시작 시간 (예: 14:00:00)',
+    end_time TIME NOT NULL COMMENT '할인 적용 종료 시간 (예: 16:00:00)',
+    discount_rate DECIMAL(5, 2) NOT NULL DEFAULT 0.00 COMMENT '할인율 (예: 10.00 = 10%)',
+    target_category VARCHAR(30) NOT NULL COMMENT '적용 대상 카테고리 (ALL, ICECREAM, COFFEE 등)',
+    is_active BOOLEAN NOT NULL DEFAULT TRUE COMMENT '이벤트 활성화 여부',
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='비인기 시간대 자동 할인 이벤트';
+
+CREATE TABLE roulette_events (
+    id INT AUTO_INCREMENT COMMENT '룰렛 이벤트 고유 번호',
+    title VARCHAR(100) NOT NULL COMMENT '이벤트 명칭',
+    start_date DATE NOT NULL COMMENT '이벤트 시작일',
+    end_date DATE NOT NULL COMMENT '이벤트 종료일',
+    daily_max_winners INT NOT NULL DEFAULT 0 COMMENT '하루 당첨 가능 총 인원 제한 (0은 제한없음)',
+    is_active BOOLEAN NOT NULL DEFAULT TRUE COMMENT '이벤트 활성화 여부',
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='결제 완료 후 룰렛 이벤트 설정';
+
+CREATE TABLE roulette_rewards (
+    id INT AUTO_INCREMENT COMMENT '보상 고유 번호',
+    event_id INT NOT NULL COMMENT '연관된 룰렛 이벤트 ID',
+    reward_name VARCHAR(100) NOT NULL COMMENT '보상 이름 (예: 1,000원 할인쿠폰)',
+    reward_type VARCHAR(20) NOT NULL COMMENT '보상 유형 (COUPON / ITEM_FREE / SIZE_UP / NONE)',
+    coupon_id INT NULL COMMENT 'COUPON일 경우 연동될 쿠폰 마스터 ID',
+    winning_probability DECIMAL(5, 2) NOT NULL COMMENT '당첨 확률 (예: 10.50 = 10.5%)',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_roulette_reward_event FOREIGN KEY (event_id) REFERENCES roulette_events (id) ON DELETE CASCADE,
+    CONSTRAINT fk_roulette_reward_coupon FOREIGN KEY (coupon_id) REFERENCES coupons (id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='룰렛 보상 구성 및 확률';
+
+CREATE TABLE roulette_win_histories (
+    id INT AUTO_INCREMENT COMMENT '당첨 이력 고유 번호',
+    event_id INT NOT NULL COMMENT '이벤트 ID',
+    reward_id INT NOT NULL COMMENT '선택된 보상 ID',
+    order_id INT NOT NULL COMMENT '결제 완료된 주문 ID',
+    won_date DATE NOT NULL COMMENT '당첨 일자 (인원수 체크용 인덱싱)',
+    won_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '정확한 당첨 시간',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_win_history_event FOREIGN KEY (event_id) REFERENCES roulette_events (id),
+    CONSTRAINT fk_win_history_reward FOREIGN KEY (reward_id) REFERENCES roulette_rewards (id),
+    CONSTRAINT fk_win_history_order FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    INDEX idx_won_date (won_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='룰렛 당첨 이력 및 일일 제한 검증';
+
+-- ⑦ 본사-지점간 소통 및 시스템 설정 테이블
+CREATE TABLE branch_inquiries (
+    id INT AUTO_INCREMENT COMMENT '문의 고유 번호',
+    branch_id INT NOT NULL COMMENT '문의를 작성한 분점 ID',
+    manager_id INT NOT NULL COMMENT '작성한 지점장 ID',
+    title VARCHAR(200) NOT NULL COMMENT '문의 제목',
+    content TEXT NOT NULL COMMENT '문의 내용',
+    reply_content TEXT NULL COMMENT '본사 총관리자의 답변 내용',
+    status VARCHAR(20) NOT NULL DEFAULT 'PENDING' COMMENT '처리 상태 (PENDING / ANSWERED)',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '작성일',
+    replied_at DATETIME NULL COMMENT '답변일',
+    PRIMARY KEY (id),
+    CONSTRAINT fk_inquiry_branch FOREIGN KEY (branch_id) REFERENCES branches (id) ON DELETE CASCADE,
+    CONSTRAINT fk_inquiry_manager FOREIGN KEY (manager_id) REFERENCES managers (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='본사-지점 간 문의 게시판';
+
+CREATE TABLE branch_stock_thresholds (
+    branch_id INT NOT NULL COMMENT '분점 ID',
+    icecream_id INT NOT NULL COMMENT '맛/상품 ID',
+    safety_threshold INT NOT NULL DEFAULT 5 COMMENT '자동 발주 기준 임계치',
+    auto_request_qty INT NOT NULL DEFAULT 10 COMMENT '자동 발주 시 신청할 수량',
+    PRIMARY KEY (branch_id, icecream_id),
+    CONSTRAINT fk_threshold_branch FOREIGN KEY (branch_id) REFERENCES branches (id) ON DELETE CASCADE,
+    CONSTRAINT fk_threshold_product FOREIGN KEY (icecream_id) REFERENCES product (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='지점별 자동 발주 임계치 설정';</code></pre>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white border-t border-slate-100 py-10 mt-12 text-center text-xs text-slate-400">
-        © 2026 SweetFlow Icecream Franchise Framework. All Rights Reserved.
+    <footer class="bg-white border-t border-slate-100 py-8 mt-12">
+        <div class="mx-auto max-w-7xl px-6 text-center text-xs text-slate-400">
+            <p>© 2026 SweetFlow Icecream Franchise Platform Infrastructure. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- IMAGE EXPAND MODAL VIEW (화면 꽉 채우기 전격 지원 최대화 모달) -->
+    <!-- IMAGE EXPAND MODAL VIEW -->
     <div id="image-modal" class="fixed inset-0 z-50 hidden bg-slate-950/95 items-center justify-center p-2 sm:p-4">
-        <div class="relative w-full h-full flex flex-col items-center justify-center">
-            <!-- 닫기 버튼: 우측 상단 고정 및 확대 -->
-            <button onclick="closeImageModal()" class="absolute top-4 right-4 z-50 rounded-full p-3 bg-slate-800/80 text-white hover:bg-slate-700 transition-colors shadow-lg">
-                <i data-lucide="x" class="h-8 w-8"></i>
-            </button>
-            
-            <!-- 이미지 구조: 가로 96vw, 세로 92vh 전격 조율 -->
-            <div class="bg-white p-2 rounded-xl shadow-2xl w-[96vw] h-[92vh] flex items-center justify-center overflow-hidden">
-                <img id="modal-target-img" src="" alt="Expanded View" class="w-full h-full object-contain rounded-lg">
-            </div>
-            <p class="text-xs text-slate-400 mt-2 font-mono" id="modal-img-caption"></p>
-        </div>
-    </div>
-
-    <!-- PRESENTATION MODE OVERLAY (SLIDESHOW MODAL) -->
-    <div id="presentation-overlay" class="fixed inset-0 z-50 hidden bg-slate-950 text-white flex-col justify-between">
-        <!-- Top bar of presentation -->
-        <div class="flex items-center justify-between px-8 py-4 bg-slate-900 border-b border-slate-800">
-            <div class="flex items-center gap-2">
-                <span class="rounded-md bg-pink-500 px-2 py-0.5 text-xs font-bold text-white uppercase">SweetFlow Slide</span>
-                <span class="text-sm font-semibold text-slate-300" id="slide-title">아키텍처 개요</span>
-            </div>
-            <button onclick="closePresentationMode()" class="rounded-lg p-2 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+        <div class="relative w-[96vw] h-[96vh] flex flex-col items-center justify-between">
+            <button onclick="closeImageModal()" class="absolute top-2 right-2 rounded-full p-2 bg-slate-800/80 text-slate-300 hover:text-white transition-colors z-10 shadow-lg">
                 <i data-lucide="x" class="h-6 w-6"></i>
             </button>
+            <div class="bg-white p-2 rounded-xl w-full h-[90vh] overflow-auto flex items-center justify-center shadow-2xl">
+                <img id="modal-target-img" src="" alt="Expanded Blueprint View" class="w-full h-full object-contain rounded-lg">
+            </div>
+            <p class="text-xs text-slate-400 font-mono py-1" id="modal-img-caption"></p>
+        </div>
+    </div>
+
+    <!-- PRESENTATION SLIDE MODE OVERLAY -->
+    <div id="presentation-overlay" class="fixed inset-0 z-50 hidden bg-slate-950 text-white flex-col justify-between">
+        <div class="flex items-center justify-between px-8 py-4 bg-slate-900 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+                <span class="rounded-md bg-pink-500 px-2 py-0.5 text-xs font-bold uppercase">SweetFlow Dashboard Slide</span>
+                <span class="text-sm font-semibold text-slate-300" id="slide-title">아키텍처 및 핵심 명세</span>
+            </div>
+            <button onclick="closePresentationMode()" class="rounded-lg p-2 text-slate-400 hover:text-white hover:bg-slate-800"><i data-lucide="x" class="h-6 w-6"></i></button>
         </div>
 
-        <!-- Center content of presentation -->
+        <!-- Center Content -->
         <div class="flex-1 flex items-center justify-center p-8 max-w-5xl mx-auto w-full">
-            <!-- Slide 1: 개요 -->
-            <div id="slide-content-1" class="slide-page space-y-4 text-center">
-                <span class="text-pink-500 font-bold text-xs uppercase tracking-widest">CHAPTER 01</span>
-                <h2 class="text-3xl font-black">프로젝트 아키텍처 개요 및 깃(Git) 브랜치 표준 전략</h2>
-                <p class="text-slate-400 text-xs max-w-xl mx-auto">전국 프랜차이즈 관제를 아우르는 무인 단말기 - 가맹 지점 - 본사 데이터 마트의 통합 아키텍처 및 형상 관리 정책</p>
-                <div class="bg-slate-900 p-4 rounded-xl max-w-lg mx-auto text-left text-xs text-slate-400 space-y-1 font-mono">
-                    <p>• 가맹점 스마트 재고: 보유 수량 3개 이하 감지 시 자동 발주 요청 가동</p>
-                    <p>• Git 분기 가이드라인: main 배포 ➔ dev 통합 ➔ feature_기능명 개발 ➔ fix_오류명 정정</p>
-                    <p>• i18n 언어 다국어화: Spring 세션 로케일 인터셉터 기반 국문/영문 즉시 동기화</p>
+            <!-- Slide 1 -->
+            <div id="slide-content-1" class="slide-page space-y-6">
+                <div class="text-center">
+                    <span class="text-pink-500 font-bold text-xs uppercase tracking-widest">CHAPTER 01</span>
+                    <h2 class="text-3xl font-black mt-1">4대 프레임워크 핵심 스택 및 동기화 기조</h2>
+                    <p class="text-slate-400 text-xs max-w-xl mx-auto mt-2">프론트엔드 SDK 연동부터 스프링 i18n 메시지 인터셉터, MySQL 트랜잭션 원자성 처리를 주입한 3단계 플랫폼 모델입니다.</p>
+                </div>
+                <div class="grid gap-4 md:grid-cols-2 mt-4 text-left text-xs max-w-3xl mx-auto">
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                        <strong class="text-pink-400 block mb-1">Kiosk Client & Real-time Messaging</strong>
+                        REST API 통신 규격 수립, 프린터 하드웨어 통신 감지 구조화 및 FCM Admin Push 처리를 통한 즉각적 영업/호출 신호 가맹점 전파 제어.
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                        <strong class="text-violet-400 block mb-1">Spring Boot DB Lock Transaction</strong>
+                        다중 기기 동시 결제 레이스 컨디션 차단을 위한 비관적 락 확보 정책 수립. 예외 및 하드웨어 오류 발생 시 자동 완벽 롤백 트랜잭션 수행.
+                    </div>
                 </div>
             </div>
 
-            <!-- Slide 2: 마케팅 및 Figma 피드 -->
-            <div id="slide-content-2" class="slide-page hidden space-y-4 w-full">
-                <div class="text-center mb-2">
-                    <span class="text-emerald-500 font-bold text-xs uppercase tracking-widest">CHAPTER 02</span>
-                    <h2 class="text-2xl font-bold">홍보용 마케팅 고도화 구조 및 Figma 대시보드 그래프 활용</h2>
+            <!-- Slide 2 -->
+            <div id="slide-content-2" class="slide-page hidden space-y-6 w-full">
+                <div class="text-center">
+                    <span class="text-violet-500 font-bold text-xs uppercase tracking-widest">CHAPTER 02</span>
+                    <h2 class="text-2xl font-black mt-1">설계 명세 다이어그램 완전 융합 (Usecase & Class)</h2>
+                    <p class="text-slate-400 text-xs max-w-xl mx-auto mt-2">액터 요구 동작 시나리오와 영속성 바구니 객체 구조 설계를 명확히 규격화한 블루프린트입니다.</p>
                 </div>
-                <div class="grid gap-4 md:grid-cols-3 text-xs">
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <strong class="text-pink-400 block mb-1">이달의 맛 배너 원격 제어</strong>
-                        본사 총괄 마케팅 관리 부서에서 일괄 배너 주입 시 가맹 키오스크 1번 그리드 강제 인젝션 노출.
+                <div class="grid gap-4 md:grid-cols-2 text-left max-w-3xl mx-auto text-xs">
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex gap-3 items-center">
+                        <div class="min-w-[70px] max-w-[70px] bg-white p-1 rounded"><img src="usecase.png" class="max-h-[50px] mx-auto object-contain"></div>
+                        <div>
+                            <span class="text-pink-400 font-bold block">유즈케이스 설계 (usecase.png)</span>
+                            <p class="text-slate-500 text-[11px] mt-0.5">루프형 장바구니 연속 구성 및 인원 한계형 룰렛 게미피케이션 액터 행위 경계 명세 정의서 연동.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <strong class="text-violet-400 block mb-1">데드타임 그래프 통계 분석</strong>
-                        시간대별 유동 고객 수 및 맛별 누적 매출 추이 실시간 시각화 피드를 기반으로 자동 타임세일 활성화.
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex gap-3 items-center">
+                        <div class="min-w-[70px] max-w-[70px] bg-white p-1 rounded"><img src="class.png" class="max-h-[50px] mx-auto object-contain"></div>
+                        <div>
+                            <span class="text-violet-400 font-bold block">도메인 클래스 (class.png)</span>
+                            <p class="text-slate-500 text-[11px] mt-0.5">ShoppingCart 세션 제어 라이프사이클 및 분점 인벤토리 자동 발주 객체 릴레이션십 무결성 공고화.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <strong class="text-indigo-400 block mb-1">1일 2명 락인 룰렛 게미피케이션</strong>
-                        결제 트랜잭션 완결 로그 감지 즉시 리워드 풀을 호출하되 하루 당첨 제한을 걸어 희소성 브랜딩 전개.
-                    </div>
-                </div>
-                <div class="text-center pt-2">
-                    <span class="text-[10px] text-slate-400 bg-slate-900 px-3 py-1 rounded font-mono">※ 본문 내 figmadata.png 대시보드 그래프 연계 설계 완벽 대응</span>
                 </div>
             </div>
 
-            <!-- Slide 3: 비즈니스 유스케이스 -->
+            <!-- Slide 3 -->
             <div id="slide-content-3" class="slide-page hidden space-y-4 w-full text-center">
-                <span class="text-violet-500 font-bold text-xs uppercase tracking-widest">CHAPTER 03</span>
-                <h2 class="text-2xl font-bold">시스템 비즈니스 요구 세부 명세 (usecase.jpg / systemflow.jpg)</h2>
-                <p class="text-xs text-slate-400 max-w-xl mx-auto">소비자의 작업 단위별 정형 주문·결제 흐름부터 지점장의 자동 재고 입고 제어, 본사의 매출 집계 및 물류 상태 5단계 추적</p>
-                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-[11px] max-w-md mx-auto text-left text-slate-300">
-                    • Kiosk: 작업 순서 라우팅 (통 선택 -> 맛 선택 -> 담기 -> 추가 주문 이동), 거래 완료 후 세션 완전 파기 정책<br>
-                    • POS: 잔량 3개 이하 자동 발주서 인서트, <code class="text-pink-400">접수 -> 대기중 -> 픽업대기 -> 픽업완료</code> 4단 상태 출력 모니터 제어<br>
-                    • Headquarter: 전사 데이터 마트 기반 시간별 고객수 분석 및 지점 계정 자동화 발급 파이프라인
+                <span class="text-emerald-500 font-bold text-xs uppercase tracking-widest">CHAPTER 03</span>
+                <h2 class="text-2xl font-black">자율 제어 자동 발주 및 룰렛 검증 매커니즘</h2>
+                <div class="grid gap-3 md:grid-cols-3 text-left max-w-4xl mx-auto text-xs mt-2">
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-pink-400 font-bold block mb-1">Kiosk 루프 세션 & i18n</span>
+                        선형 복합 작업(컵/콘 연속 추가 담기) 세션 보존. 다국어 로케일 전환 시 기존 장바구니 데이터 소멸 예방 제어 구현.
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-violet-400 font-bold block mb-1">안전 임계 자동 발주 트리거</span>
+                        <code class="text-violet-400">quantity &lt;= safety_threshold</code> 발생 시 stock_requests 자동 입력 트랜잭션 수행으로 물류 마찰 최소화.
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-blue-400 font-bold block mb-1">마케팅 및 리워드 통제</span>
+                        이달의 맛 1순위 고정 노출 우선순위 할당 및 데드아워 자동 타임세일, 일일 승인 카운터 상한 인원 통제형 룰렛 로직 가동.
+                    </div>
                 </div>
             </div>
 
-            <!-- Slide 4: 도메인 클래스 및 관계 모델링 -->
-            <div id="slide-content-4" class="slide-page hidden space-y-4 w-full text-center">
-                <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">CHAPTER 04</span>
-                <h2 class="text-2xl font-bold">도메인 엔티티 클래스화(class.png) 및 RDB 물리 설계(rdb3.png)</h2>
-                <p class="text-xs text-slate-400 max-w-xl mx-auto">객체지향 설계 사상에 입각한 주문서 영수증 클래스 구조화와 복합 기본키 제약조건을 고수한 정형 관계형 스키마 정합성 보장</p>
-                <div class="bg-slate-900 p-4 rounded-xl max-w-2xl mx-auto">
-                    <div class="flex justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-2 mb-2 font-mono">
-                        <span>물리 엔티티 구조</span>
-                        <span>자동화 인프라 명세</span>
-                    </div>
-                    <div class="space-y-1 text-left text-xs font-mono text-slate-300">
-                        <p>• 주문서 내용 클래스화: <code class="text-pink-400">Order Entity Class</code> 기반 상세 용기 및 맛 연계 관계 정형 도메인 선언 보장</p>
-                        <p>• <span class="text-white font-semibold">branch_stocks</span>: 자동 입고 스케줄러 팩터 인덱싱 설정 및 발주 5단 플래그 명세 완결</p>
-                    </div>
+            <!-- Slide 4 -->
+            <div id="slide-content-4" class="slide-page hidden space-y-4 w-full">
+                <div class="text-center">
+                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">CHAPTER 04</span>
+                    <h2 class="text-2xl font-black mt-1">고도화 관계형 DB 물리 스키마 (MySQL DDL)</h2>
+                    <p class="text-slate-400 text-xs">임계치 조건 분리 및 마케팅/소통 원장을 완벽 분리한 고정 제약조건 구조 설계입니다.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl max-w-2xl mx-auto text-left text-xs space-y-2">
+                    <div class="flex justify-between border-b border-slate-800 pb-2 text-slate-400"><span>물리 테이블 컴포넌트 명세</span><span>제약 및 무결성 조인 매핑 핵심 조건</span></div>
+                    <div class="flex justify-between"><span>orders $\rightarrow$ order_items $\rightarrow$ flavors</span><span class="text-slate-500">선형 다중 조합 컵/콘 데이터의 혼선을 원천 봉쇄하는 매핑 원장</span></div>
+                    <div class="flex justify-between"><span>branch_stock_thresholds</span><span class="text-slate-500">안전 재고 하한 임계치 및 자율 발주 신청 수량을 분리 관리하는 스키마</span></div>
+                    <div class="flex justify-between"><span>roulette_rewards / win_histories</span><span class="text-slate-500">가중치 확률 연동 및 일한도 검증용 won_date 인덱스 최적화 반영</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom bar of presentation with navigation buttons -->
+        <!-- Bottom Presentation Bar -->
         <div class="flex items-center justify-between px-8 py-6 bg-slate-900 border-t border-slate-800">
-            <div class="text-xs text-slate-400">
-                <span id="slide-num">1</span> / 4
-            </div>
+            <div class="text-xs text-slate-400"><span id="slide-num">1</span> / 4</div>
             <div class="flex gap-2">
-                <button onclick="prevSlide()" class="rounded-lg bg-slate-800 px-4 py-2 text-xs font-semibold hover:bg-slate-700 text-white transition-all">이전</button>
-                <button onclick="nextSlide()" class="rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold hover:bg-violet-700 text-white transition-all">다음</button>
+                <button onclick="prevSlide()" class="rounded-lg bg-slate-800 px-4 py-2 text-xs font-semibold hover:bg-slate-700">이전</button>
+                <button onclick="nextSlide()" class="rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold hover:bg-violet-700">다음</button>
             </div>
         </div>
     </div>
 
-    <!-- Core Interactive JavaScript -->
+    <!-- Core Javascript Scripts -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // 1. Smooth Scroll to Page Sections
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 2. Functional Filter System
         function filterFunctions(role) {
             const rows = document.querySelectorAll('.func-row');
-            
-            // Remove active style from all tabs
             const tabs = ['tab-all', 'tab-user', 'tab-common', 'tab-manager', 'tab-hq'];
             tabs.forEach(tabId => {
                 const tab = document.getElementById(tabId);
-                tab.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-                tab.classList.add('text-slate-600');
+                if (tab) {
+                    tab.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                    tab.classList.add('text-slate-600');
+                }
             });
 
-            // Set active style to clicked tab
             let activeTabId = 'tab-all';
             if (role === 'USER') activeTabId = 'tab-user';
             else if (role === 'COMMON') activeTabId = 'tab-common';
@@ -1028,10 +1076,11 @@ CREATE TABLE `stock_requests` (
             else if (role === 'HQ') activeTabId = 'tab-hq';
             
             const activeTab = document.getElementById(activeTabId);
-            activeTab.classList.remove('text-slate-600');
-            activeTab.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            if (activeTab) {
+                activeTab.classList.remove('text-slate-600');
+                activeTab.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            }
 
-            // Toggle rows
             rows.forEach(row => {
                 if (role === 'ALL' || row.getAttribute('data-role') === role) {
                     row.classList.remove('hidden');
@@ -1041,11 +1090,8 @@ CREATE TABLE `stock_requests` (
             });
         }
 
-        // 3. Script Clipboard Copier
         function copyToClipboard() {
             const codeText = document.getElementById('ddl-schema-text').innerText;
-            
-            // Standard fallback copier for canvas iframe environments
             const tempTextArea = document.createElement('textarea');
             tempTextArea.value = codeText;
             document.body.appendChild(tempTextArea);
@@ -1056,26 +1102,21 @@ CREATE TABLE `stock_requests` (
                 const copyBtnText = document.getElementById('copy-text');
                 if (successful) {
                     copyBtnText.innerText = "복사 완료!";
-                    setTimeout(() => {
-                        copyBtnText.innerText = "스크립트 복사";
-                    }, 2000);
+                    setTimeout(() => { copyBtnText.innerText = "스크립트 복사"; }, 2000);
                 } else {
-                    alert('복사에 실패했습니다. 수동으로 드래그 복사를 진행해주십시오.');
+                    alert('복사에 실패했습니다.');
                 }
-            } catch (err) {
-                console.error('Fallback copy error', err);
-            }
+            } catch (err) { console.error(err); }
             document.body.removeChild(tempTextArea);
         }
 
-        // 4. Modal Image Expander Control (화면 꽉 채우기 호환)
         function openImageModal(imgSrc) {
             const modal = document.getElementById('image-modal');
             const targetImg = document.getElementById('modal-target-img');
             const caption = document.getElementById('modal-img-caption');
             
             targetImg.src = imgSrc;
-            caption.innerText = `SweetFlow File Component: ${imgSrc}`;
+            caption.innerText = `SweetFlow Blueprint Resource Asset: ${imgSrc}`;
             
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -1087,11 +1128,9 @@ CREATE TABLE `stock_requests` (
             modal.classList.add('hidden');
         }
 
-        // 5. Accordion Toggle Control (Notion Spec Sheet integration)
         function toggleAccordion(accId) {
-            const content = document.getElementById(`acc-content-${accId.split('-')[1]}`);
-            const icon = document.getElementById(`acc-icon-${accId.split('-')[1]}`);
-            
+            const content = document.getElementById(`acc-content-${accId}`);
+            const icon = document.getElementById(`acc-icon-${accId}`);
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
                 icon.style.transform = 'rotate(180deg)';
@@ -1101,15 +1140,13 @@ CREATE TABLE `stock_requests` (
             }
         }
 
-        // 6. Slide Show / Presentation Mode Control
         let currentSlide = 1;
         const totalSlides = 4;
-
         const slideTitles = {
-            1: "아키텍처 개요 및 Git 브랜치 제어 전략 명세",
-            2: "홍보 프로모션 데이터 구조 및 통계 활용 효과",
-            3: "시스템 비즈니스 유스케이스·플로우 정의서 요약",
-            4: "주문서 도메인 엔티티 클래스화 및 물리 관계도"
+            1: "4대 프레임워크 핵심 스택 및 동기화 기조",
+            2: "설계 명세 다이어그램 완전 융합 (Usecase & Class)",
+            3: "자율 제어 자동 발주 및 룰렛 검증 매커니즘",
+            4: "고도화 관계형 DB 물리 스키마 (MySQL DDL)"
         };
 
         function openPresentationMode() {
@@ -1125,13 +1162,10 @@ CREATE TABLE `stock_requests` (
         }
 
         function updateSlideView() {
-            // Hide all slides
             for (let i = 1; i <= totalSlides; i++) {
                 document.getElementById(`slide-content-${i}`).classList.add('hidden');
             }
-            // Show active slide
             document.getElementById(`slide-content-${currentSlide}`).classList.remove('hidden');
-            // Update labels
             document.getElementById('slide-title').innerText = slideTitles[currentSlide];
             document.getElementById('slide-num').innerText = currentSlide;
         }
@@ -1145,7 +1179,6 @@ CREATE TABLE `stock_requests` (
             }
         }
 
-        // Keyboard arrow controls & modal escape support
         function prevSlide() {
             if (currentSlide > 1) {
                 currentSlide--;
