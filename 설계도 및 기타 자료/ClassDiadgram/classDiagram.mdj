@@ -94,7 +94,7 @@
 											"parentStyle": true,
 											"left": 4736,
 											"top": 1040,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -407,7 +407,7 @@
 											"parentStyle": true,
 											"left": 4752,
 											"top": 896,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -676,7 +676,7 @@
 											"parentStyle": true,
 											"left": 2592,
 											"top": -832,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -984,7 +984,7 @@
 											"parentStyle": true,
 											"left": 3424,
 											"top": -432,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -1261,7 +1261,7 @@
 											"parentStyle": true,
 											"left": 2880,
 											"top": -800,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -1519,7 +1519,7 @@
 											"parentStyle": true,
 											"left": 1856,
 											"top": -752,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -1807,7 +1807,7 @@
 											"parentStyle": true,
 											"left": 1744,
 											"top": 1248,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -2155,7 +2155,7 @@
 											"parentStyle": true,
 											"left": 1725,
 											"top": 583,
-											"width": 124.91259765625,
+											"width": 125.693359375,
 											"height": 13,
 											"text": "SALES"
 										},
@@ -2171,7 +2171,7 @@
 											"parentStyle": true,
 											"left": -816,
 											"top": 208,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -2196,7 +2196,7 @@
 									"parentStyle": true,
 									"left": 1720,
 									"top": 576,
-									"width": 134.91259765625,
+									"width": 135.693359375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGfPQorJ9x6o64="
@@ -2235,7 +2235,7 @@
 											"parentStyle": true,
 											"left": 1725,
 											"top": 606,
-											"width": 124.91259765625,
+											"width": 125.693359375,
 											"height": 13,
 											"text": "-id: INT",
 											"horizontalAlignment": 0
@@ -2254,7 +2254,7 @@
 											"parentStyle": true,
 											"left": 1725,
 											"top": 621,
-											"width": 124.91259765625,
+											"width": 125.693359375,
 											"height": 13,
 											"text": "-sales_date: DATE",
 											"horizontalAlignment": 0
@@ -2273,7 +2273,7 @@
 											"parentStyle": true,
 											"left": 1725,
 											"top": 636,
-											"width": 124.91259765625,
+											"width": 125.693359375,
 											"height": 13,
 											"text": "-total_amount: INT",
 											"horizontalAlignment": 0
@@ -2284,7 +2284,7 @@
 									"parentStyle": true,
 									"left": 1720,
 									"top": 601,
-									"width": 134.91259765625,
+									"width": 135.693359375,
 									"height": 53
 								},
 								{
@@ -2311,7 +2311,7 @@
 											"parentStyle": true,
 											"left": 1725,
 											"top": 659,
-											"width": 124.91259765625,
+											"width": 125.693359375,
 											"height": 13,
 											"text": "+calculateDailyTotal()",
 											"horizontalAlignment": 0
@@ -2322,7 +2322,7 @@
 									"parentStyle": true,
 									"left": 1720,
 									"top": 654,
-									"width": 134.91259765625,
+									"width": 135.693359375,
 									"height": 23
 								},
 								{
@@ -2369,7 +2369,7 @@
 							"containerChangeable": true,
 							"left": 1720,
 							"top": 576,
-							"width": 133.91259765625,
+							"width": 134.693359375,
 							"height": 101,
 							"nameCompartment": {
 								"$ref": "AAAAAAGfPQorJ9x5rxg="
@@ -2451,7 +2451,7 @@
 											"parentStyle": true,
 											"left": -1888,
 											"top": 304,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -2879,7 +2879,7 @@
 											"parentStyle": true,
 											"left": -880,
 											"top": 432,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -3194,7 +3194,7 @@
 											"parentStyle": true,
 											"left": -1840,
 											"top": 464,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -3623,7 +3623,7 @@
 											"parentStyle": true,
 											"left": -1552,
 											"top": 448,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -3862,7 +3862,7 @@
 											"parentStyle": true,
 											"left": -1312,
 											"top": 432,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -4131,7 +4131,7 @@
 											"parentStyle": true,
 											"left": -752,
 											"top": 1216,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -4392,7 +4392,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1327,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "SIZE"
 										},
@@ -4408,7 +4408,7 @@
 											"parentStyle": true,
 											"left": -832,
 											"top": 512,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -4433,7 +4433,7 @@
 									"parentStyle": true,
 									"left": 2200,
 									"top": 1320,
-									"width": 142.6376953125,
+									"width": 144.38330078125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGfPRjPn98Jt5w="
@@ -4472,7 +4472,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1350,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "-id: INT",
 											"horizontalAlignment": 0
@@ -4491,7 +4491,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1365,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "-name: VARCHAR",
 											"horizontalAlignment": 0
@@ -4510,7 +4510,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1380,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "-flavor_cnt: INT",
 											"horizontalAlignment": 0
@@ -4529,7 +4529,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1395,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "-price: INT",
 											"horizontalAlignment": 0
@@ -4548,7 +4548,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1410,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "-total_weight_g: INT",
 											"horizontalAlignment": 0
@@ -4559,7 +4559,7 @@
 									"parentStyle": true,
 									"left": 2200,
 									"top": 1345,
-									"width": 142.6376953125,
+									"width": 144.38330078125,
 									"height": 83
 								},
 								{
@@ -4586,7 +4586,7 @@
 											"parentStyle": true,
 											"left": 2205,
 											"top": 1433,
-											"width": 132.6376953125,
+											"width": 134.38330078125,
 											"height": 13,
 											"text": "+getWeightPerScoop()",
 											"horizontalAlignment": 0
@@ -4597,7 +4597,7 @@
 									"parentStyle": true,
 									"left": 2200,
 									"top": 1428,
-									"width": 142.6376953125,
+									"width": 144.38330078125,
 									"height": 23
 								},
 								{
@@ -4644,7 +4644,7 @@
 							"containerChangeable": true,
 							"left": 2200,
 							"top": 1320,
-							"width": 141.6376953125,
+							"width": 143.38330078125,
 							"height": 131,
 							"nameCompartment": {
 								"$ref": "AAAAAAGfPRjPnt8I4fY="
@@ -4705,7 +4705,7 @@
 											"parentStyle": true,
 											"left": 2445,
 											"top": 1895,
-											"width": 124.2080078125,
+											"width": 128.283203125,
 											"height": 13,
 											"text": "MENU"
 										},
@@ -4720,7 +4720,7 @@
 											"parentStyle": true,
 											"left": -800,
 											"top": 1632,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -4743,7 +4743,7 @@
 									"parentStyle": true,
 									"left": 2440,
 									"top": 1888,
-									"width": 134.2080078125,
+									"width": 138.283203125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGfPRqSA99f8Fo="
@@ -4781,7 +4781,7 @@
 											"parentStyle": true,
 											"left": 2445,
 											"top": 1918,
-											"width": 124.2080078125,
+											"width": 128.283203125,
 											"height": 13,
 											"text": "-id: INT",
 											"horizontalAlignment": 0
@@ -4799,7 +4799,7 @@
 											"parentStyle": true,
 											"left": 2445,
 											"top": 1933,
-											"width": 124.2080078125,
+											"width": 128.283203125,
 											"height": 13,
 											"text": "-name: VARCHAR",
 											"horizontalAlignment": 0
@@ -4809,7 +4809,7 @@
 									"parentStyle": true,
 									"left": 2440,
 									"top": 1913,
-									"width": 134.2080078125,
+									"width": 138.283203125,
 									"height": 38
 								},
 								{
@@ -4835,7 +4835,7 @@
 											"parentStyle": true,
 											"left": 2445,
 											"top": 1956,
-											"width": 124.2080078125,
+											"width": 128.283203125,
 											"height": 13,
 											"text": "+updateMenuName()",
 											"horizontalAlignment": 0
@@ -4853,7 +4853,7 @@
 											"parentStyle": true,
 											"left": 2445,
 											"top": 1971,
-											"width": 124.2080078125,
+											"width": 128.283203125,
 											"height": 13,
 											"text": "+checkSoldOut()",
 											"horizontalAlignment": 0
@@ -4863,7 +4863,7 @@
 									"parentStyle": true,
 									"left": 2440,
 									"top": 1951,
-									"width": 134.2080078125,
+									"width": 138.283203125,
 									"height": 38
 								},
 								{
@@ -4907,7 +4907,7 @@
 							"containerChangeable": true,
 							"left": 2440,
 							"top": 1888,
-							"width": 133.2080078125,
+							"width": 137.283203125,
 							"height": 101,
 							"nameCompartment": {
 								"$ref": "AAAAAAGfPRqSA99eITA="
@@ -4970,7 +4970,7 @@
 											"parentStyle": true,
 											"left": 2677,
 											"top": 1479,
-											"width": 122.748046875,
+											"width": 125.921875,
 											"height": 13,
 											"text": "CATEGORY"
 										},
@@ -4986,7 +4986,7 @@
 											"parentStyle": true,
 											"left": -544,
 											"top": 1200,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -5011,7 +5011,7 @@
 									"parentStyle": true,
 									"left": 2672,
 									"top": 1472,
-									"width": 132.748046875,
+									"width": 135.921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGfPRt4K9+n4xE="
@@ -5050,7 +5050,7 @@
 											"parentStyle": true,
 											"left": 2677,
 											"top": 1502,
-											"width": 122.748046875,
+											"width": 125.921875,
 											"height": 13,
 											"text": "-id: INT",
 											"horizontalAlignment": 0
@@ -5069,7 +5069,7 @@
 											"parentStyle": true,
 											"left": 2677,
 											"top": 1517,
-											"width": 122.748046875,
+											"width": 125.921875,
 											"height": 13,
 											"text": "-name: VARCHAR",
 											"horizontalAlignment": 0
@@ -5080,7 +5080,7 @@
 									"parentStyle": true,
 									"left": 2672,
 									"top": 1497,
-									"width": 132.748046875,
+									"width": 135.921875,
 									"height": 38
 								},
 								{
@@ -5107,7 +5107,7 @@
 											"parentStyle": true,
 											"left": 2677,
 											"top": 1540,
-											"width": 122.748046875,
+											"width": 125.921875,
 											"height": 13,
 											"text": "+addMenu()",
 											"horizontalAlignment": 0
@@ -5126,7 +5126,7 @@
 											"parentStyle": true,
 											"left": 2677,
 											"top": 1555,
-											"width": 122.748046875,
+											"width": 125.921875,
 											"height": 13,
 											"text": "+getCategoryName()",
 											"horizontalAlignment": 0
@@ -5137,7 +5137,7 @@
 									"parentStyle": true,
 									"left": 2672,
 									"top": 1535,
-									"width": 132.748046875,
+									"width": 135.921875,
 									"height": 38
 								},
 								{
@@ -5184,7 +5184,7 @@
 							"containerChangeable": true,
 							"left": 2672,
 							"top": 1472,
-							"width": 131.748046875,
+							"width": 134.921875,
 							"height": 101,
 							"nameCompartment": {
 								"$ref": "AAAAAAGfPRt4K9+m1Iw="
@@ -5266,7 +5266,7 @@
 											"parentStyle": true,
 											"left": 3264,
 											"top": 1728,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -5574,7 +5574,7 @@
 											"parentStyle": true,
 											"left": 3248,
 											"top": 1776,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -5933,7 +5933,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 400,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -6214,7 +6214,7 @@
 											"parentStyle": true,
 											"left": 224,
 											"top": -16,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -6467,7 +6467,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 192,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -6817,7 +6817,7 @@
 											"parentStyle": true,
 											"left": 224,
 											"top": 16,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -7134,9 +7134,9 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 1127,
+									"left": 1126,
 									"top": 1033,
-									"width": 20.591796875,
+									"width": 22.10888671875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -10740,7 +10740,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2367,
+									"left": 2368,
 									"top": 1364,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -10762,7 +10762,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2370,
+									"left": 2371,
 									"top": 1350,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -10784,7 +10784,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2363,
+									"left": 2364,
 									"top": 1391,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -10900,7 +10900,7 @@
 							"tail": {
 								"$ref": "AAAAAAGfPRjPnt8HJd8="
 							},
-							"points": "2342:1385;2712:1385;2712:1472",
+							"points": "2343:1385;2712:1385;2712:1472",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGfPUZhssbAleU="
@@ -15649,8 +15649,8 @@
 							"lineColor": "#00FF00",
 							"font": "Arial;16;0",
 							"parentStyle": false,
-							"left": 2872,
-							"top": 1440,
+							"left": 2856,
+							"top": 1696,
 							"width": 392,
 							"height": 128,
 							"text": "핵심 테이블: ITEM\n\n관계 테이블: CATEGORY, SIZE, MENU_OPTION, CUP, BRANCHINVENTORY, HQINVENTORY"
@@ -15664,11 +15664,25 @@
 							"lineColor": "#0000FF",
 							"font": "Arial;16;0",
 							"parentStyle": false,
-							"left": 1680,
-							"top": 176,
+							"left": 2104,
+							"top": 72,
 							"width": 392,
 							"height": 128,
 							"text": "핵심 테이블: BRANCH\n\n관계 테이블: KIOSK, BRANCHMANAGER, SALES"
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGfPyTtQ/xZBuo=",
+							"_parent": {
+								"$ref": "AAAAAAGfPO99oti2y/Q="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 95,
+							"top": 193,
+							"width": 100,
+							"height": 25,
+							"text": "Text"
 						}
 					]
 				},

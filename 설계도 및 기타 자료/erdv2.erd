@@ -4,9 +4,9 @@
   "settings": {
     "width": 3200,
     "height": 3200,
-    "scrollTop": -703.3581,
-    "scrollLeft": -1236.1607,
-    "zoomLevel": 0.52,
+    "scrollTop": -1079.6115,
+    "scrollLeft": -377.8761,
+    "zoomLevel": 1,
     "show": 431,
     "database": 4,
     "databaseName": "",
@@ -178,7 +178,7 @@
       "ze-65olvmAKtIZ83QvpyX": {
         "id": "ze-65olvmAKtIZ83QvpyX",
         "name": "MENU",
-        "comment": "판매용 메뉴",
+        "comment": "실제 판매용 메뉴",
         "columnIds": [
           "kG2o4yURXGP-jhSl1srfp",
           "KfvhUxWY-KLIXEw035HJV",
@@ -196,18 +196,18 @@
           "y": 1756.4593,
           "zIndex": 2,
           "widthName": 60,
-          "widthComment": 65,
+          "widthComment": 93,
           "color": ""
         },
         "meta": {
-          "updateAt": 1783425001689,
+          "updateAt": 1783469946419,
           "createAt": 1783422432760
         }
       },
       "gZf-yEXikNu6W4cQlfrCK": {
         "id": "gZf-yEXikNu6W4cQlfrCK",
         "name": "MENU_OPTION",
-        "comment": "선택형 옵션(토핑 등)",
+        "comment": "선택형 옵션(hot, ice 등)",
         "columnIds": [
           "0qnm1griZnugE3PtajPEX",
           "od42cp8OTNGKKK3Ye5HSh",
@@ -223,15 +223,15 @@
           "4tye6X24tfJYG57nDNR-b"
         ],
         "ui": {
-          "x": 1296.8406,
+          "x": 1297.977,
           "y": 2560.0462,
           "zIndex": 2,
           "widthName": 84,
-          "widthComment": 112,
+          "widthComment": 126,
           "color": ""
         },
         "meta": {
-          "updateAt": 1783424986862,
+          "updateAt": 1783469974927,
           "createAt": 1783422432760
         }
       },
@@ -478,15 +478,15 @@
           "_fX6HMYrHK-KauG5BZkWb"
         ],
         "ui": {
-          "x": 639.9838,
-          "y": 1822.8155,
+          "x": 674.5293,
+          "y": 1790.0882,
           "zIndex": 2,
           "widthName": 63,
           "widthComment": 156,
           "color": ""
         },
         "meta": {
-          "updateAt": 1783424929855,
+          "updateAt": 1783471566895,
           "createAt": 1783422432761
         }
       },
@@ -633,7 +633,7 @@
       "hyxr-R7zfZ8opSNtei_Wu": {
         "id": "hyxr-R7zfZ8opSNtei_Wu",
         "name": "ORDERITEM",
-        "comment": "주문 상품(1개 사이즈 단위)",
+        "comment": "주문 상품(1개 사이즈 단위), 주문에 들어있는 실제 메뉴",
         "columnIds": [
           "UpTyrcW8MLjUqfpLv9C7l",
           "ULEefi7JJdGL8U3hTIuER",
@@ -651,15 +651,15 @@
           "vfKQR9kk5UZgwDuob2mar"
         ],
         "ui": {
-          "x": 1282.3232,
-          "y": 2011.9283,
+          "x": 1353.5564,
+          "y": 1968.0932,
           "zIndex": 2,
           "widthName": 66,
-          "widthComment": 146,
+          "widthComment": 293,
           "color": ""
         },
         "meta": {
-          "updateAt": 1783425188392,
+          "updateAt": 1783471521836,
           "createAt": 1783422432762
         }
       },
@@ -3239,7 +3239,7 @@
           "columnIds": [
             "od42cp8OTNGKKK3Ye5HSh"
           ],
-          "x": 1700.8406,
+          "x": 1701.977,
           "y": 2648.0462,
           "direction": 2
         },
@@ -3531,15 +3531,15 @@
       "8tHLwgoudmm4gzQytJIFG": {
         "id": "8tHLwgoudmm4gzQytJIFG",
         "identification": false,
-        "relationshipType": 4,
+        "relationshipType": 8,
         "startRelationshipType": 2,
         "start": {
           "tableId": "rxX0HqGccXGuHKpicUFMD",
           "columnIds": [
             "64tgnwT97EJ0YOZaUVaFn"
           ],
-          "x": 639.9838,
-          "y": 1874.8155,
+          "x": 674.5293,
+          "y": 1842.0882,
           "direction": 1
         },
         "end": {
@@ -3552,7 +3552,7 @@
           "direction": 2
         },
         "meta": {
-          "updateAt": 1783422432763,
+          "updateAt": 1783443397134,
           "createAt": 1783422432763
         }
       },
@@ -3594,8 +3594,8 @@
           "columnIds": [
             "64tgnwT97EJ0YOZaUVaFn"
           ],
-          "x": 1111.9838,
-          "y": 1874.8155,
+          "x": 1146.5293000000001,
+          "y": 1842.0882,
           "direction": 2
         },
         "end": {
@@ -3687,8 +3687,8 @@
           "columnIds": [
             "ULEefi7JJdGL8U3hTIuER"
           ],
-          "x": 1510.8232,
-          "y": 2011.9283,
+          "x": 1582.0564,
+          "y": 1968.0932,
           "direction": 4
         },
         "meta": {
@@ -3715,8 +3715,8 @@
           "columnIds": [
             "qDDfWuubFMDIpT__tbvvI"
           ],
-          "x": 1282.3232,
-          "y": 2061.9283,
+          "x": 1353.5564,
+          "y": 2018.0932,
           "direction": 1
         },
         "meta": {
@@ -3743,8 +3743,8 @@
           "columnIds": [
             "76f2aMzneYCP8arRSGcbw"
           ],
-          "x": 1510.8232,
-          "y": 2211.9283,
+          "x": 1582.0564,
+          "y": 2168.0932000000003,
           "direction": 8
         },
         "meta": {
@@ -3762,8 +3762,8 @@
           "columnIds": [
             "UpTyrcW8MLjUqfpLv9C7l"
           ],
-          "x": 1739.3232,
-          "y": 2111.9283,
+          "x": 1810.5564,
+          "y": 2068.0932000000003,
           "direction": 2
         },
         "end": {
@@ -3818,8 +3818,8 @@
           "columnIds": [
             "UpTyrcW8MLjUqfpLv9C7l"
           ],
-          "x": 1282.3232,
-          "y": 2161.9283,
+          "x": 1353.5564,
+          "y": 2118.0932000000003,
           "direction": 1
         },
         "end": {
@@ -3846,7 +3846,7 @@
           "columnIds": [
             "0qnm1griZnugE3PtajPEX"
           ],
-          "x": 1296.8406,
+          "x": 1297.977,
           "y": 2648.0462,
           "direction": 1
         },
@@ -4203,6 +4203,23 @@
     },
     "indexEntities": {},
     "indexColumnEntities": {},
-    "memoEntities": {}
+    "memoEntities": {
+      "_t9evOLJpct3dkgzczasz": {
+        "id": "_t9evOLJpct3dkgzczasz",
+        "value": "주문에 들어있는 실제메뉴",
+        "ui": {
+          "x": 1582.2423,
+          "y": 1922.114,
+          "zIndex": 3,
+          "width": 147,
+          "height": 100,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1783469899456,
+          "createAt": 1783469863851
+        }
+      }
+    }
   }
 }
