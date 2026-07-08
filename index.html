@@ -1063,365 +1063,382 @@
 create database sweetscoop default character set utf8; 
 use sweetscoop;
 
-create table branch
+CREATE TABLE BRANCH
 (
-  id          int          not null auto_increment comment '지점 id',
-  branch_name varchar(50)  not null comment '지점명',
-  location    varchar(100) null     comment '위치/주소',
-  primary key (id)
-) comment '지점 정보';
+  id          INT          NOT NULL AUTO_INCREMENT COMMENT '지점 ID',
+  branch_name VARCHAR(50)  NOT NULL COMMENT '지점명',
+  location    VARCHAR(100) NULL     COMMENT '위치/주소',
+  PRIMARY KEY (id)
+) COMMENT '지점 정보';
 
-create table branchinventory
+CREATE TABLE BRANCHINVENTORY
 (
-  branch_id   int not null comment '지점 id',
-  item_id     int not null comment '물품 id',
-  stock_level int null     default 0 comment '현재 재고량 (단위: g 등)'
-) comment '지점별 실시간 재고';
+  branch_id   INT NOT NULL COMMENT '지점 ID',
+  item_id     INT NOT NULL COMMENT '물품 ID',
+  stock_level INT NULL     DEFAULT 0 COMMENT '현재 재고량 (단위: g 등)'
+) COMMENT '지점별 실시간 재고';
 
-create table branchmanager
+CREATE TABLE BRANCHMANAGER
 (
-  id        varchar(50) not null comment '점주 id',
-  branch_id int         not null comment '담당 지점 id',
-  primary key (id)
-) comment '지점 관리자/점주';
+  id        VARCHAR(50) NOT NULL COMMENT '점주 ID',
+  branch_id INT         NOT NULL COMMENT '담당 지점 ID',
+  PRIMARY KEY (id)
+) COMMENT '지점 관리자/점주';
 
-create table category
+CREATE TABLE CATEGORY
 (
-  id   int         not null comment '카테고리 id',
-  name varchar(30) not null comment '카테고리명(아이스크림,커피,아이스모찌 등)',
-  primary key (id)
-) comment '카테고리';
+  id   INT         NOT NULL COMMENT '카테고리 ID',
+  name VARCHAR(30) NOT NULL COMMENT '카테고리명(아이스크림,커피,아이스모찌 등)',
+  PRIMARY KEY (id)
+) COMMENT '카테고리';
 
-create table coupon
+CREATE TABLE COUPON
 (
-  id             int      not null auto_increment comment '쿠폰 id',
-  member_id      int      not null comment '회원 id',
-  issue_date     datetime null     comment '발급일시',
-  expiry_date    datetime null     comment '만료일시',
-  discount_value double   null     comment '할인 비율/금액',
-  is_used        boolean  null     default false comment '사용 여부',
-  used_at        datetime null     comment '사용 완료 일시',
-  primary key (id)
-) comment '발급 쿠폰 이력';
+  id             INT         NOT NULL AUTO_INCREMENT COMMENT '쿠폰 ID',
+  member_id      INT         NOT NULL COMMENT '회원 ID',
+  name           VARCHAR(50) NOT NULL COMMENT '쿠폰명',
+  issue_date     DATETIME    NULL     COMMENT '발급일시',
+  expiry_date    DATETIME    NULL     COMMENT '만료일시',
+  discount_value DOUBLE      NULL     COMMENT '할인 비율/금액',
+  is_used        BOOLEAN     NULL     DEFAULT FALSE COMMENT '사용 여부',
+  used_at        DATETIME    NULL     COMMENT '사용 완료 일시',
+  PRIMARY KEY (id)
+) COMMENT '발급 쿠폰 이력';
 
-create table cs
+CREATE TABLE CS
 (
-  id           int         not null auto_increment comment '문의 id',
-  title        varchar(50) not null comment '문의 제목',
-  content      text        null     comment '문의 내용',
-  created_at   datetime    null     comment '문의일시',
-  manager_id   varchar(50) not null comment '작성 점주 id',
-  hqmanager_id varchar(50) null     comment '담당 본사 관리자 id',
-  primary key (id)
-) comment '문의게시판';
+  id           INT         NOT NULL AUTO_INCREMENT COMMENT '문의 ID',
+  title        VARCHAR(50) NOT NULL COMMENT '문의 제목',
+  content      TEXT        NULL     COMMENT '문의 내용',
+  created_at   DATETIME    NULL     COMMENT '문의일시',
+  manager_id   VARCHAR(50) NOT NULL COMMENT '작성 점주 ID',
+  hqManager_id VARCHAR(50) NULL     COMMENT '담당 본사 관리자 ID',
+  PRIMARY KEY (id)
+) COMMENT '문의게시판';
 
-create table cup
+CREATE TABLE CUP
 (
-  id               int         not null comment '컵 id',
-  name             varchar(30) not null comment '형태 명칭(컵,콘,와플 등)',
-  additional_price int         not null default 0 comment '컵 선택 시 추가 금액',
-  primary key (id)
-) comment '제공 타입(컵/콘)';
+  id               INT         NOT NULL COMMENT '컵 ID',
+  name             VARCHAR(30) NOT NULL COMMENT '형태 명칭(컵,콘,와플 등)',
+  additional_price INT         NOT NULL DEFAULT 0 COMMENT '컵 선택 시 추가 금액',
+  PRIMARY KEY (id)
+) COMMENT '제공 타입(컵/콘)';
 
-create table customer
+CREATE TABLE CUSTOMER
 (
-  id            int         not null auto_increment comment '고객 고유 id',
-  customer_type varchar(50) null     comment '비회원/회원 구분 플래그',
-  primary key (id)
-) comment '고객 일반 (회원/비회원 공통)';
+  id            INT         NOT NULL AUTO_INCREMENT COMMENT '고객 고유 ID',
+  customer_type VARCHAR(50) NULL     COMMENT '비회원/회원 구분 플래그',
+  PRIMARY KEY (id)
+) COMMENT '고객 일반 (회원/비회원 공통)';
 
-create table hqinventory
+CREATE TABLE HQINVENTORY
 (
-  id               int         not null auto_increment comment '발주 요청 id',
-  branch_id        int         not null comment '요청 지점 id',
-  item_id          int         not null comment '물품 id',
-  hqmanager_id     varchar(50) null     comment '승인 담당 관리자 id',
-  approval_status  varchar(20) null     comment '승인 상태',
-  delivery_status  varchar(20) null     comment '배송 상태',
-  request_quantity int         not null comment '요청 수량',
-  primary key (id)
-) comment '본사-지점 간 발주/물류 이력';
+  id               INT         NOT NULL AUTO_INCREMENT COMMENT '발주 요청 ID',
+  branch_id        INT         NOT NULL COMMENT '요청 지점 ID',
+  item_id          INT         NOT NULL COMMENT '물품 ID',
+  hqManager_id     VARCHAR(50) NULL     COMMENT '승인 담당 관리자 ID',
+  approval_status  VARCHAR(20) NULL     COMMENT '승인 상태',
+  delivery_status  VARCHAR(20) NULL     COMMENT '배송 상태',
+  request_quantity INT         NOT NULL COMMENT '요청 수량',
+  PRIMARY KEY (id)
+) COMMENT '본사-지점 간 발주/물류 이력';
 
-create table hqmanager
+CREATE TABLE HQMANAGER
 (
-  id   varchar(50) not null comment '관리자 id',
-  name varchar(50) not null comment '관리자 이름',
-  primary key (id)
-) comment '본사 관리자 (기본 정보)';
+  id   VARCHAR(50) NOT NULL COMMENT '관리자 ID',
+  name VARCHAR(50) NOT NULL COMMENT '관리자 이름',
+  PRIMARY KEY (id)
+) COMMENT '본사 관리자 (기본 정보)';
 
-create table item
+CREATE TABLE ITEM
 (
-  id          int         not null auto_increment comment '물품 id',
-  category_id int         not null comment '카테고리 id',
-  unit        int         not null comment '통/박스 단위(입고 기준)',
-  item_name   varchar(50) not null comment '물류용 실물품명',
-  primary key (id)
-) comment '실제 물류/재고 원자재';
+  id          INT         NOT NULL AUTO_INCREMENT COMMENT '물품 ID',
+  category_id INT         NOT NULL COMMENT '카테고리 ID',
+  unit        INT         NOT NULL COMMENT '통/박스 단위(입고 기준)',
+  item_name   VARCHAR(50) NOT NULL COMMENT '물류용 실물품명',
+  PRIMARY KEY (id)
+) COMMENT '실제 물류/재고 원자재';
 
-create table kiosk
+CREATE TABLE KIOSK
 (
-  id        int         not null auto_increment comment '기기 고유 id',
-  branch_id int         not null comment '소속 지점 id',
-  status    varchar(20) not null comment '기기 상태 (정상, 고장 등)',
-  primary key (id)
-) comment '개별 키오스크 기기';
+  id        INT         NOT NULL AUTO_INCREMENT COMMENT '기기 고유 ID',
+  branch_id INT         NOT NULL COMMENT '소속 지점 ID',
+  status    VARCHAR(20) NOT NULL COMMENT '기기 상태 (정상, 고장 등)',
+  PRIMARY KEY (id)
+) COMMENT '개별 키오스크 기기';
 
-create table member
+CREATE TABLE MEMBER
 (
-  id           int         not null auto_increment comment '회원 고유 id',
-  customer_id  int         not null comment '고객 id',
-  phone_number varchar(20) null     comment '연락처',
-  order_count  int         null     default 0 comment '누적 주문 횟수',
-  point        int         null     default 0 comment '적립금',
-  created_at   datetime    null     comment '회원 생성일시',
-  primary key (id)
-) comment '회원 상세 정보';
+  id           INT         NOT NULL AUTO_INCREMENT COMMENT '회원 고유 ID',
+  customer_id  INT         NOT NULL COMMENT '고객 ID',
+  phone_number VARCHAR(20) NULL     COMMENT '연락처',
+  order_count  INT         NULL     DEFAULT 0 COMMENT '누적 주문 횟수',
+  point        INT         NULL     DEFAULT 0 COMMENT '적립금',
+  created_at   DATETIME    NULL     COMMENT '회원 생성일시',
+  PRIMARY KEY (id)
+) COMMENT '회원 상세 정보';
 
-create table menu
+CREATE TABLE MENU
 (
-  id          int         not null comment '메뉴 id',
-  category_id int         not null comment '카테고리 id',
-  name        varchar(30) null     comment '메뉴/맛 이름(엄마는 외계인 등)',
-  item_id     int         not null comment '물품 id',
-  primary key (id)
-) comment '실제 판매용 메뉴';
+  id          INT         NOT NULL COMMENT '메뉴 ID',
+  category_id INT         NOT NULL COMMENT '카테고리 ID',
+  name        VARCHAR(30) NULL     COMMENT '메뉴/맛 이름(엄마는 외계인 등)',
+  item_id     INT         NOT NULL COMMENT '물품 ID',
+  PRIMARY KEY (id)
+) COMMENT '실제 판매용 메뉴';
 
-create table menu_option
+CREATE TABLE MENU_OPTION
 (
-  id          int         not null comment '옵션 id',
-  category_id int         not null comment '카테고리 id',
-  name        varchar(30) not null comment '옵션 명칭',
-  price       int         not null comment '옵션 추가 가격',
-  is_active   boolean     not null default true,
-  primary key (id)
-) comment '선택형 옵션(hot, ice 등)';
+  id          INT         NOT NULL COMMENT '옵션 ID',
+  category_id INT         NOT NULL COMMENT '카테고리 ID',
+  name        VARCHAR(30) NOT NULL COMMENT '옵션 명칭',
+  price       INT         NOT NULL COMMENT '옵션 추가 가격',
+  is_active   BOOLEAN     NOT NULL DEFAULT TRUE,
+  PRIMARY KEY (id)
+) COMMENT '선택형 옵션(hot, ice 등)';
 
-create table orderitem
+CREATE TABLE notice
 (
-  id          int not null auto_increment comment '상세 주문 id',
-  order_id    int not null comment '소속 주문 번호',
-  cup_id      int not null comment '선택 컵 id',
-  size_id     int not null comment '선택 사이즈 id',
-  quantity    int not null default 1 comment '주문 수량',
-  total_price int not null comment '옵션/컵 포함 최종 개별 금액',
-  primary key (id)
-) comment '주문 상품(1개 사이즈 단위), 주문에 들어있는 실제 메뉴';
+  id           INT         NOT NULL COMMENT '공지 ID',
+  hqmanager_id VARCHAR(50) NOT NULL COMMENT '관리자 ID',
+  title        VARCHAR(50) NOT NULL COMMENT '공지 제목',
+  content      TEXT        NOT NULL COMMENT '공지 내용',
+  created_at   DATETIME    NOT NULL COMMENT '게시일',
+  update_at    DATETIME    NOT NULL COMMENT '수정일',
+  PRIMARY KEY (id)
+) COMMENT '공지 게시판';
 
-create table orderitemmenu
+CREATE TABLE ORDERITEM
 (
-  id            int not null auto_increment comment '선택 맛 상세 id',
-  order_item_id int not null comment '상세 주문 id',
-  menu_id       int not null comment '메뉴(맛) id',
-  primary key (id)
-) comment '주문 상품의 세부 맛 선택 내역';
+  id          INT NOT NULL AUTO_INCREMENT COMMENT '상세 주문 ID',
+  order_id    INT NOT NULL COMMENT '소속 주문 번호',
+  cup_id      INT NOT NULL COMMENT '선택 컵 ID',
+  size_id     INT NOT NULL COMMENT '선택 사이즈 ID',
+  quantity    INT NOT NULL DEFAULT 1 COMMENT '주문 수량',
+  total_price INT NOT NULL COMMENT '옵션/컵 포함 최종 개별 금액',
+  PRIMARY KEY (id)
+) COMMENT '주문 상품(1개 사이즈 단위), 주문에 들어있는 실제 메뉴';
 
-create table orderitemoption
+CREATE TABLE ORDERITEMMENU
 (
-  id             int not null auto_increment comment '선택 옵션 상세 id',
-  order_item_id  int not null comment '상세 주문 id',
-  menu_option_id int not null comment '추가 옵션 id',
-  primary key (id)
-) comment '주문 상품의 추가 토핑/옵션 내역';
+  id            INT NOT NULL AUTO_INCREMENT COMMENT '선택 맛 상세 ID',
+  order_item_id INT NOT NULL COMMENT '상세 주문 ID',
+  menu_id       INT NOT NULL COMMENT '메뉴(맛) ID',
+  PRIMARY KEY (id)
+) COMMENT '주문 상품의 세부 맛 선택 내역';
 
-create table orders
+CREATE TABLE ORDERITEMOPTION
 (
-  id          int         not null auto_increment comment '주문 번호',
-  customer_id int         not null comment '고객 id (비회원 포함)',
-  branch_id   int         not null comment '지점 id',
-  kiosk_id    int         not null comment '주문 발생 기기 id',
-  order_type  varchar(20) not null comment '유형 (매장/포장 등)',
-  language    varchar(20) not null comment '언어 설정',
-  status      varchar(20) not null comment '주문 상태(결제완료/준비중/완료)',
-  created_at  datetime    not null comment '주문 발생 시각',
-  waiting_no  int         null     comment '고객 호출 번호',
-  receipt_no  varchar(50) not null comment '영수증 발급 번호',
-  total_price int         not null comment '총 주문 금액',
-  primary key (id)
-) comment '통합 주문 내역';
+  id             INT NOT NULL AUTO_INCREMENT COMMENT '선택 옵션 상세 ID',
+  order_item_id  INT NOT NULL COMMENT '상세 주문 ID',
+  menu_option_id INT NOT NULL COMMENT '추가 옵션 ID',
+  PRIMARY KEY (id)
+) COMMENT '주문 상품의 추가 토핑/옵션 내역';
 
-create table payment
+CREATE TABLE ORDERS
 (
-  id                int          not null auto_increment comment '결제 id',
-  order_id          int          not null comment '주문 번호',
-  method            varchar(20)  not null comment '결제 수단',
-  amount            int          not null comment '결제 총 금액',
-  card_company      varchar(30)  not null comment '결제 카드사',
-  payment_time      datetime     not null comment '결제 시간',
-  payment_status    varchar(30)  null     comment '상태(승인/취소/실패)',
-  pg_transaction_id varchar(100) null     comment 'pg사 결제 고유 번호',
-  point_used        int          null     default 0 comment '사용 포인트',
-  point_earned      int          null     default 0 comment '적립 포인트',
-  primary key (id)
-) comment '결제 승인 내역';
+  id          INT         NOT NULL AUTO_INCREMENT COMMENT '주문 번호',
+  customer_id INT         NOT NULL COMMENT '고객 ID (비회원 포함)',
+  branch_id   INT         NOT NULL COMMENT '지점 ID',
+  kiosk_id    INT         NOT NULL COMMENT '주문 발생 기기 ID',
+  order_type  VARCHAR(20) NOT NULL COMMENT '유형 (매장/포장 등)',
+  language    VARCHAR(20) NOT NULL COMMENT '언어 설정',
+  status      VARCHAR(20) NOT NULL COMMENT '주문 상태(결제완료/준비중/완료)',
+  created_at  DATETIME    NOT NULL COMMENT '주문 발생 시각',
+  waiting_no  INT         NULL     COMMENT '고객 호출 번호',
+  receipt_no  VARCHAR(50) NOT NULL COMMENT '영수증 발급 번호',
+  total_price INT         NOT NULL COMMENT '총 주문 금액',
+  PRIMARY KEY (id)
+) COMMENT '통합 주문 내역';
 
-create table promotion
+CREATE TABLE PAYMENT
 (
-  id         int          not null auto_increment comment '이벤트 id',
-  event_name varchar(100) not null comment '이벤트명',
-  start_date date         null     comment '시작일',
-  end_date   date         null     comment '종료일',
-  primary key (id)
-) comment '이벤트/홍보';
+  id                INT          NOT NULL AUTO_INCREMENT COMMENT '결제 ID',
+  order_id          INT          NOT NULL COMMENT '주문 번호',
+  method            VARCHAR(20)  NOT NULL COMMENT '결제 수단',
+  amount            INT          NOT NULL COMMENT '결제 총 금액',
+  card_company      VARCHAR(30)  NOT NULL COMMENT '결제 카드사',
+  payment_time      DATETIME     NOT NULL COMMENT '결제 시간',
+  payment_status    VARCHAR(30)  NULL     COMMENT '상태(승인/취소/실패)',
+  pg_transaction_id VARCHAR(100) NULL     COMMENT 'PG사 결제 고유 번호',
+  point_used        INT          NULL     DEFAULT 0 COMMENT '사용 포인트',
+  point_earned      INT          NULL     DEFAULT 0 COMMENT '적립 포인트',
+  PRIMARY KEY (id)
+) COMMENT '결제 승인 내역';
 
-create table sales
+CREATE TABLE PROMOTION
 (
-  id           int  not null auto_increment comment '매출 id',
-  branch_id    int  not null comment '지점 id',
-  sales_date   date not null comment '매출 일자 (일일 정산용)',
-  total_amount int  null     default 0 comment '총 매출액',
-  primary key (id)
-) comment '일별 지점 매출 통계';
+  id         INT          NOT NULL AUTO_INCREMENT COMMENT '이벤트 ID',
+  event_name VARCHAR(100) NOT NULL COMMENT '이벤트명',
+  start_date DATE         NULL     COMMENT '시작일',
+  end_date   DATE         NULL     COMMENT '종료일',
+  PRIMARY KEY (id)
+) COMMENT '이벤트/홍보';
 
-create table size
+CREATE TABLE SALES
 (
-  id             int         not null auto_increment comment '사이즈 id',
-  category_id    int         not null comment '카테고리 id',
-  name           varchar(50) not null comment '사이즈명(싱글,파인트 등)',
-  flavor_cnt     int         not null comment '선택 가능 맛 갯수',
-  price          int         not null comment '사이즈 가격',
-  total_weight_g int         not null comment '해당 사이즈 총 제공 중량(g) - 재고 차감 기준',
-  primary key (id)
-) comment '상품 사이즈 규격';
+  id           INT  NOT NULL AUTO_INCREMENT COMMENT '매출 ID',
+  branch_id    INT  NOT NULL COMMENT '지점 ID',
+  sales_date   DATE NOT NULL COMMENT '매출 일자 (일일 정산용)',
+  total_amount INT  NULL     DEFAULT 0 COMMENT '총 매출액',
+  PRIMARY KEY (id)
+) COMMENT '일별 지점 매출 통계';
 
-alter table size
-  add constraint fk_category_to_size
-    foreign key (category_id)
-    references category (id);
+CREATE TABLE SIZE
+(
+  id             INT         NOT NULL AUTO_INCREMENT COMMENT '사이즈 ID',
+  category_id    INT         NOT NULL COMMENT '카테고리 ID',
+  name           VARCHAR(50) NOT NULL COMMENT '사이즈명(싱글,파인트 등)',
+  flavor_cnt     INT         NOT NULL COMMENT '선택 가능 맛 갯수',
+  price          INT         NOT NULL COMMENT '사이즈 가격',
+  total_weight_g INT         NOT NULL COMMENT '해당 사이즈 총 제공 중량(g) - 재고 차감 기준',
+  PRIMARY KEY (id)
+) COMMENT '상품 사이즈 규격';
 
-alter table menu
-  add constraint fk_category_to_menu
-    foreign key (category_id)
-    references category (id);
+ALTER TABLE SIZE
+  ADD CONSTRAINT FK_CATEGORY_TO_SIZE
+    FOREIGN KEY (category_id)
+    REFERENCES CATEGORY (id);
 
-alter table menu_option
-  add constraint fk_category_to_menu_option
-    foreign key (category_id)
-    references category (id);
+ALTER TABLE MENU
+  ADD CONSTRAINT FK_CATEGORY_TO_MENU
+    FOREIGN KEY (category_id)
+    REFERENCES CATEGORY (id);
 
-alter table item
-  add constraint fk_category_to_item
-    foreign key (category_id)
-    references category (id);
+ALTER TABLE MENU_OPTION
+  ADD CONSTRAINT FK_CATEGORY_TO_MENU_OPTION
+    FOREIGN KEY (category_id)
+    REFERENCES CATEGORY (id);
 
-alter table kiosk
-  add constraint fk_branch_to_kiosk
-    foreign key (branch_id)
-    references branch (id);
+ALTER TABLE ITEM
+  ADD CONSTRAINT FK_CATEGORY_TO_ITEM
+    FOREIGN KEY (category_id)
+    REFERENCES CATEGORY (id);
 
-alter table branchmanager
-  add constraint fk_branch_to_branchmanager
-    foreign key (branch_id)
-    references branch (id);
+ALTER TABLE KIOSK
+  ADD CONSTRAINT FK_BRANCH_TO_KIOSK
+    FOREIGN KEY (branch_id)
+    REFERENCES BRANCH (id);
 
-alter table hqinventory
-  add constraint fk_item_to_hqinventory
-    foreign key (item_id)
-    references item (id);
+ALTER TABLE BRANCHMANAGER
+  ADD CONSTRAINT FK_BRANCH_TO_BRANCHMANAGER
+    FOREIGN KEY (branch_id)
+    REFERENCES BRANCH (id);
 
-alter table hqinventory
-  add constraint fk_hqmanager_to_hqinventory
-    foreign key (hqmanager_id)
-    references hqmanager (id);
+ALTER TABLE HQINVENTORY
+  ADD CONSTRAINT FK_ITEM_TO_HQINVENTORY
+    FOREIGN KEY (item_id)
+    REFERENCES ITEM (id);
 
-alter table hqinventory
-  add constraint fk_branch_to_hqinventory
-    foreign key (branch_id)
-    references branch (id);
+ALTER TABLE HQINVENTORY
+  ADD CONSTRAINT FK_HQMANAGER_TO_HQINVENTORY
+    FOREIGN KEY (hqManager_id)
+    REFERENCES HQMANAGER (id);
 
-alter table member
-  add constraint fk_customer_to_member
-    foreign key (customer_id)
-    references customer (id);
+ALTER TABLE HQINVENTORY
+  ADD CONSTRAINT FK_BRANCH_TO_HQINVENTORY
+    FOREIGN KEY (branch_id)
+    REFERENCES BRANCH (id);
 
-alter table coupon
-  add constraint fk_member_to_coupon
-    foreign key (member_id)
-    references member (id);
+ALTER TABLE MEMBER
+  ADD CONSTRAINT FK_CUSTOMER_TO_MEMBER
+    FOREIGN KEY (customer_id)
+    REFERENCES CUSTOMER (id);
 
-alter table orders
-  add constraint fk_customer_to_orders
-    foreign key (customer_id)
-    references customer (id);
+ALTER TABLE COUPON
+  ADD CONSTRAINT FK_MEMBER_TO_COUPON
+    FOREIGN KEY (member_id)
+    REFERENCES MEMBER (id);
 
-alter table orders
-  add constraint fk_branch_to_orders
-    foreign key (branch_id)
-    references branch (id);
+ALTER TABLE ORDERS
+  ADD CONSTRAINT FK_CUSTOMER_TO_ORDERS
+    FOREIGN KEY (customer_id)
+    REFERENCES CUSTOMER (id);
 
-alter table orders
-  add constraint fk_kiosk_to_orders
-    foreign key (kiosk_id)
-    references kiosk (id);
+ALTER TABLE ORDERS
+  ADD CONSTRAINT FK_BRANCH_TO_ORDERS
+    FOREIGN KEY (branch_id)
+    REFERENCES BRANCH (id);
 
-alter table orderitem
-  add constraint fk_orders_to_orderitem
-    foreign key (order_id)
-    references orders (id);
+ALTER TABLE ORDERS
+  ADD CONSTRAINT FK_KIOSK_TO_ORDERS
+    FOREIGN KEY (kiosk_id)
+    REFERENCES KIOSK (id);
 
-alter table orderitem
-  add constraint fk_cup_to_orderitem
-    foreign key (cup_id)
-    references cup (id);
+ALTER TABLE ORDERITEM
+  ADD CONSTRAINT FK_ORDERS_TO_ORDERITEM
+    FOREIGN KEY (order_id)
+    REFERENCES ORDERS (id);
 
-alter table orderitem
-  add constraint fk_size_to_orderitem
-    foreign key (size_id)
-    references size (id);
+ALTER TABLE ORDERITEM
+  ADD CONSTRAINT FK_CUP_TO_ORDERITEM
+    FOREIGN KEY (cup_id)
+    REFERENCES CUP (id);
 
-alter table orderitemmenu
-  add constraint fk_orderitem_to_orderitemmenu
-    foreign key (order_item_id)
-    references orderitem (id);
+ALTER TABLE ORDERITEM
+  ADD CONSTRAINT FK_SIZE_TO_ORDERITEM
+    FOREIGN KEY (size_id)
+    REFERENCES SIZE (id);
 
-alter table orderitemmenu
-  add constraint fk_menu_to_orderitemmenu
-    foreign key (menu_id)
-    references menu (id);
+ALTER TABLE ORDERITEMMENU
+  ADD CONSTRAINT FK_ORDERITEM_TO_ORDERITEMMENU
+    FOREIGN KEY (order_item_id)
+    REFERENCES ORDERITEM (id);
 
-alter table orderitemoption
-  add constraint fk_orderitem_to_orderitemoption
-    foreign key (order_item_id)
-    references orderitem (id);
+ALTER TABLE ORDERITEMMENU
+  ADD CONSTRAINT FK_MENU_TO_ORDERITEMMENU
+    FOREIGN KEY (menu_id)
+    REFERENCES MENU (id);
 
-alter table orderitemoption
-  add constraint fk_menu_option_to_orderitemoption
-    foreign key (menu_option_id)
-    references menu_option (id);
+ALTER TABLE ORDERITEMOPTION
+  ADD CONSTRAINT FK_ORDERITEM_TO_ORDERITEMOPTION
+    FOREIGN KEY (order_item_id)
+    REFERENCES ORDERITEM (id);
 
-alter table payment
-  add constraint fk_orders_to_payment
-    foreign key (order_id)
-    references orders (id);
+ALTER TABLE ORDERITEMOPTION
+  ADD CONSTRAINT FK_MENU_OPTION_TO_ORDERITEMOPTION
+    FOREIGN KEY (menu_option_id)
+    REFERENCES MENU_OPTION (id);
 
-alter table sales
-  add constraint fk_branch_to_sales
-    foreign key (branch_id)
-    references branch (id);
+ALTER TABLE PAYMENT
+  ADD CONSTRAINT FK_ORDERS_TO_PAYMENT
+    FOREIGN KEY (order_id)
+    REFERENCES ORDERS (id);
 
-alter table cs
-  add constraint fk_branchmanager_to_cs
-    foreign key (manager_id)
-    references branchmanager (id);
+ALTER TABLE SALES
+  ADD CONSTRAINT FK_BRANCH_TO_SALES
+    FOREIGN KEY (branch_id)
+    REFERENCES BRANCH (id);
 
-alter table cs
-  add constraint fk_hqmanager_to_cs
-    foreign key (hqmanager_id)
-    references hqmanager (id);
+ALTER TABLE CS
+  ADD CONSTRAINT FK_BRANCHMANAGER_TO_CS
+    FOREIGN KEY (manager_id)
+    REFERENCES BRANCHMANAGER (id);
 
-alter table menu
-  add constraint fk_item_to_menu
-    foreign key (item_id)
-    references item (id);
+ALTER TABLE CS
+  ADD CONSTRAINT FK_HQMANAGER_TO_CS
+    FOREIGN KEY (hqManager_id)
+    REFERENCES HQMANAGER (id);
 
-alter table branchinventory
-  add constraint fk_branch_to_branchinventory
-    foreign key (branch_id)
-    references branch (id);
+ALTER TABLE MENU
+  ADD CONSTRAINT FK_ITEM_TO_MENU
+    FOREIGN KEY (item_id)
+    REFERENCES ITEM (id);
 
-alter table branchinventory
-  add constraint fk_item_to_branchinventory
-    foreign key (item_id)
-    references item (id);
+ALTER TABLE BRANCHINVENTORY
+  ADD CONSTRAINT FK_BRANCH_TO_BRANCHINVENTORY
+    FOREIGN KEY (branch_id)
+    REFERENCES BRANCH (id);
+
+ALTER TABLE BRANCHINVENTORY
+  ADD CONSTRAINT FK_ITEM_TO_BRANCHINVENTORY
+    FOREIGN KEY (item_id)
+    REFERENCES ITEM (id);
+
+ALTER TABLE notice
+  ADD CONSTRAINT FK_HQMANAGER_TO_notice
+    FOREIGN KEY (hqmanager_id)
+    REFERENCES HQMANAGER (id);
 
                     </code></pre>
                     </div>
