@@ -1063,6 +1063,11 @@
 create database sweetscoop default character set utf8; 
 use sweetscoop;
 
+
+create database sweetscoop default character set utf8; 
+use sweetscoop;
+
+
 CREATE TABLE BRANCH
 (
   id          INT          NOT NULL AUTO_INCREMENT COMMENT '지점 ID',
@@ -1073,9 +1078,11 @@ CREATE TABLE BRANCH
 
 CREATE TABLE BRANCHINVENTORY
 (
+  id          INT NOT NULL COMMENT '지점 재고 id',
   branch_id   INT NOT NULL COMMENT '지점 ID',
   item_id     INT NOT NULL COMMENT '물품 ID',
-  stock_level INT NULL     DEFAULT 0 COMMENT '현재 재고량 (단위: g 등)'
+  stock_level INT NULL     DEFAULT 0 COMMENT '현재 재고량 (단위: g 등)',
+  PRIMARY KEY (id)
 ) COMMENT '지점별 실시간 재고';
 
 CREATE TABLE BRANCHMANAGER
@@ -1182,8 +1189,9 @@ CREATE TABLE MENU
 (
   id          INT         NOT NULL COMMENT '메뉴 ID',
   category_id INT         NOT NULL COMMENT '카테고리 ID',
-  name        VARCHAR(30) NULL     COMMENT '메뉴/맛 이름(엄마는 외계인 등)',
   item_id     INT         NOT NULL COMMENT '물품 ID',
+  name        VARCHAR(30) NOT NULL COMMENT '메뉴/맛 이름(엄마는 외계인 등)',
+  menu_img    varchr(500) NOT NULL COMMENT '메뉴 이미지 경로(URL)',
   PRIMARY KEY (id)
 ) COMMENT '실제 판매용 메뉴';
 
@@ -1212,8 +1220,8 @@ CREATE TABLE ORDERITEM
 (
   id          INT NOT NULL AUTO_INCREMENT COMMENT '상세 주문 ID',
   order_id    INT NOT NULL COMMENT '소속 주문 번호',
-  cup_id      INT NOT NULL COMMENT '선택 컵 ID',
-  size_id     INT NOT NULL COMMENT '선택 사이즈 ID',
+  cup_id      INT NULL     COMMENT '선택 컵 ID',
+  size_id     INT NULL     COMMENT '선택 사이즈 ID',
   quantity    INT NOT NULL DEFAULT 1 COMMENT '주문 수량',
   total_price INT NOT NULL COMMENT '옵션/컵 포함 최종 개별 금액',
   PRIMARY KEY (id)
@@ -1223,7 +1231,7 @@ CREATE TABLE ORDERITEMMENU
 (
   id            INT NOT NULL AUTO_INCREMENT COMMENT '선택 맛 상세 ID',
   order_item_id INT NOT NULL COMMENT '상세 주문 ID',
-  menu_id       INT NOT NULL COMMENT '메뉴(맛) ID',
+  menu_id       INT NOT NULL COMMENT '메뉴 ID',
   PRIMARY KEY (id)
 ) COMMENT '주문 상품의 세부 맛 선택 내역';
 
@@ -1248,6 +1256,7 @@ CREATE TABLE ORDERS
   waiting_no  INT         NULL     COMMENT '고객 호출 번호',
   receipt_no  VARCHAR(50) NOT NULL COMMENT '영수증 발급 번호',
   total_price INT         NOT NULL COMMENT '총 주문 금액',
+                          NULL     COMMENT '쿠폰 사용 여부 확인',
   PRIMARY KEY (id)
 ) COMMENT '통합 주문 내역';
 
@@ -1255,6 +1264,7 @@ CREATE TABLE PAYMENT
 (
   id                INT          NOT NULL AUTO_INCREMENT COMMENT '결제 ID',
   order_id          INT          NOT NULL COMMENT '주문 번호',
+  coupon_id         INT          NULL     COMMENT '쿠폰 ID',
   method            VARCHAR(20)  NOT NULL COMMENT '결제 수단',
   amount            INT          NOT NULL COMMENT '결제 총 금액',
   card_company      VARCHAR(30)  NOT NULL COMMENT '결제 카드사',
@@ -1385,11 +1395,6 @@ ALTER TABLE ORDERITEMMENU
     FOREIGN KEY (order_item_id)
     REFERENCES ORDERITEM (id);
 
-ALTER TABLE ORDERITEMMENU
-  ADD CONSTRAINT FK_MENU_TO_ORDERITEMMENU
-    FOREIGN KEY (menu_id)
-    REFERENCES MENU (id);
-
 ALTER TABLE ORDERITEMOPTION
   ADD CONSTRAINT FK_ORDERITEM_TO_ORDERITEMOPTION
     FOREIGN KEY (order_item_id)
@@ -1439,6 +1444,18 @@ ALTER TABLE notice
   ADD CONSTRAINT FK_HQMANAGER_TO_notice
     FOREIGN KEY (hqmanager_id)
     REFERENCES HQMANAGER (id);
+
+ALTER TABLE ORDERITEMMENU
+  ADD CONSTRAINT FK_MENU_TO_ORDERITEMMENU
+    FOREIGN KEY (menu_id)
+    REFERENCES MENU (id);
+
+ALTER TABLE PAYMENT
+  ADD CONSTRAINT FK_COUPON_TO_PAYMENT
+    FOREIGN KEY (coupon_id)
+    REFERENCES COUPON (id);
+
+
 
                     </code></pre>
                     </div>

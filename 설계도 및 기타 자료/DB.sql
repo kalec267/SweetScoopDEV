@@ -1,5 +1,8 @@
-CREATE DATABASE sweetscoop default CHARACTER SET UTF8; 
+create database sweetscoop default character set utf8; 
 use sweetscoop;
+
+-- 외래 키 제약 조건 검사 임시 해제
+SET FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE BRANCH
 (
@@ -11,9 +14,11 @@ CREATE TABLE BRANCH
 
 CREATE TABLE BRANCHINVENTORY
 (
+  id          INT NOT NULL COMMENT '지점 재고 id',
   branch_id   INT NOT NULL COMMENT '지점 ID',
   item_id     INT NOT NULL COMMENT '물품 ID',
-  stock_level INT NULL     DEFAULT 0 COMMENT '현재 재고량 (단위: g 등)'
+  stock_level INT NULL     DEFAULT 0 COMMENT '현재 재고량 (단위: g 등)',
+  PRIMARY KEY (id)
 ) COMMENT '지점별 실시간 재고';
 
 CREATE TABLE BRANCHMANAGER
@@ -32,13 +37,14 @@ CREATE TABLE CATEGORY
 
 CREATE TABLE COUPON
 (
-  id             INT      NOT NULL AUTO_INCREMENT COMMENT '쿠폰 ID',
-  member_id      INT      NOT NULL COMMENT '회원 ID',
-  issue_date     DATETIME NULL     COMMENT '발급일시',
-  expiry_date    DATETIME NULL     COMMENT '만료일시',
-  discount_value DOUBLE   NULL     COMMENT '할인 비율/금액',
-  is_used        BOOLEAN  NULL     DEFAULT FALSE COMMENT '사용 여부',
-  used_at        DATETIME NULL     COMMENT '사용 완료 일시',
+  id             INT         NOT NULL AUTO_INCREMENT COMMENT '쿠폰 ID',
+  member_id      INT         NOT NULL COMMENT '회원 ID',
+  name           VARCHAR(50) NOT NULL COMMENT '쿠폰명',
+  issue_date     DATETIME    NULL     COMMENT '발급일시',
+  expiry_date    DATETIME    NULL     COMMENT '만료일시',
+  discount_value DOUBLE      NULL     COMMENT '할인 비율/금액',
+  is_used        BOOLEAN     NULL     DEFAULT FALSE COMMENT '사용 여부',
+  used_at        DATETIME    NULL     COMMENT '사용 완료 일시',
   PRIMARY KEY (id)
 ) COMMENT '발급 쿠폰 이력';
 
@@ -117,10 +123,11 @@ CREATE TABLE MEMBER
 
 CREATE TABLE MENU
 (
-  id          INT         NOT NULL COMMENT '메뉴 ID',
-  category_id INT         NOT NULL COMMENT '카테고리 ID',
-  name        VARCHAR(30) NULL     COMMENT '메뉴/맛 이름(엄마는 외계인 등)',
-  item_id     INT         NOT NULL COMMENT '물품 ID',
+  id          INT          NOT NULL COMMENT '메뉴 ID',
+  category_id INT          NOT NULL COMMENT '카테고리 ID',
+  item_id     INT          NOT NULL COMMENT '물품 ID',
+  name        VARCHAR(30)  NOT NULL COMMENT '메뉴/맛 이름(엄마는 외계인 등)',
+  menu_img    VARCHAR(500) NOT NULL COMMENT '메뉴 이미지 경로(URL)',
   PRIMARY KEY (id)
 ) COMMENT '실제 판매용 메뉴';
 
@@ -134,12 +141,23 @@ CREATE TABLE MENU_OPTION
   PRIMARY KEY (id)
 ) COMMENT '선택형 옵션(hot, ice 등)';
 
+CREATE TABLE notice
+(
+  id           INT         NOT NULL COMMENT '공지 ID',
+  hqmanager_id VARCHAR(50) NOT NULL COMMENT '관리자 ID',
+  title        VARCHAR(50) NOT NULL COMMENT '공지 제목',
+  content      TEXT        NOT NULL COMMENT '공지 내용',
+  created_at   DATETIME    NOT NULL COMMENT '게시일',
+  update_at    DATETIME    NOT NULL COMMENT '수정일',
+  PRIMARY KEY (id)
+) COMMENT '공지 게시판';
+
 CREATE TABLE ORDERITEM
 (
   id          INT NOT NULL AUTO_INCREMENT COMMENT '상세 주문 ID',
   order_id    INT NOT NULL COMMENT '소속 주문 번호',
-  cup_id      INT NOT NULL COMMENT '선택 컵 ID',
-  size_id     INT NOT NULL COMMENT '선택 사이즈 ID',
+  cup_id      INT NULL     COMMENT '선택 컵 ID',
+  size_id     INT NULL     COMMENT '선택 사이즈 ID',
   quantity    INT NOT NULL DEFAULT 1 COMMENT '주문 수량',
   total_price INT NOT NULL COMMENT '옵션/컵 포함 최종 개별 금액',
   PRIMARY KEY (id)
@@ -149,7 +167,7 @@ CREATE TABLE ORDERITEMMENU
 (
   id            INT NOT NULL AUTO_INCREMENT COMMENT '선택 맛 상세 ID',
   order_item_id INT NOT NULL COMMENT '상세 주문 ID',
-  menu_id       INT NOT NULL COMMENT '메뉴(맛) ID',
+  menu_id       INT NOT NULL COMMENT '메뉴 ID',
   PRIMARY KEY (id)
 ) COMMENT '주문 상품의 세부 맛 선택 내역';
 
@@ -174,6 +192,7 @@ CREATE TABLE ORDERS
   waiting_no  INT         NULL     COMMENT '고객 호출 번호',
   receipt_no  VARCHAR(50) NOT NULL COMMENT '영수증 발급 번호',
   total_price INT         NOT NULL COMMENT '총 주문 금액',
+  coupon_used BOOLEAN     NULL     DEFAULT FALSE COMMENT '쿠폰 사용 여부 확인',
   PRIMARY KEY (id)
 ) COMMENT '통합 주문 내역';
 
@@ -181,6 +200,7 @@ CREATE TABLE PAYMENT
 (
   id                INT          NOT NULL AUTO_INCREMENT COMMENT '결제 ID',
   order_id          INT          NOT NULL COMMENT '주문 번호',
+  coupon_id         INT          NULL     COMMENT '쿠폰 ID',
   method            VARCHAR(20)  NOT NULL COMMENT '결제 수단',
   amount            INT          NOT NULL COMMENT '결제 총 금액',
   card_company      VARCHAR(30)  NOT NULL COMMENT '결제 카드사',
@@ -198,6 +218,8 @@ CREATE TABLE PROMOTION
   event_name VARCHAR(100) NOT NULL COMMENT '이벤트명',
   start_date DATE         NULL     COMMENT '시작일',
   end_date   DATE         NULL     COMMENT '종료일',
+  start_time TIMESTAMP    NULL     COMMENT '해피아워 시작시간',
+  end_time   TIMESTAMP    NULL     COMMENT '해피아워 종료시간',
   PRIMARY KEY (id)
 ) COMMENT '이벤트/홍보';
 
@@ -311,11 +333,6 @@ ALTER TABLE ORDERITEMMENU
     FOREIGN KEY (order_item_id)
     REFERENCES ORDERITEM (id);
 
-ALTER TABLE ORDERITEMMENU
-  ADD CONSTRAINT FK_MENU_TO_ORDERITEMMENU
-    FOREIGN KEY (menu_id)
-    REFERENCES MENU (id);
-
 ALTER TABLE ORDERITEMOPTION
   ADD CONSTRAINT FK_ORDERITEM_TO_ORDERITEMOPTION
     FOREIGN KEY (order_item_id)
@@ -360,3 +377,21 @@ ALTER TABLE BRANCHINVENTORY
   ADD CONSTRAINT FK_ITEM_TO_BRANCHINVENTORY
     FOREIGN KEY (item_id)
     REFERENCES ITEM (id);
+
+ALTER TABLE notice
+  ADD CONSTRAINT FK_HQMANAGER_TO_notice
+    FOREIGN KEY (hqmanager_id)
+    REFERENCES HQMANAGER (id);
+
+ALTER TABLE ORDERITEMMENU
+  ADD CONSTRAINT FK_MENU_TO_ORDERITEMMENU
+    FOREIGN KEY (menu_id)
+    REFERENCES MENU (id);
+
+ALTER TABLE PAYMENT
+  ADD CONSTRAINT FK_COUPON_TO_PAYMENT
+    FOREIGN KEY (coupon_id)
+    REFERENCES COUPON (id);
+
+-- 외래 키 제약 조건 검사 재활성화
+SET FOREIGN_KEY_CHECKS = 1;

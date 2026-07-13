@@ -16,8 +16,8 @@ CREATE TABLE CATEGORY (
 ) COMMENT '카테고리';
 
 CREATE TABLE CUP (
-  id               INT         NOT NULL AUTO_INCREMENT COMMENT '컵 ID',
-  name             VARCHAR(30) NOT NULL COMMENT '형태 명칭(컵,콘,와플 등)',
+  id                INT         NOT NULL AUTO_INCREMENT COMMENT '컵 ID',
+  name              VARCHAR(30) NOT NULL COMMENT '형태 명칭(컵,콘,와플 등)',
   additional_price INT         NOT NULL DEFAULT 0 COMMENT '컵 선택 시 추가 금액',
   PRIMARY KEY (id)
 ) COMMENT '제공 타입(컵/콘)';
@@ -29,12 +29,14 @@ CREATE TABLE SIZE (
   flavor_cnt     INT         NOT NULL COMMENT '선택 가능 맛 갯수',
   price          INT         NOT NULL COMMENT '사이즈 가격',
   total_weight_g INT         NOT NULL COMMENT '해당 사이즈 총 제공 중량(g)',
+  size_img VARCHAR(200) NULL COMMENT '사이즈 이미지 경로',
   PRIMARY KEY (id)
 ) COMMENT '상품 사이즈 규격';
 
 CREATE TABLE MENU (
   id          INT          NOT NULL AUTO_INCREMENT COMMENT '메뉴 ID',
   category_id INT          NOT NULL COMMENT '카테고리 ID',
+  item_id INT NOT NULL COMMENT '물류 ID',
   name        VARCHAR(30)  NOT NULL COMMENT '메뉴/맛 이름(엄마는 외계인 등)',
   menu_img    VARCHAR(500) NULL     COMMENT '메뉴 이미지 경로',
   PRIMARY KEY (id)
@@ -63,7 +65,6 @@ CREATE TABLE MENU_BOM (
   usage_ratio DOUBLE DEFAULT 1.0 COMMENT '소모 비율 (기본 1.0)',
   PRIMARY KEY (menu_id, item_id)
 ) COMMENT '메뉴별 소모 재고 매핑(BOM/레시피)';
-
 
 -- =========================================================
 -- [2. 매장, 기기 및 물류 도메인]
@@ -102,16 +103,15 @@ CREATE TABLE BRANCHINVENTORY (
 ) COMMENT '지점별 실시간 재고';
 
 CREATE TABLE HQINVENTORY (
-  id               INT         NOT NULL AUTO_INCREMENT COMMENT '발주 요청 ID',
-  branch_id        INT         NOT NULL COMMENT '요청 지점 ID',
-  item_id          INT         NOT NULL COMMENT '물품 ID',
-  hqManager_id     VARCHAR(50) NULL     COMMENT '승인 담당 관리자 ID',
-  approval_status  VARCHAR(20) NULL     COMMENT '승인 상태',
-  delivery_status  VARCHAR(20) NULL     COMMENT '배송 상태',
-  request_quantity INT         NOT NULL COMMENT '요청 수량',
+  id                INT         NOT NULL AUTO_INCREMENT COMMENT '발주 요청 ID',
+  branch_id         INT         NOT NULL COMMENT '요청 지점 ID',
+  item_id           INT         NOT NULL COMMENT '물품 ID',
+  hqManager_id      VARCHAR(50) NULL     COMMENT '승인 담당 관리자 ID',
+  approval_status   VARCHAR(20) NULL     COMMENT '승인 상태',
+  delivery_status   VARCHAR(20) NULL     COMMENT '배송 상태',
+  request_quantity  INT         NOT NULL COMMENT '요청 수량',
   PRIMARY KEY (id)
 ) COMMENT '본사-지점 간 발주/물류 이력';
-
 
 -- =========================================================
 -- [3. 고객 및 혜택 도메인]
@@ -153,7 +153,6 @@ CREATE TABLE PROMOTION (
   end_time   DATETIME     NULL     COMMENT '해피아워 종료시간',
   PRIMARY KEY (id)
 ) COMMENT '이벤트/홍보';
-
 
 -- =========================================================
 -- [4. 주문 및 결제 도메인]
@@ -207,7 +206,7 @@ CREATE TABLE PAYMENT (
   card_company      VARCHAR(30) NOT NULL COMMENT '결제 카드사',
   payment_time      DATETIME    NOT NULL COMMENT '결제 시간',
   payment_status    VARCHAR(30) NULL     COMMENT '상태(승인/취소/실패)',
-  pg_transaction_id VARCHAR(100) NULL     COMMENT 'PG사 결제 고유 번호',
+  pg_transaction_id VARCHAR(100) NULL    COMMENT 'PG사 결제 고유 번호',
   point_used        INT         NULL     DEFAULT 0 COMMENT '사용 포인트',
   point_earned      INT         NULL     DEFAULT 0 COMMENT '적립 포인트',
   PRIMARY KEY (id)
@@ -220,7 +219,6 @@ CREATE TABLE SALES (
   total_amount INT  NULL     DEFAULT 0 COMMENT '총 매출액',
   PRIMARY KEY (id)
 ) COMMENT '일별 지점 매출 통계';
-
 
 -- =========================================================
 -- [5. CS, 공지사항 및 지원 도메인]
@@ -244,7 +242,6 @@ CREATE TABLE notice (
   update_at    DATETIME    NOT NULL COMMENT '수정일',
   PRIMARY KEY (id)
 ) COMMENT '공지 게시판';
-
 
 -- =========================================================
 -- [6. 외래키(FOREIGN KEY) 제약조건 일괄 적용]
@@ -285,17 +282,15 @@ ALTER TABLE CS ADD CONSTRAINT FK_BRMGR_TO_CS FOREIGN KEY (manager_id) REFERENCES
 ALTER TABLE CS ADD CONSTRAINT FK_HQMGR_TO_CS FOREIGN KEY (hqManager_id) REFERENCES HQMANAGER (id);
 ALTER TABLE notice ADD CONSTRAINT FK_HQMGR_TO_NOTICE FOREIGN KEY (hqmanager_id) REFERENCES HQMANAGER (id);
 
-
 -- =================================================================
 -- [7. 데이터 삽입 (INSERT)]
--- id 속성을 전부 제거하여 1번부터 차례대로 자동 증가되도록 처리
 -- =================================================================
 
--- 1. 카테고리 (1: 아이스크림, 2: 아이스크림 케이크, 3: 음료, 4: 디저트 자동생성)
+-- 1. 카테고리 (1: 아이스크림, 2: 아이스모찌, 3: 음료, 4: 디저트)
 INSERT INTO CATEGORY (name) VALUES 
-('아이스크림'), ('아이스크림 케이크'), ('음료'), ('디저트');
+('아이스크림'), ('아이스모찌'), ('음료'), ('디저트');
 
--- 2. 컵 (1: 컵, 2: 콘, 3: 와플콘)
+-- 2. 컵
 INSERT INTO CUP (name, additional_price) VALUES 
 ('컵', 0), ('콘', 0), ('와플콘', 500);
 
@@ -304,7 +299,7 @@ INSERT INTO BRANCH (branch_name, location) VALUES
 ('스윗스쿱 강남역점', '서울시 강남구 테헤란로 1'),
 ('스윗스쿱 홍대점', '서울시 마포구 홍익로 10');
 
--- 4. 본사 관리자 (문자형 PK라서 id 수동 입력)
+-- 4. 본사 관리자
 INSERT INTO HQMANAGER (id, name) VALUES 
 ('admin_hq', '김본사'), 
 ('admin_sub', '이대리');
@@ -318,19 +313,42 @@ INSERT INTO CUSTOMER (customer_type) VALUES
 ('회원'), ('비회원');
 
 -- 7. 사이즈
-INSERT INTO SIZE (category_id, name, flavor_cnt, price, total_weight_g) VALUES 
-(1, '싱글 레귤러', 1, 3900, 115),
-(1, '싱글 킹', 1, 4700, 145),
-(1, '파인트', 3, 9800, 320),
-(1, '쿼터', 4, 18500, 620),
-(3, '아메리카노(R)', 0, 3000, 350);
+INSERT INTO SIZE (id, category_id, name, flavor_cnt, price, total_weight_g, size_img) VALUES 
+(1, 1, '싱글 레귤러', 1, 3900, 115, '싱글레귤러.png'),
+(2, 1, '싱글 킹', 1, 4700, 145, '싱글킹.png'),
+(3, 1, '더블 주니어', 2, 5100, 150, '더블주니어.png'),
+(4, 1, '더블 레귤러', 2, 7300, 230, '더블레귤러.png'),
+(5, 1, '트리플 주니어', 3, 7200, 225, '트리플주니어.png'),
+
+(6, 1, '파인트', 3, 9800, 336, '파인트.png'),
+(7, 1, '쿼터', 4, 18500, 643, '쿼터.png'),
+(8, 1, '패밀리', 5, 26000, 989, '패밀리.png'),
+(9, 1, '하프갤런', 6, 31500, 1237, '하프갤런.png'),
+(10, 3, '(R)', 0, 3000, 350, NULL),
+(11, 3, '(L)', 0, 4000, 450, NULL);
 
 -- 8. 물류 아이템
 INSERT INTO ITEM (category_id, unit, item_name) VALUES 
-(1, 1, '엄마는 외계인 튜브(대)'),
-(1, 1, '아몬드 봉봉 튜브(대)'),
-(1, 1, '민트 초콜릿 칩 튜브(대)'),
-(3, 1, '에스프레소 원두(1kg)');
+(1, 1, '엄마는 외계인 튜브(1000g)'),
+(1, 1, '아몬드 봉봉 튜브(1000g)'),
+(1, 1, '민트 초콜릿 칩 튜브(1000g)'),
+(1, 1, '두바이에서 온 엄마는 외계인(1000g)'),
+(1, 1, '오레오 쿠키 앤 밀크(1000g)'),
+(1, 1, '그린티(1000g)'),
+(1, 1, '애플민트(1000g)'),
+(1, 1, '뉴욕 치즈케이크(1000g)'),
+(1, 1, '바람과 함께 사라지다(1000g)'),
+(1, 1, '자모카 아몬드 훠지(1000g)'),
+(1, 1, '베리베리 스트로베리(1000g)'),
+(1, 1, '피스타치오 아몬드(1000g)'),
+
+(2, 1, '아이스 모찌 소금우유(ea)'),
+(2, 1, '아이스 모찌 그린티(ea)'),
+(2, 1, '아이스 모찌 스트로베리(ea)'),
+(2, 1, '아이스 모찌 초코바닐라(ea)'),
+(2, 1, '아이스 모찌 크림치즈(ea)'),
+
+(3, 1, '에스프레소 원두(1000g)');
 
 -- 9. 메뉴 옵션
 INSERT INTO MENU_OPTION (category_id, name, price, is_active) VALUES 
@@ -341,7 +359,7 @@ INSERT INTO MENU_OPTION (category_id, name, price, is_active) VALUES
 INSERT INTO KIOSK (branch_id, status) VALUES 
 (1, '정상'), (1, '정상'), (2, '정상');
 
--- 11. 지점 관리자 (문자형 PK라서 id 수동 입력)
+-- 11. 지점 관리자
 INSERT INTO BRANCHMANAGER (id, branch_id) VALUES 
 ('gangnam_mgr', 1), ('hongdae_mgr', 2);
 
@@ -354,17 +372,37 @@ INSERT INTO notice (hqmanager_id, title, content, created_at, update_at) VALUES
 ('admin_hq', '여름 시즌 위생 관리 철저 요망', '각 지점 점주님들은 쇼케이스 온도 유지에 신경써주세요.', NOW(), NOW());
 
 -- 14. 판매용 메뉴
-INSERT INTO MENU (category_id, name, menu_img) VALUES 
-(1, '엄마는 외계인', '/img/alien.jpg'),
-(1, '아몬드 봉봉', '/img/almond.jpg'),
-(1, '민트 초콜릿 칩', '/img/mint.jpg'),
-(3, '아이스 아메리카노', '/img/americano.jpg');
+INSERT INTO MENU (category_id, item_id, name, menu_img) VALUES 
+(1,1,'엄마는 외계인', 'https://www.baskinrobbins.co.kr/upload/product/main/91c8668227bcf556c43a968b97e342e6.png'),
+(1,2, '아몬드 봉봉', 'https://www.baskinrobbins.co.kr/upload/product/main/e7cb5667c3147ddb0b31e28d1f365980.png'),
+(1,3, '민트 초콜릿 칩', 'https://www.baskinrobbins.co.kr/upload/product/main/fb92d70dee836652115c4f3b13175541.png'),
+(1,4, '두바이에서 온 엄마는 외계인', 'https://www.baskinrobbins.co.kr/upload/product/main/60b01f68d496cc0ce0ba1709dbd83cd8.png'),
+(1,5, '오레오 쿠키 앤 밀크', 'https://www.baskinrobbins.co.kr/upload/product/main/f86820f7c16ffeaa77e75d8c9d71a487.png'),
+(1,6, '그린티', 'https://www.baskinrobbins.co.kr/upload/product/main/8442bc93873c58520f38a113a86effd4.png'),
+(1,7, '애플민트', 'https://www.baskinrobbins.co.kr/upload/product/main/269b34eb3367108169b7eac45df01471.png'),
+(1,8, '뉴욕 치즈케이크', 'https://www.baskinrobbins.co.kr/upload/product/main/60a04a3a5d1b0119f065d12ee7797b2c.png'),
+(1,9, '바람과 함께 사라지다', 'https://www.baskinrobbins.co.kr/upload/product/main/01ecc320f5d3a6f32e5188eda373842d.png'),
+(1,10, '자모카 아몬드 훠지', 'https://www.baskinrobbins.co.kr/upload/product/main/f31388da0371388c2086a7c90990a097.png'),
+(1,11, '베리베리 스트로베리', 'https://www.baskinrobbins.co.kr/upload/product/main/ea6608b4f72563b360da5c44c946ddc7.png'),
+(1,12, '피스타치오 아몬드', 'https://www.baskinrobbins.co.kr/upload/product/main/868364b0ed6038d0c9aee0a10e50d4a9.png'),
 
--- 15. 메뉴 BOM (복합키 - 메뉴와 물류 매핑)
+(2,13, '아이스 모찌 소금우유', 'https://www.baskinrobbins.co.kr/upload/product/main/c976f291579a446b8f56a9aca7c9274d.png'),
+(2,14, '아이스 모찌 그린티', 'https://www.baskinrobbins.co.kr/upload/product/main/866935365b96c08934b33be614fcf724.png'),
+(2,15, '아이스 모찌 스트로베리', 'https://www.baskinrobbins.co.kr/upload/product/main/bc2b065ccd40e0fb0fad9daa82fb2334.png'),
+(2,16, '아이스 모찌 초코바닐라', 'https://www.baskinrobbins.co.kr/upload/product/main/ed9b0e2804f9e304d29df56df631d3d2.png'),
+(2,17, '아이스 모찌 크림치즈', 'https://www.baskinrobbins.co.kr/upload/product/main/8a82b571539d4fcfbd77f95ab2cd7095.png'),
+
+(3,18, '아메리카노', 'https://www.baskinrobbins.co.kr/upload/product/main/71cdac7da36c6b86f558809d55fa89d7.png'),
+(3,18, '초코 스모어 라떼', 'https://www.baskinrobbins.co.kr/upload/product/main/f170b4f4f2e26203a86e3d98c0dbe674.png'),
+(3,18, '엄마는 외계인 카페모카', 'https://www.baskinrobbins.co.kr/upload/product/main/e0cf14f4875c051361d0551257f15d95.png'),
+(3,18, '아포가토 라떼', 'https://www.baskinrobbins.co.kr/upload/product/main/b87fa403b37c6ae08c515b6802a6b1f6.png'),
+(3,18, '슈가밤 커피', 'https://www.baskinrobbins.co.kr/upload/product/main/c7ba28249f196d9c002d6c459cb4b7a1.png');
+
+-- 15. 메뉴 BOM
 INSERT INTO MENU_BOM (menu_id, item_id, usage_ratio) VALUES 
 (1, 1, 1.0), (2, 2, 1.0), (3, 3, 1.0), (4, 4, 1.0);
 
--- 16. 지점 재고 (복합키)
+-- 16. 지점 재고
 INSERT INTO BRANCHINVENTORY (branch_id, item_id, stock_level) VALUES 
 (1, 1, 10000), (1, 2, 8500), (1, 3, 12000), (1, 4, 1000);
 
